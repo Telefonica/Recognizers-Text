@@ -141,16 +141,7 @@ class SpanishFractionExtractor(BaseNumberExtractor):
                 val='FracNum'),
             ReVal(
                 re=SpanishNumeric.FractionNotationWithSpacesRegex,
-                val='FracNum'),
-            ReVal(
-                re=SpanishNumeric.FractionNounRegex,
-                val='FracSpa'),
-            ReVal(
-                re=SpanishNumeric.FractionNounWithArticleRegex,
-                val='FracSpa'),
-            ReVal(
-                re=SpanishNumeric.FractionPrepositionRegex,
-                val='FracSpa')
+                val='FracNum')
         ]
 
 class SpanishOrdinalExtractor(BaseNumberExtractor):
