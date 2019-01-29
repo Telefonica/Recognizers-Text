@@ -17,7 +17,7 @@ setup(
     url='https://github.com/Microsoft/Recognizers-Text',
     author='Microsoft',
     description='recognizers-text-number README',
-    keywords=[ 'nlp', 'nlp-entity-extraction', 'entity-extraction', 'parser-library' ],
+    keywords=['nlp', 'nlp-entity-extraction', 'entity-extraction', 'parser-library'],
     long_description=read('README.rst'),
     license='MIT',
     packages=find_packages(),
