@@ -454,4 +454,15 @@ class PortugueseDateTime:
     WeekTerms = [r'semana']
     YearTerms = [r'ano', r'anos']
     YearToDateTerms = [r'ano ate agora', r'ano ate hoje', r'ano ate a data', r'anos ate agora', r'anos ate hoje', r'anos ate a data']
+    SpecialCharactersEquivalent = dict([("á", "a"),
+                                        ("é", "e"),
+                                        ("í", "i"),
+                                        ("ó", "o"),
+                                        ("ú", "u"),
+                                        ("ê", "e"),
+                                        ("ô", "o"),
+                                        ("ü", "u"),
+                                        ("ã", "a"),
+                                        ("õ", "o"),
+                                        ("ç", "c")])
 # pylint: enable=line-too-long
