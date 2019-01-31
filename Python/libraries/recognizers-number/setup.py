@@ -3,12 +3,18 @@
 
 import os
 
-from auracog_lib.setup.utilities import parse_pkg_version
 from setuptools import setup, find_packages
 
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
+
+def parse_pkg_version(v_file_path=__file__):
+    """Read the package version from VERSION.txt"""
+    basedir = os.path.dirname(os.path.realpath(v_file_path))
+    with open(os.path.join(basedir, 'VERSION.txt'), 'r') as f:
+        return f.readline().strip()
 
 
 NAME = 'recognizers-text-number'

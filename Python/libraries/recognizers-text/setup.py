@@ -1,7 +1,15 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
-from auracog_lib.setup.utilities import parse_pkg_version
+import os
+
 from setuptools import setup, find_packages
+
+
+def parse_pkg_version(v_file_path=__file__):
+    """Read the package version from VERSION.txt"""
+    basedir = os.path.dirname(os.path.realpath(v_file_path))
+    with open(os.path.join(basedir, 'VERSION.txt'), 'r') as f:
+        return f.readline().strip()
 
 
 NAME = 'recognizers-text'
