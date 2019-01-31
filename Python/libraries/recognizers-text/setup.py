@@ -1,11 +1,11 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License.
-
+from auracog_lib.setup.utilities import parse_pkg_version
 from setuptools import setup, find_packages
 
 
 NAME = 'recognizers-text'
-VERSION = '1.0.0.a0'
+VERSION = parse_pkg_version(v_file_path=__file__)
 REQUIRES = []
 
 setup(

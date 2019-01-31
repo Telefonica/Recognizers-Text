@@ -2,6 +2,8 @@
 # Licensed under the MIT License.
 
 import os
+
+from auracog_lib.setup.utilities import parse_pkg_version
 from setuptools import setup, find_packages
 
 
@@ -10,7 +12,7 @@ def read(fname):
 
 
 NAME = 'recognizers-text-number'
-VERSION = '1.0.0.a0'
+VERSION = parse_pkg_version(v_file_path=__file__)
 REQUIRES = ['recognizers-text', 'regex']
 
 setup(
