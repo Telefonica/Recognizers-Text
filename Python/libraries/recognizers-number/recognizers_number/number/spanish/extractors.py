@@ -62,24 +62,24 @@ class SpanishIntegerExtractor(BaseNumberExtractor):
 
     def __init__(self, placeholder: str = SpanishNumeric.PlaceHolderDefault):
         self.__regexes = [
-            ReVal(
-                re=SpanishNumeric.NumbersWithPlaceHolder(placeholder),
-                val='IntegerNum'),
-            ReVal(
-                re=SpanishNumeric.NumbersWithSuffix,
-                val='IntegerNum'),
-            ReVal(
-                re=self._generate_format_regex(LongFormatMode.INTEGER_DOT, placeholder),
-                val='IntegerNum'),
-            ReVal(
-                re=self._generate_format_regex(LongFormatMode.INTEGER_BLANK, placeholder),
-                val='IntegerNum'),
-            ReVal(
-                re=SpanishNumeric.RoundNumberIntegerRegexWithLocks,
-                val='IntegerNum'),
-            ReVal(
-                re=SpanishNumeric.NumbersWithDozenSuffix,
-                val='IntegerNum'),
+            # ReVal(
+            #     re=SpanishNumeric.NumbersWithPlaceHolder(placeholder),
+            #     val='IntegerNum'),
+            # ReVal(
+            #     re=SpanishNumeric.NumbersWithSuffix,
+            #     val='IntegerNum'),
+            # ReVal(
+            #     re=self._generate_format_regex(LongFormatMode.INTEGER_DOT, placeholder),
+            #     val='IntegerNum'),
+            # ReVal(
+            #     re=self._generate_format_regex(LongFormatMode.INTEGER_BLANK, placeholder),
+            #     val='IntegerNum'),
+            # ReVal(
+            #     re=SpanishNumeric.RoundNumberIntegerRegexWithLocks,
+            #     val='IntegerNum'),
+            # ReVal(
+            #     re=SpanishNumeric.NumbersWithDozenSuffix,
+            #     val='IntegerNum'),
             ReVal(
                 re=SpanishNumeric.AllIntRegexWithLocks,
                 val='IntegerSpa'),
@@ -99,18 +99,18 @@ class SpanishDoubleExtractor(BaseNumberExtractor):
 
     def __init__(self, placeholder: str = SpanishNumeric.PlaceHolderDefault):
         self.__regexes = [
-            ReVal(
-                re=SpanishNumeric.DoubleDecimalPointRegex(placeholder),
-                val='DoubleNum'),
-            ReVal(
-                re=SpanishNumeric.DoubleWithoutIntegralRegex(placeholder),
-                val='DoubleNum'),
-            ReVal(
-                re=SpanishNumeric.DoubleWithMultiplierRegex,
-                val='DoubleNum'),
-            ReVal(
-                re=SpanishNumeric.DoubleWithRoundNumber,
-                val='DoubleNum'),
+            # ReVal(
+            #     re=SpanishNumeric.DoubleDecimalPointRegex(placeholder),
+            #     val='DoubleNum'),
+            # ReVal(
+            #     re=SpanishNumeric.DoubleWithoutIntegralRegex(placeholder),
+            #     val='DoubleNum'),
+            # ReVal(
+            #     re=SpanishNumeric.DoubleWithMultiplierRegex,
+            #     val='DoubleNum'),
+            # ReVal(
+            #     re=SpanishNumeric.DoubleWithRoundNumber,
+            #     val='DoubleNum'),
             ReVal(
                 re=SpanishNumeric.DoubleAllFloatRegex,
                 val='DoubleSpa'),
@@ -136,12 +136,12 @@ class SpanishFractionExtractor(BaseNumberExtractor):
 
     def __init__(self):
         self.__regexes = [
-            ReVal(
-                re=SpanishNumeric.FractionNotationRegex,
-                val='FracNum'),
-            ReVal(
-                re=SpanishNumeric.FractionNotationWithSpacesRegex,
-                val='FracNum'),
+            # ReVal(
+            #     re=SpanishNumeric.FractionNotationRegex,
+            #     val='FracNum'),
+            # ReVal(
+            #     re=SpanishNumeric.FractionNotationWithSpacesRegex,
+            #     val='FracNum'),
             ReVal(
                 re=SpanishNumeric.FractionNounRegex,
                 val='FracSpa'),
