@@ -120,9 +120,9 @@ class SpanishDoubleExtractor(BaseNumberExtractor):
             ReVal(
                 re=SpanishNumeric.DoubleCaretExponentialNotationRegex,
                 val='DoublePow'),
-            ReVal(
-                re=self._generate_format_regex(LongFormatMode.DOUBLE_DOT_COMMA, placeholder),
-                val='DoubleNum')
+            # ReVal(
+            #     re=self._generate_format_regex(LongFormatMode.DOUBLE_DOT_COMMA, placeholder),
+            #     val='DoubleNum')
         ]
 
 class SpanishFractionExtractor(BaseNumberExtractor):
@@ -142,15 +142,15 @@ class SpanishFractionExtractor(BaseNumberExtractor):
             # ReVal(
             #     re=SpanishNumeric.FractionNotationWithSpacesRegex,
             #     val='FracNum'),
-            ReVal(
-                re=SpanishNumeric.FractionNounRegex,
-                val='FracSpa'),
-            ReVal(
-                re=SpanishNumeric.FractionNounWithArticleRegex,
-                val='FracSpa'),
-            ReVal(
-                re=SpanishNumeric.FractionPrepositionRegex,
-                val='FracSpa')
+            # ReVal(
+            #     re=SpanishNumeric.FractionNounRegex,
+            #     val='FracSpa'),
+            # ReVal(
+            #     re=SpanishNumeric.FractionNounWithArticleRegex,
+            #     val='FracSpa'),
+            # ReVal(
+            #     re=SpanishNumeric.FractionPrepositionRegex,
+            #     val='FracSpa')
         ]
 
 class SpanishOrdinalExtractor(BaseNumberExtractor):

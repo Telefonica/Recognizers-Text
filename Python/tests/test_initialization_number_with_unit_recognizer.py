@@ -7,6 +7,8 @@ from recognizers_number_with_unit.number_with_unit.english.extractors import Eng
 from recognizers_number_with_unit.number_with_unit.parsers import NumberWithUnitParser
 from recognizers_number_with_unit.number_with_unit.english.parsers import EnglishDimensionParserConfiguration
 
+
+@pytest.mark.skip(reason='Not using this library')
 class TestInitializationNumberWithUnitRecognizer():
     control_model = DimensionModel(
         [ ExtractorParserModel(NumberWithUnitExtractor(EnglishDimensionExtractorConfiguration()), NumberWithUnitParser(EnglishDimensionParserConfiguration())) ]
