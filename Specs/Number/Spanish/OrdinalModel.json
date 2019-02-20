@@ -616,104 +616,6 @@
     ]
   },
   {
-    "Input": "11mo",
-    "Results": [
-      {
-        "Text": "11mo",
-        "TypeName": "ordinal",
-        "Resolution": {
-          "value": "11"
-        },
-        "Start": 0,
-        "End": 3
-      }
-    ]
-  },
-  {
-    "Input": "11vo",
-    "Results": [
-      {
-        "Text": "11vo",
-        "TypeName": "ordinal",
-        "Resolution": {
-          "value": "11"
-        },
-        "Start": 0,
-        "End": 3
-      }
-    ]
-  },
-  {
-    "Input": "12vo",
-    "Results": [
-      {
-        "Text": "12vo",
-        "TypeName": "ordinal",
-        "Resolution": {
-          "value": "12"
-        },
-        "Start": 0,
-        "End": 3
-      }
-    ]
-  },
-  {
-    "Input": "111ro",
-    "Results": [
-      {
-        "Text": "111ro",
-        "TypeName": "ordinal",
-        "Resolution": {
-          "value": "111"
-        },
-        "Start": 0,
-        "End": 4
-      }
-    ]
-  },
-  {
-    "Input": "21ro",
-    "Results": [
-      {
-        "Text": "21ro",
-        "TypeName": "ordinal",
-        "Resolution": {
-          "value": "21"
-        },
-        "Start": 0,
-        "End": 3
-      }
-    ]
-  },
-  {
-    "Input": "30ma",
-    "Results": [
-      {
-        "Text": "30ma",
-        "TypeName": "ordinal",
-        "Resolution": {
-          "value": "30"
-        },
-        "Start": 0,
-        "End": 3
-      }
-    ]
-  },
-  {
-    "Input": "2da",
-    "Results": [
-      {
-        "Text": "2da",
-        "TypeName": "ordinal",
-        "Resolution": {
-          "value": "2"
-        },
-        "Start": 0,
-        "End": 2
-      }
-    ]
-  },
-  {
     "Input": "undecimo",
     "Results": [
       {
@@ -822,6 +724,29 @@
         },
         "Start": 0,
         "End": 15
+      }
+    ]
+  },
+  {
+    "Input": "quiero ver el cuarto episodio de la temporada primera",
+    "Results": [
+      {
+        "Text": "cuarto",
+        "TypeName": "ordinal",
+        "Resolution": {
+          "value": "4"
+        },
+        "Start": 14,
+        "End": 19
+      },
+      {
+        "Text": "primera",
+        "TypeName": "ordinal",
+        "Resolution": {
+          "value": "1"
+        },
+        "Start": 46,
+        "End": 52
       }
     ]
   }
