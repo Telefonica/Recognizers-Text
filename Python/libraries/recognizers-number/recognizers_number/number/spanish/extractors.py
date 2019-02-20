@@ -4,7 +4,6 @@ from recognizers_number.number.models import NumberMode, LongFormatMode
 from recognizers_number.number.constants import Constants
 from recognizers_number.number.extractors import ReVal, ReRe, BaseNumberExtractor, BasePercentageExtractor
 from recognizers_number.number.models import NumberMode
-from recognizers_number.resources import BaseNumbers
 from recognizers_number.resources.spanish_numeric import SpanishNumeric
 
 
@@ -89,10 +88,16 @@ class SpanishIntegerExtractor(BaseNumberExtractor):
             #     re=SpanishNumeric.NumbersWithSuffix,
             #     val='IntegerNum'),
             # ReVal(
-            #     re=self._generate_format_regex(LongFormatMode.INTEGER_DOT, placeholder),
+            #     re=self._generate_format_regex(LongFormatMode.INTEGER_DOT,
+            #                                    placeholder),
             #     val='IntegerNum'),
             # ReVal(
-            #     re=self._generate_format_regex(LongFormatMode.INTEGER_BLANK, placeholder),
+            #     re=self._generate_format_regex(LongFormatMode.INTEGER_BLANK,
+            #                                    placeholder),
+            #     val='IntegerNum'),
+            # ReVal(
+            #     re=self._generate_format_regex(
+            #         LongFormatMode.INTEGER_NO_BREAK_SPACE, placeholder),
             #     val='IntegerNum'),
             # ReVal(
             #     re=SpanishNumeric.RoundNumberIntegerRegexWithLocks,

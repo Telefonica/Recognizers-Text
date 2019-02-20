@@ -37,7 +37,6 @@ def test_datetime_extractor(
         simple_extractor_assert(actual, expected, 'start', 'Start')
         simple_extractor_assert(actual, expected, 'length', 'Length')
 
-
 @pytest.mark.skip(reason='Not using this library')
 @pytest.mark.parametrize(
     'culture, model, options, context, source, expected_results',

@@ -37,6 +37,20 @@
     ]
   },
   {
+    "Input": "un millon",
+    "Results": [
+      {
+        "Text": "un millon",
+        "TypeName": "number",
+        "Resolution": {
+          "value": "1000000"
+        },
+        "Start": 0,
+        "End": 8
+      }
+    ]
+  },
+  {
     "Input": "seis tres cinco quinientos treinta y dos dos tres uno",
     "Results": [
       {
@@ -133,11 +147,35 @@
     ]
   },
   {
-    "Input": "quiero una camiseta",
-    "Results": []
-  },
-  {
-    "Input": "toma un vaso",
-    "Results": []
+    "Input": "1&123 deben ser reconocidos como dos números",
+    "Results": [
+      {
+        "Text": "1",
+        "Start": 0,
+        "End": 0,
+        "TypeName": "number",
+        "Resolution": {
+          "value": "1"
+        }
+      },
+      {
+        "Text": "123",
+        "Start": 2,
+        "End": 4,
+        "TypeName": "number",
+        "Resolution": {
+          "value": "123"
+        }
+      },
+      {
+        "Text": "dos",
+        "Start": 33,
+        "End": 35,
+        "TypeName": "number",
+        "Resolution": {
+          "value": "2"
+        }
+      }
+    ]
   }
 ]
