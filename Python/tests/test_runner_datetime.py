@@ -9,6 +9,7 @@ MODELFUNCTION = {
     'DateTime': recognize_datetime
 }
 
+@pytest.mark.skip(reason='Not using this library')
 @pytest.mark.parametrize('culture, model, options, context, source, expected_results', get_specs(recognizer='DateTime', entity='Extractor'))
 def test_datetime_extractor(culture, model, options, context, source, expected_results):
     reference_datetime = get_reference_date(context)
@@ -24,6 +25,7 @@ def test_datetime_extractor(culture, model, options, context, source, expected_r
         simple_extractor_assert(actual, expected, 'start', 'Start')
         simple_extractor_assert(actual, expected, 'length', 'Length')
 
+@pytest.mark.skip(reason='Not using this library')
 @pytest.mark.parametrize('culture, model, options, context, source, expected_results', get_specs(recognizer='DateTime', entity='Parser'))
 def test_datetime_parser(culture, model, options, context, source, expected_results):
     reference_datetime = get_reference_date(context)
@@ -45,6 +47,7 @@ def test_datetime_parser(culture, model, options, context, source, expected_resu
             simple_parser_assert(actual.value, expected['Value'], 'future_resolution', 'FutureResolution')
             simple_parser_assert(actual.value, expected['Value'], 'past_resolution', 'PastResolution')
 
+@pytest.mark.skip(reason='Not using this library')
 @pytest.mark.parametrize('culture, model, options, context, source, expected_results', get_specs(recognizer='DateTime', entity='MergedParser'))
 def test_datetime_mergedparser(culture, model, options, context, source, expected_results):
     reference_datetime = get_reference_date(context)
@@ -69,6 +72,7 @@ def test_datetime_mergedparser(culture, model, options, context, source, expecte
                     for key in expected_values.keys():
                         assert actual_values[key] == expected_values[key]
 
+@pytest.mark.skip(reason='Not using this library')
 @pytest.mark.parametrize('culture, model, options, context, source, expected_results', get_specs(recognizer='DateTime', entity='Model'))
 def test_datetime_model(culture, model, options, context, source, expected_results):
     reference_datetime = get_reference_date(context)
