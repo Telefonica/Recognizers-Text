@@ -8,7 +8,7 @@ RoundNumberIntegerRegex: !simpleRegex
 ZeroToNineIntegerRegex: !simpleRegex
   def: (cuatro|cinco|siete|nueve|cero|tres|seis|ocho|dos|uno)
 ZeroToNineIntegerRegexExt: !simpleRegex
-  def: (cuatro|cinco|siete|nueve|cero|tres|seis|ocho|dos|un[oa]?)
+  def: (cuatro|cinco|siete|nueve|cero|tres|seis|ocho|dos)
 TenToNineteenIntegerRegex: !simpleRegex
   def: (diecisiete|diecinueve|diecis[eé]is|dieciocho|catorce|quince|trece|diez|once|doce)
 TwentiesIntegerRegex: !simpleRegex
@@ -24,7 +24,7 @@ NegativeNumberSignRegex: !nestedRegex
 DigitsNumberRegex: !simpleRegex
   def: \d|\d{1,3}(\.\d{3})
 BelowHundredsRegex: !nestedRegex
-  def: (({TenToNineteenIntegerRegex}|{TwentiesIntegerRegex}|({TensNumberIntegerRegex}(\\s+y\\s+{ZeroToNineIntegerRegexExt})?))|{ZeroToNineIntegerRegex})
+  def: (({TenToNineteenIntegerRegex}|{TwentiesIntegerRegex}|({TensNumberIntegerRegex}(\s+y\s+{ZeroToNineIntegerRegexExt})?))|{ZeroToNineIntegerRegex})
   references: [ TenToNineteenIntegerRegex, TwentiesIntegerRegex, TensNumberIntegerRegex, ZeroToNineIntegerRegex ]
 BelowThousandsRegex: !nestedRegex
   def: ({HundredsNumberIntegerRegex}(\s+{BelowHundredsRegex})?|{BelowHundredsRegex})
@@ -473,9 +473,9 @@ RoundNumberMap: !dictionary
     g: 1000000000
     b: 1000000000
     t: 1000000000000
-#AmbiguousFractionConnectorsRegex: !simpleRegex
-## TODO: modify below regex according to the counterpart in English
-#  def: ^[.]
+AmbiguousFractionConnectorsRegex: !simpleRegex
+# TODO: modify below regex according to the counterpart in English
+  def: ^[.]
 RelativeReferenceMap: !dictionary
   types: [ string, string ]
 # TODO: modify below regex according to the counterpart in English
