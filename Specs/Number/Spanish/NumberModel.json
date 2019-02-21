@@ -145,5 +145,33 @@
         "End": 15
       }
     ]
+  },
+  {
+    "Input": "quiero una camiseta",
+    "Results": [
+      {
+        "Text": "una",
+        "TypeName": "number",
+        "Resolution": {
+          "value": "1"
+        },
+        "Start": 7,
+        "End": 9
+      }
+    ]
+  },
+  {
+    "Input": "toma un vaso",
+    "Results": [
+      {
+        "Text": "un",
+        "TypeName": "number",
+        "Resolution": {
+          "value": "1"
+        },
+        "Start": 5,
+        "End": 6
+      }
+    ]
   }
 ]
