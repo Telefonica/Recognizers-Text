@@ -37,20 +37,6 @@
     ]
   },
   {
-    "Input": "un millon",
-    "Results": [
-      {
-        "Text": "un millon",
-        "TypeName": "number",
-        "Resolution": {
-          "value": "1000000"
-        },
-        "Start": 0,
-        "End": 8
-      }
-    ]
-  },
-  {
     "Input": "seis tres cinco quinientos treinta y dos dos tres uno",
     "Results": [
       {
@@ -145,5 +131,13 @@
         "End": 15
       }
     ]
+  },
+  {
+    "Input": "quiero una camiseta",
+    "Results": []
+  },
+  {
+    "Input": "toma un vaso",
+    "Results": []
   }
 ]
