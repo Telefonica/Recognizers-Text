@@ -71,7 +71,7 @@ HundredOrdinalRegex: !simpleRegex
 SpecialUnderHundredOrdinalRegex: !simpleRegex
   def: (und[eé]cim[oa]|duod[eé]cimo|decimoctav[oa])
 UnderHundredOrdinalRegex: !nestedRegex
-  def: ((({TensOrdinalRegex}(\s)?)?{OneToNineOrdinalRegex})|{TensOrdinalRegex}|{SpecialUnderHundredOrdinalRegex})
+  def: ({SpecialUnderHundredOrdinalRegex}|(({TensOrdinalRegex}(\s)?)?{OneToNineOrdinalRegex})|{TensOrdinalRegex})
   references: [ TensOrdinalRegex, OneToNineOrdinalRegex, SpecialUnderHundredOrdinalRegex ]
 UnderThousandOrdinalRegex: !nestedRegex
   def: ((({HundredOrdinalRegex}(\s)?)?{UnderHundredOrdinalRegex})|{HundredOrdinalRegex})
