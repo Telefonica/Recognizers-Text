@@ -20,9 +20,11 @@ class SpanishNumberExtractor(BaseNumberExtractor):
         cardinal_ex: SpanishCardinalExtractor = None
 
         if mode is NumberMode.PURE_NUMBER:
-            cardinal_ex = SpanishCardinalExtractor(SpanishNumeric.PlaceHolderPureNumber)
+            cardinal_ex = SpanishCardinalExtractor(
+                SpanishNumeric.PlaceHolderPureNumber)
         elif mode is NumberMode.CURRENCY:
-            self.__regexes.append(ReVal(re=SpanishNumeric.CurrencyRegex, val='IntegerNum'))
+            self.__regexes.append(
+                ReVal(re=SpanishNumeric.CurrencyRegex, val='IntegerNum'))
 
         if cardinal_ex is None:
             cardinal_ex = SpanishCardinalExtractor()
