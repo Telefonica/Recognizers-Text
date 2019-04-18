@@ -331,6 +331,7 @@ class SpanishNumeric:
                            ("g", 1000000000),
                            ("b", 1000000000),
                            ("t", 1000000000000)])
-    AmbiguousFractionConnectorsRegex = f'^[.]'
+    RelativeReferenceOffsetMap = dict([("", "")])
+    RelativeReferenceRelativeToMap = dict([("", "")])
     RelativeReferenceMap = dict([("", "")])
 # pylint: enable=line-too-long
