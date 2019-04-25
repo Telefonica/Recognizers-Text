@@ -334,7 +334,9 @@ OrdinalNumberMap: !dictionary
     noveno: 9
     novena: 9
     decimo: 10
+    décimo: 10
     decima: 10
+    décima: 10
     undecimo: 11
     undecima: 11
     duodecimo: 12
