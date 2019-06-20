@@ -4,12 +4,15 @@
 import os
 from setuptools import setup, find_packages
 
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+
 NAME = 'recognizers-text-suite'
-VERSION = "1.1.0"
-REQUIRES = ['recognizers-text', 'recognizers-text-number', 'recognizers-text-number-with-unit', 'recognizers-text-date-time', 'recognizers-text-sequence']
+VERSION = '1.0.0.a0'
+REQUIRES = ['recognizers-text', 'recognizers-text-number', 'recognizers-text-number-with-unit',
+            'recognizers-text-date-time', 'recognizers-text-sequence', 'recognizers-text-choice']
 
 setup(
     name=NAME,
