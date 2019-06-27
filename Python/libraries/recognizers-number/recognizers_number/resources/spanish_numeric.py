@@ -22,7 +22,7 @@ class SpanishNumeric:
     TenToNineteenIntegerRegex = f'(diecisiete|diecinueve|diecis[eé]is|dieciocho|catorce|quince|trece|diez|once|doce)'
     TwentiesIntegerRegex = f'(veinticuatro|veinticinco|veintisiete|veintinueve|veintitr[eé]s|veintis[eé]is|veintiocho|veintid[oó]s|ventiun[ao]|veinti[uú]n[oa]?|veinte)'
     TensNumberIntegerRegex = f'(cincuenta|cuarenta|treinta|sesenta|setenta|ochenta|noventa)'
-    NegativeNumberTermsRegex = f'((?<!(al|lo)\\s+)menos\\s+)'
+    NegativeNumberTermsRegex = f'(?<negTerm>(?<!(al|lo)\\s+)menos\\s+)'
     NegativeNumberSignRegex = f'^{NegativeNumberTermsRegex}.*'
     DigitsNumberRegex = f'\\d|\\d{{1,3}}(\\.\\d{{3}})'
     BelowHundredsRegex = f'(({TenToNineteenIntegerRegex}|{TwentiesIntegerRegex}|({TensNumberIntegerRegex}(\\s+y\\s+{ZeroToNineIntegerRegexExt})?))|{ZeroToNineIntegerRegex})'
