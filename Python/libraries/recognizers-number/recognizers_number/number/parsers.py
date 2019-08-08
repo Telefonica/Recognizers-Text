@@ -294,7 +294,9 @@ class BaseNumberParser(Parser):
             int_value = self.__get_int_value(self.__get_matches(int_str))
 
             # Find mixed number
-            if (mixed_index != len(frac_words) and numer_value < denomi_value):
+            if denomi_value == 0:
+                result.value = 0
+            elif (mixed_index != len(frac_words) and numer_value < denomi_value):
                 # int_value + numer_value / denomi_value
                 result.value = int_value + numer_value / denomi_value
             else:
