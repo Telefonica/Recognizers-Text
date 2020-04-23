@@ -174,12 +174,17 @@ class BaseTimePeriodExtractor(DateTimeExtractor):
                             result.append(Token(source.index(match.group()), source.index(match.group()) +
                                                 (match.end() - match.start())))
                         else:
-                            after_str = source[source.index(match.group()) + (match.end() - match.start()):]
+                            # Is there two "hour"
+                            if RegExpUtility.get_group(match, Constants.HOUR_GROUP_NAME):
+                                result.append(Token(source.index(match.group()), source.index(match.group()) +
+                                                    (match.end() - match.start())))
+                            else:
+                                after_str = source[source.index(match.group()) + (match.end() - match.start()):]
 
-                            # When TimeZone be migrated enable it
-                            if (self.config.options & DateTimeOptions.ENABLE_PREVIEW) != 0:
-                                result.append(Token(source.index(match.group()),
-                                                    source.index(match.group()) + (match.end() - match.start())))
+                                # When TimeZone be migrated enable it
+                                if (self.config.options & DateTimeOptions.ENABLE_PREVIEW) != 0:
+                                    result.append(Token(source.index(match.group()),
+                                                        source.index(match.group()) + (match.end() - match.start())))
 
         return result
 
@@ -479,6 +484,35 @@ class BaseTimePeriodParser(DateTimeParser):
                     begin_hour += 12
 
                 valid = True
+
+            # no have am or pm
+            else:
+                if 0 <= begin_hour <= 24 and 0 <= end_hour <= 24:
+
+                    # before reference
+                    if begin_hour <= reference.hour and end_hour <= reference.hour:
+                        if 1 <= begin_hour <= 12 and 1 <= end_hour <= 12:
+                            begin_hour += 12
+                            end_hour += 12
+                        else:
+                            if begin_hour > 12 or 0 <= end_hour <= 24:
+                                begin_hour += 24
+                                end_hour += 24
+
+                    # between reference
+                    elif begin_hour <= reference.hour <= end_hour:
+                        # adjust the nearest begin hour to reference hour
+                        if 1 <= begin_hour <= 12 and (begin_hour + 12) <= reference.hour:
+                            begin_hour += 12
+
+                    # after reference
+                    elif begin_hour >= reference.hour and end_hour >= reference.hour:
+                        pass
+
+                    if end_hour <= begin_hour:
+                        end_hour += 12
+                    valid = True
+
         if not valid:
             return result
 
