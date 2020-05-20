@@ -687,9 +687,23 @@ namespace Microsoft.Recognizers.Text.DateTime
                     ret.Success = true;
                 }
 
-                if (dateContext != null)
+                // Expressions like "today", "tomorrow",... should keep their original year
+                if (dateContext != null && !this.config.SpecialDayRegex.IsMatch(er.Text))
                 {
                     ret = dateContext.ProcessDateEntityResolution(ret);
+                }
+            }
+
+            // Handle expressions with "now"
+            if (er == null)
+            {
+                var nowPr = ParseNowAsDate(text, referenceDate);
+                if (nowPr.Value != null)
+                {
+                    ret.Timex = $"({nowPr.TimexStr}";
+                    ret.FutureValue = (DateObject)((DateTimeResolutionResult)nowPr.Value).FutureValue;
+                    ret.PastValue = (DateObject)((DateTimeResolutionResult)nowPr.Value).PastValue;
+                    ret.Success = true;
                 }
             }
 
@@ -1105,6 +1119,45 @@ namespace Microsoft.Recognizers.Text.DateTime
                         ret.Success = true;
                         return ret;
                     }
+
+                    // Early/mid/late are resolved in this policy to 4 month ranges at the start/middle/end of the year.
+                    else if (!string.IsNullOrEmpty(match.Groups["FourDigitYear"].Value))
+                    {
+                        var date = referenceDate.AddYears(swift);
+                        year = int.Parse(match.Groups["FourDigitYear"].Value);
+
+                        var beginDate = DateObject.MinValue.SafeCreateFromValue(year, 1, 1);
+                        var endDate = inclusiveEndPeriod ?
+                            DateObject.MinValue.SafeCreateFromValue(year, 12, 31) :
+                            DateObject.MinValue.SafeCreateFromValue(year, 12, 31).AddDays(1);
+
+                        if (earlyPrefix)
+                        {
+                            endDate = inclusiveEndPeriod ?
+                                DateObject.MinValue.SafeCreateFromValue(year, 4, 30) :
+                                DateObject.MinValue.SafeCreateFromValue(year, 4, 30).AddDays(1);
+                        }
+                        else if (midPrefix)
+                        {
+                            beginDate = DateObject.MinValue.SafeCreateFromValue(year, 5, 1);
+                            endDate = inclusiveEndPeriod ?
+                                DateObject.MinValue.SafeCreateFromValue(year, 8, 31) :
+                                DateObject.MinValue.SafeCreateFromValue(year, 8, 31).AddDays(1);
+                        }
+                        else if (latePrefix)
+                        {
+                            beginDate = DateObject.MinValue.SafeCreateFromValue(year, 9, 1);
+                        }
+
+                        ret.Timex = isReferenceDatePeriod ? TimexUtility.GenerateYearTimex() : TimexUtility.GenerateYearTimex(beginDate);
+
+                        ret.FutureValue =
+                            ret.PastValue =
+                                new Tuple<DateObject, DateObject>(beginDate, endDate);
+
+                        ret.Success = true;
+                        return ret;
+                    }
                 }
             }
             else
@@ -1392,8 +1445,16 @@ namespace Microsoft.Recognizers.Text.DateTime
                     return ret;
                 }
 
-                pr1 = dateContext.ProcessDateEntityParsingResult(pr1);
-                pr2 = dateContext.ProcessDateEntityParsingResult(pr2);
+                // Expressions like "today", "tomorrow",... should keep their original year
+                if (!this.config.SpecialDayRegex.IsMatch(pr1.Text))
+                {
+                    pr1 = dateContext.ProcessDateEntityParsingResult(pr1);
+                }
+
+                if (!this.config.SpecialDayRegex.IsMatch(pr2.Text))
+                {
+                    pr2 = dateContext.ProcessDateEntityParsingResult(pr2);
+                }
             }
 
             ret.SubDateTimeEntities = new List<object> { pr1, pr2 };

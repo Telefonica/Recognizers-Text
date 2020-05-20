@@ -91,7 +91,6 @@ LastTwoYearNumRegex: !nestedRegex
 FullTextYearRegex: !nestedRegex
   def: \b((?<firsttwoyearnum>{CenturyRegex})\s+(?<lasttwoyearnum>{LastTwoYearNumRegex})|\b(?<firsttwoyearnum>{WrittenCenturyFullYearRegex}|{WrittenCenturyOrdinalYearRegex}\s+सौ(\s+और)?))
   references: [ CenturyRegex, WrittenCenturyFullYearRegex, WrittenCenturyOrdinalYearRegex, LastTwoYearNumRegex ]
-# As month number can't be 0, so add (?!\.0\b) to filter out some wrong cases
 OclockRegex: !simpleRegex
   def: (?<oclock>अराउंड|लगभग|बजे|ओक्लॉक|o\s*((’|‘|')\s*)?clock)
 AmDescRegex: !nestedRegex
@@ -111,7 +110,7 @@ DescRegexA: !nestedRegex
   references: [ OclockRegex, BaseDateTime.BaseAmDescRegex, BaseDateTime.BasePmDescRegex, AmPmDescRegex ]
 # Exclude cases that include the "Am/Pm" suffix
 TwoDigitYearRegex: !nestedRegex
-  def: \b(?<![$])(?<year>([0-27-9]\d))(?!(\s*((\:)|{AmDescRegex}|{PmDescRegex}|\.\d)))
+  def: \b(?<![$])(?<year>([0-24-9]\d))(?!(\s*((\:\d)|{AmDescRegex}|{PmDescRegex}|\.\d)))
   references: [ AmDescRegex, PmDescRegex]
 YearRegex: !nestedRegex
   def: (?:{BaseDateTime.FourDigitYearRegex}|{FullTextYearRegex})
@@ -286,11 +285,12 @@ DateExtractor1: !nestedRegex
 DateExtractor3: !nestedRegex
   def: \b({WeekDayRegex}(\s+|\s*,\s*))?{DayRegex}[\.]?(\s+|\s*,\s*|\s+(का|की|के|को)\s+|\s*-\s*){MonthRegex}[\.]?((\s+|\s*,\s*|\s+में\s+){DateYearRegex})?
   references: [ WeekDayRegex, DayRegex, MonthRegex, DateYearRegex ]
+# The final lookahead in DateExtractor4|5|A avoids extracting as date "10/1-11" from an input like "10/1-11/2/2017" 
 DateExtractor4: !nestedRegex
-  def: \b{MonthNumRegex}\s*[/\\\-]\s*{DayRegex}[\.]?\s*[/\\\-]\s*{DateYearRegex}
+  def: \b{MonthNumRegex}\s*[/\\\-]\s*{DayRegex}[\.]?\s*[/\\\-]\s*{DateYearRegex}(?!\s*[/\\\-\.]\s*\d+)
   references: [ MonthNumRegex, DayRegex, DateYearRegex ]
 DateExtractor5: !nestedRegex
-  def: \b{DayRegex}\s*[/\\\-\.]\s*({MonthNumRegex}|{MonthRegex})\s*[/\\\-\.]\s*{DateYearRegex}
+  def: \b{DayRegex}\s*[/\\\-\.]\s*({MonthNumRegex}|{MonthRegex})\s*[/\\\-\.]\s*{DateYearRegex}(?!\s*[/\\\-\.]\s*\d+)
   references: [ DayRegex, MonthNumRegex, MonthRegex, DateYearRegex ]
 DateExtractor6: !nestedRegex
   def: (?<={DatePreposition}\s+)({StrictRelativeRegex}\s+)?({WeekDayRegex}\s+)?{MonthNumRegex}[\-\.]{DayRegex}(?![%])
@@ -315,7 +315,7 @@ DateExtractor9S: !nestedRegex
   def: \b({WeekDayRegex}\s+)?{DayRegex}\s*/\s*{MonthNumRegex}(?![%])
   references: [ DayRegex, MonthNumRegex, WeekDayRegex ]
 DateExtractorA: !nestedRegex
-  def: \b({WeekDayRegex}\s+)?{BaseDateTime.FourDigitYearRegex}\s*[/\\\-\.]\s*{MonthNumRegex}\s*[/\\\-\.]\s*{DayRegex}
+  def: \b({WeekDayRegex}\s+)?{BaseDateTime.FourDigitYearRegex}\s*[/\\\-\.]\s*{MonthNumRegex}\s*[/\\\-\.]\s*{DayRegex}(?!\s*[/\\\-\.]\s*\d+)
   references: [ BaseDateTime.FourDigitYearRegex, MonthNumRegex, DayRegex, WeekDayRegex ]
 OfMonth: !nestedRegex
   def: ^\s*{MonthRegex}(?=\s*(को|की)?)

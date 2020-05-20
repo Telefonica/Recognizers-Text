@@ -1,8 +1,6 @@
 from typing import Pattern, List, NamedTuple
 
-from recognizers_text.utilities import RegExpUtility
 from recognizers_number.number.models import NumberMode, LongFormatMode
-from recognizers_number.resources import BaseNumbers
 from recognizers_number.resources.spanish_numeric import SpanishNumeric
 from recognizers_number.number.extractors import ReVal, ReRe, BaseNumberExtractor, BasePercentageExtractor
 from recognizers_number.number.constants import Constants
@@ -185,12 +183,6 @@ class SpanishFractionExtractor(BaseNumberExtractor):
             #     re=SpanishNumeric.FractionNounWithArticleRegex,
             #     val='FracSpa')
         ]
-
-        if mode != NumberMode.Unit:
-            self.__regexes.append(
-                ReVal(
-                    re=SpanishNumeric.FractionPrepositionRegex,
-                    val='FracSpa'))
 
 
 class SpanishOrdinalExtractor(BaseNumberExtractor):
