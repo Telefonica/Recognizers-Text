@@ -1,10 +1,11 @@
 from typing import Pattern, List, NamedTuple
 
+from recognizers_text.utilities import RegExpUtility
 from recognizers_number.number.models import NumberMode, LongFormatMode
-from recognizers_number.number.constants import Constants
-from recognizers_number.number.extractors import ReVal, ReRe, BaseNumberExtractor, BasePercentageExtractor
-from recognizers_number.number.models import NumberMode
+from recognizers_number.resources import BaseNumbers
 from recognizers_number.resources.spanish_numeric import SpanishNumeric
+from recognizers_number.number.extractors import ReVal, ReRe, BaseNumberExtractor, BasePercentageExtractor
+from recognizers_number.number.constants import Constants
 
 
 class SpanishNumberExtractor(BaseNumberExtractor):
@@ -148,7 +149,13 @@ class SpanishDoubleExtractor(BaseNumberExtractor):
             #     re=SpanishNumeric.DoubleCaretExponentialNotationRegex,
             #     val='DoublePow'),
             # ReVal(
-            #     re=self._generate_format_regex(LongFormatMode.DOUBLE_DOT_COMMA, placeholder),
+            #     re=self._generate_format_regex(LongFormatMode.DOUBLE_DOT_COMMA,
+            #                                    placeholder),
+            #     val='DoubleNum'),
+            # ReVal(
+            #     re=self._generate_format_regex(
+            #         LongFormatMode.DOUBLE_NO_BREAK_SPACE_COMMA,
+            #         placeholder),
             #     val='DoubleNum')
         ]
 
@@ -176,9 +183,6 @@ class SpanishFractionExtractor(BaseNumberExtractor):
             #     val='FracSpa'),
             # ReVal(
             #     re=SpanishNumeric.FractionNounWithArticleRegex,
-            #     val='FracSpa'),
-            # ReVal(
-            #     re=SpanishNumeric.FractionPrepositionRegex,
             #     val='FracSpa')
         ]
 
