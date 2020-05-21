@@ -6,7 +6,7 @@ using Microsoft.Recognizers.Text.DateTime.Utilities;
 
 namespace Microsoft.Recognizers.Text.DateTime.German
 {
-    public class GermanDateParserConfiguration : BaseOptionsConfiguration, IDateParserConfiguration
+    public class GermanDateParserConfiguration : BaseDateTimeOptionsConfiguration, IDateParserConfiguration
     {
         public GermanDateParserConfiguration(ICommonDateTimeParserConfiguration config)
             : base(config)
@@ -32,11 +32,15 @@ namespace Microsoft.Recognizers.Text.DateTime.German
             WeekDayOfMonthRegex = GermanDateExtractorConfiguration.WeekDayOfMonthRegex;
             ForTheRegex = GermanDateExtractorConfiguration.ForTheRegex;
             WeekDayAndDayOfMothRegex = GermanDateExtractorConfiguration.WeekDayAndDayOfMothRegex;
+            WeekDayAndDayRegex = GermanDateExtractorConfiguration.WeekDayAndDayRegex;
             RelativeMonthRegex = GermanDateExtractorConfiguration.RelativeMonthRegex;
+            StrictRelativeRegex = GermanDateExtractorConfiguration.StrictRelativeRegex;
             YearSuffix = GermanDateExtractorConfiguration.YearSuffix;
             RelativeWeekDayRegex = GermanDateExtractorConfiguration.RelativeWeekDayRegex;
             RelativeDayRegex = new Regex(DateTimeDefinitions.RelativeDayRegex, RegexOptions.Singleline);
             NextPrefixRegex = new Regex(DateTimeDefinitions.NextPrefixRegex, RegexOptions.Singleline);
+            PreviousPrefixRegex = new Regex(DateTimeDefinitions.PreviousPrefixRegex, RegexOptions.Singleline);
+            UpcomingPrefixRegex = new Regex(DateTimeDefinitions.UpcomingPrefixRegex, RegexOptions.Singleline);
             PastPrefixRegex = new Regex(DateTimeDefinitions.PastPrefixRegex, RegexOptions.Singleline);
             DayOfMonth = config.DayOfMonth;
             DayOfWeek = config.DayOfWeek;
@@ -95,7 +99,11 @@ namespace Microsoft.Recognizers.Text.DateTime.German
 
         public Regex WeekDayAndDayOfMothRegex { get; }
 
+        public Regex WeekDayAndDayRegex { get; }
+
         public Regex RelativeMonthRegex { get; }
+
+        public Regex StrictRelativeRegex { get; }
 
         public Regex YearSuffix { get; }
 
@@ -104,6 +112,10 @@ namespace Microsoft.Recognizers.Text.DateTime.German
         public Regex RelativeDayRegex { get; }
 
         public Regex NextPrefixRegex { get; }
+
+        public Regex PreviousPrefixRegex { get; }
+
+        public Regex UpcomingPrefixRegex { get; }
 
         public Regex PastPrefixRegex { get; }
 
@@ -125,17 +137,19 @@ namespace Microsoft.Recognizers.Text.DateTime.German
 
         public IImmutableList<string> MinusTwoDayTerms { get; }
 
+        bool IDateParserConfiguration.CheckBothBeforeAfter => DateTimeDefinitions.CheckBothBeforeAfter;
+
         public IDateTimeUtilityConfiguration UtilityConfiguration { get; }
 
-        public int GetSwiftMonth(string text)
+        public int GetSwiftMonthOrYear(string text)
         {
-            var trimmedText = text.Trim().ToLowerInvariant();
+            var trimmedText = text.Trim();
             var swift = 0;
             if (NextPrefixRegex.IsMatch(trimmedText))
             {
                 swift = 1;
             }
-            else if (PastPrefixRegex.IsMatch(trimmedText))
+            else if (PreviousPrefixRegex.IsMatch(trimmedText))
             {
                 swift = -1;
             }
@@ -145,7 +159,7 @@ namespace Microsoft.Recognizers.Text.DateTime.German
 
         public bool IsCardinalLast(string text)
         {
-            var trimmedText = text.Trim().ToLowerInvariant();
+            var trimmedText = text.Trim();
             return trimmedText.Equals("letzten");
         }
 

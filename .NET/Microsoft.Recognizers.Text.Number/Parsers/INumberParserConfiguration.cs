@@ -8,6 +8,8 @@ namespace Microsoft.Recognizers.Text.Number
 {
     public interface INumberParserConfiguration
     {
+        string LanguageMarker { get; }
+
         ImmutableDictionary<string, long> CardinalNumberMap { get; }
 
         ImmutableDictionary<string, long> OrdinalNumberMap { get; }
@@ -16,9 +18,11 @@ namespace Microsoft.Recognizers.Text.Number
 
         ImmutableDictionary<string, string> RelativeReferenceMap { get; }
 
-        #region language settings
+        ImmutableDictionary<string, string> RelativeReferenceOffsetMap { get; }
 
-        NumberOptions Options { get; }
+        ImmutableDictionary<string, string> RelativeReferenceRelativeToMap { get; }
+
+        INumberOptionsConfiguration Config { get; }
 
         CultureInfo CultureInfo { get; }
 
@@ -31,8 +35,6 @@ namespace Microsoft.Recognizers.Text.Number
         Regex HalfADozenRegex { get; }
 
         string HalfADozenText { get; }
-
-        string LangMarker { get; }
 
         char NonDecimalSeparatorChar { get; }
 
@@ -50,7 +52,9 @@ namespace Microsoft.Recognizers.Text.Number
 
         Regex NegativeNumberSignRegex { get; }
 
-        #endregion
+        bool IsCompoundNumberLanguage { get; }
+
+        bool IsMultiDecimalSeparatorCulture { get; }
 
         /// <summary>
         /// Used when requiring to normalize a token to a valid expression supported by the ImmutableDictionaries (language dictionaries).
@@ -66,10 +70,21 @@ namespace Microsoft.Recognizers.Text.Number
         /// <param name="numberStr">composite number.</param>
         /// <returns>value of the string.</returns>
         long ResolveCompositeNumber(string numberStr);
+
+        /// <summary>
+        /// Used when requiring special processing for number value cases.
+        /// </summary>
+        /// <param name="matchStrs">matches.</param>
+        /// <returns>value of the match.</returns>
+        (bool isRelevant, double value) GetLangSpecificIntValue(List<string> matchStrs);
+
     }
 
     public class BaseNumberParserConfiguration : INumberParserConfiguration
     {
+
+        protected static readonly (bool, double) NotApplicable = (false, double.MinValue);
+
         public ImmutableDictionary<string, long> CardinalNumberMap { get; set; }
 
         public ImmutableDictionary<string, long> OrdinalNumberMap { get; set; }
@@ -78,7 +93,11 @@ namespace Microsoft.Recognizers.Text.Number
 
         public ImmutableDictionary<string, string> RelativeReferenceMap { get; set; }
 
-        public NumberOptions Options { get; set; }
+        public ImmutableDictionary<string, string> RelativeReferenceOffsetMap { get; set; }
+
+        public ImmutableDictionary<string, string> RelativeReferenceRelativeToMap { get; set; }
+
+        public INumberOptionsConfiguration Config { get; set; }
 
         public CultureInfo CultureInfo { get; set; }
 
@@ -92,7 +111,7 @@ namespace Microsoft.Recognizers.Text.Number
 
         public string HalfADozenText { get; set; }
 
-        public string LangMarker { get; set; }
+        public string LanguageMarker { get; set; }
 
         public char NonDecimalSeparatorChar { get; set; }
 
@@ -109,6 +128,10 @@ namespace Microsoft.Recognizers.Text.Number
         public IEnumerable<string> WrittenFractionSeparatorTexts { get; set; }
 
         public Regex NegativeNumberSignRegex { get; set; }
+
+        public bool IsCompoundNumberLanguage { get; set; }
+
+        public bool IsMultiDecimalSeparatorCulture { get; set; }
 
         public virtual long ResolveCompositeNumber(string numberStr)
         {
@@ -144,6 +167,11 @@ namespace Microsoft.Recognizers.Text.Number
             return 0;
         }
 
+        public virtual (bool isRelevant, double value) GetLangSpecificIntValue(List<string> matchStrs)
+        {
+            return NotApplicable;
+        }
+
         public virtual IEnumerable<string> NormalizeTokenSet(IEnumerable<string> tokens, ParseResult context)
         {
             var fracWords = new List<string>();
@@ -154,11 +182,11 @@ namespace Microsoft.Recognizers.Text.Number
             {
                 if (tokenList[i].Contains("-"))
                 {
-                    var splitedTokens = tokenList[i].Split('-');
-                    if (splitedTokens.Length == 2 && OrdinalNumberMap.ContainsKey(splitedTokens[1]))
+                    var splitTokens = tokenList[i].Split('-');
+                    if (splitTokens.Length == 2 && OrdinalNumberMap.ContainsKey(splitTokens[1]))
                     {
-                        fracWords.Add(splitedTokens[0]);
-                        fracWords.Add(splitedTokens[1]);
+                        fracWords.Add(splitTokens[0]);
+                        fracWords.Add(splitTokens[1]);
                     }
                     else
                     {

@@ -4,33 +4,41 @@ using System.Text.RegularExpressions;
 
 using Microsoft.Recognizers.Definitions.Dutch;
 using Microsoft.Recognizers.Text.DateTime.Utilities;
+using Microsoft.Recognizers.Text.Utilities;
 
 namespace Microsoft.Recognizers.Text.DateTime.Dutch
 {
-    public class DutchTimeParserConfiguration : BaseOptionsConfiguration, ITimeParserConfiguration
+    public class DutchTimeParserConfiguration : BaseDateTimeOptionsConfiguration, ITimeParserConfiguration
     {
-        public string TimeTokenPrefix { get; }
 
-        public Regex AtRegex { get; }
-
-        public Regex MealTimeRegex { get; }
+        private const RegexOptions RegexFlags = RegexOptions.Singleline | RegexOptions.ExplicitCapture;
 
         private static readonly Regex TimeSuffixFull =
-            new Regex(DateTimeDefinitions.TimeSuffixFull, RegexOptions.Singleline);
+            new Regex(DateTimeDefinitions.TimeSuffixFull, RegexFlags);
 
         private static readonly Regex LunchRegex =
-            new Regex(DateTimeDefinitions.LunchRegex, RegexOptions.Singleline);
+            new Regex(DateTimeDefinitions.LunchRegex, RegexFlags);
 
         private static readonly Regex NightRegex =
-            new Regex(DateTimeDefinitions.NightRegex, RegexOptions.Singleline);
+            new Regex(DateTimeDefinitions.NightRegex, RegexFlags);
 
-        public IEnumerable<Regex> TimeRegexes { get; }
+        private static readonly Regex HalfTokenRegex =
+            new Regex(DateTimeDefinitions.HalfTokenRegex, RegexFlags);
 
-        public IImmutableDictionary<string, int> Numbers { get; }
+        private static readonly Regex QuarterTokenRegex =
+            new Regex(DateTimeDefinitions.QuarterTokenRegex, RegexFlags);
 
-        public IDateTimeUtilityConfiguration UtilityConfiguration { get; }
+        private static readonly Regex ThreeQuarterTokenRegex =
+            new Regex(DateTimeDefinitions.ThreeQuarterTokenRegex, RegexFlags);
 
-        public IDateTimeParser TimeZoneParser { get; }
+        private static readonly Regex ToTokenRegex =
+            new Regex(DateTimeDefinitions.ToTokenRegex, RegexFlags);
+
+        private static readonly Regex ToHalfTokenRegex =
+            new Regex(DateTimeDefinitions.ToHalfTokenRegex, RegexFlags);
+
+        private static readonly Regex ForHalfTokenRegex =
+            new Regex(DateTimeDefinitions.ForHalfTokenRegex, RegexFlags);
 
         public DutchTimeParserConfiguration(ICommonDateTimeParserConfiguration config)
             : base(config)
@@ -43,21 +51,35 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
             TimeZoneParser = config.TimeZoneParser;
         }
 
+        public IEnumerable<Regex> TimeRegexes { get; }
+
+        public IImmutableDictionary<string, int> Numbers { get; }
+
+        public IDateTimeUtilityConfiguration UtilityConfiguration { get; }
+
+        public IDateTimeParser TimeZoneParser { get; }
+
+        public string TimeTokenPrefix { get; }
+
+        public Regex AtRegex { get; }
+
+        public Regex MealTimeRegex { get; }
+
         public void AdjustByPrefix(string prefix, ref int hour, ref int min, ref bool hasMin)
         {
             int deltaMin;
 
             var trimedPrefix = prefix.Trim().ToLowerInvariant();
 
-            if (trimedPrefix.StartsWith("half"))
+            if (HalfTokenRegex.IsMatch(trimedPrefix))
             {
-                deltaMin = 30;
+                deltaMin = -30;
             }
-            else if (trimedPrefix.StartsWith("a quarter") || trimedPrefix.StartsWith("quarter"))
+            else if (QuarterTokenRegex.IsMatch(trimedPrefix))
             {
                 deltaMin = 15;
             }
-            else if (trimedPrefix.StartsWith("three quarter"))
+            else if (ThreeQuarterTokenRegex.IsMatch(trimedPrefix))
             {
                 deltaMin = 45;
             }
@@ -71,12 +93,20 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
                 }
                 else
                 {
-                    minStr = match.Groups["deltaminnum"].Value.ToLower();
+                    minStr = match.Groups["deltaminnum"].Value;
                     deltaMin = Numbers[minStr];
                 }
             }
 
-            if (trimedPrefix.EndsWith("to"))
+            if (ToHalfTokenRegex.IsMatch(trimedPrefix))
+            {
+                deltaMin = deltaMin - 30;
+            }
+            else if (ForHalfTokenRegex.IsMatch(trimedPrefix))
+            {
+                deltaMin = -deltaMin - 30;
+            }
+            else if (ToTokenRegex.IsMatch(trimedPrefix))
             {
                 deltaMin = -deltaMin;
             }
@@ -102,8 +132,8 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
                 var oclockStr = match.Groups["oclock"].Value;
                 if (string.IsNullOrEmpty(oclockStr))
                 {
-                    var amStr = match.Groups[Constants.AmGroupName].Value;
-                    if (!string.IsNullOrEmpty(amStr))
+                    var stringAm = match.Groups[Constants.AmGroupName].Value;
+                    if (!string.IsNullOrEmpty(stringAm))
                     {
                         if (hour >= Constants.HalfDayHourCount)
                         {
@@ -115,18 +145,18 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
                         }
                     }
 
-                    var pmStr = match.Groups[Constants.PmGroupName].Value;
-                    if (!string.IsNullOrEmpty(pmStr))
+                    var stringPm = match.Groups[Constants.PmGroupName].Value;
+                    if (!string.IsNullOrEmpty(stringPm))
                     {
                         if (hour < Constants.HalfDayHourCount)
                         {
                             deltaHour = Constants.HalfDayHourCount;
                         }
 
-                        if (LunchRegex.IsMatch(pmStr))
+                        if (LunchRegex.IsMatch(stringPm))
                         {
                             // for hour>=10, <12
-                            if (hour >=10 && hour <=Constants.HalfDayHourCount)
+                            if (hour >= 10 && hour <= Constants.HalfDayHourCount)
                             {
                                 deltaHour = 0;
                                 if (hour == Constants.HalfDayHourCount)
@@ -143,7 +173,7 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
                                 hasPm = true;
                             }
                         }
-                        else if (NightRegex.IsMatch(pmStr))
+                        else if (NightRegex.IsMatch(stringPm))
                         {
                             // For hour <=3 or ==12, we treat it as am, for example 1 in the night (midnight) == 1am
                             if (hour <= 3 || hour == Constants.HalfDayHourCount)
@@ -152,6 +182,7 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
                                 {
                                     hour = 0;
                                 }
+
                                 deltaHour = 0;
                                 hasAm = true;
                             }
@@ -164,7 +195,6 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
                         {
                             hasPm = true;
                         }
-
                     }
                 }
             }

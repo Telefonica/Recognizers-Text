@@ -1,15 +1,21 @@
 from typing import Pattern, List, NamedTuple
 
-from recognizers_number.number.constants import Constants
-from recognizers_number.number.extractors import ReVal, BaseNumberExtractor, BasePercentageExtractor
-from recognizers_number.number.models import NumberMode
+from recognizers_text.utilities import RegExpUtility
+from recognizers_number.number.models import NumberMode, LongFormatMode
+from recognizers_number.resources import BaseNumbers
 from recognizers_number.resources.spanish_numeric import SpanishNumeric
+from recognizers_number.number.extractors import ReVal, ReRe, BaseNumberExtractor, BasePercentageExtractor
+from recognizers_number.number.constants import Constants
 
 
 class SpanishNumberExtractor(BaseNumberExtractor):
     @property
     def regexes(self) -> List[ReVal]:
         return self.__regexes
+
+    @property
+    def ambiguity_filters_dict(self) -> List[ReRe]:
+        return self.__ambiguity_filters_dict
 
     @property
     def _extract_type(self) -> str:
@@ -20,17 +26,27 @@ class SpanishNumberExtractor(BaseNumberExtractor):
         cardinal_ex: SpanishCardinalExtractor = None
 
         if mode is NumberMode.PURE_NUMBER:
-            cardinal_ex = SpanishCardinalExtractor(SpanishNumeric.PlaceHolderPureNumber)
+            cardinal_ex = SpanishCardinalExtractor(
+                SpanishNumeric.PlaceHolderPureNumber)
         elif mode is NumberMode.CURRENCY:
-            self.__regexes.append(ReVal(re=SpanishNumeric.CurrencyRegex, val='IntegerNum'))
+            self.__regexes.append(
+                ReVal(re=SpanishNumeric.CurrencyRegex, val='IntegerNum'))
 
         if cardinal_ex is None:
             cardinal_ex = SpanishCardinalExtractor()
 
         self.__regexes.extend(cardinal_ex.regexes)
 
-        fraction_ex = SpanishFractionExtractor()
+        fraction_ex = SpanishFractionExtractor(mode)
         self.__regexes.extend(fraction_ex.regexes)
+
+        ambiguity_filters_dict: List[ReRe] = list()
+
+        if mode != NumberMode.Unit:
+            for key, value in SpanishNumeric.AmbiguityFiltersDict.items():
+                ambiguity_filters_dict.append(ReRe(reKey=RegExpUtility.get_safe_reg_exp(key),
+                                                   reVal=RegExpUtility.get_safe_reg_exp(value)))
+        self.__ambiguity_filters_dict = ambiguity_filters_dict
 
 
 class SpanishCardinalExtractor(BaseNumberExtractor):
@@ -56,7 +72,8 @@ class SpanishCardinalExtractor(BaseNumberExtractor):
 
 class SpanishIntegerExtractor(BaseNumberExtractor):
     @property
-    def regexes(self) -> List[NamedTuple('re_val', [('re', Pattern), ('val', str)])]:
+    def regexes(self) -> List[
+            NamedTuple('re_val', [('re', Pattern), ('val', str)])]:
         return self.__regexes
 
     @property
@@ -94,7 +111,8 @@ class SpanishIntegerExtractor(BaseNumberExtractor):
 
 class SpanishDoubleExtractor(BaseNumberExtractor):
     @property
-    def regexes(self) -> List[NamedTuple('re_val', [('re', Pattern), ('val', str)])]:
+    def regexes(self) -> List[
+            NamedTuple('re_val', [('re', Pattern), ('val', str)])]:
         return self.__regexes
 
     @property
@@ -132,14 +150,15 @@ class SpanishDoubleExtractor(BaseNumberExtractor):
 
 class SpanishFractionExtractor(BaseNumberExtractor):
     @property
-    def regexes(self) -> List[NamedTuple('re_val', [('re', Pattern), ('val', str)])]:
+    def regexes(self) -> List[
+            NamedTuple('re_val', [('re', Pattern), ('val', str)])]:
         return self.__regexes
 
     @property
     def _extract_type(self) -> str:
         return Constants.SYS_NUM_FRACTION
 
-    def __init__(self):
+    def __init__(self, mode):
         self.__regexes = [
             # ReVal(
             #     re=SpanishNumeric.FractionNotationRegex,
@@ -161,7 +180,8 @@ class SpanishFractionExtractor(BaseNumberExtractor):
 
 class SpanishOrdinalExtractor(BaseNumberExtractor):
     @property
-    def regexes(self) -> List[NamedTuple('re_val', [('re', Pattern), ('val', str)])]:
+    def regexes(self) -> List[
+            NamedTuple('re_val', [('re', Pattern), ('val', str)])]:
         return self.__regexes
 
     @property

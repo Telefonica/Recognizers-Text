@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Microsoft.Recognizers.Text;
 using Microsoft.Recognizers.Text.Choice;
@@ -11,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace SimpleConsole
 {
-    public class Program
+    public static class Program
     {
         // Use English for the Recognizers culture
         private const string DefaultCulture = Culture.English;
@@ -27,7 +28,7 @@ namespace SimpleConsole
                 var input = Console.ReadLine()?.Trim();
                 Console.WriteLine();
 
-                if (input?.ToLower() == "exit")
+                if (input?.ToLower(CultureInfo.InvariantCulture) == "exit")
                 {
                     // Close application if user types "exit"
                     break;
@@ -88,8 +89,7 @@ namespace SimpleConsole
 
                 // Datetime recognizer This model will find any Date even if its write in colloquial language
                 // E.g "I'll go back 8pm today" will return "2017-10-04 20:00:00"
-                // DateTimeRecognizer.RecognizeDateTime(query, culture),
-                DateTimeRecognizer.RecognizeDateTime(query, culture, DateTimeOptions.CalendarMode | DateTimeOptions.EnablePreview | DateTimeOptions.ExtendedTypes),
+                DateTimeRecognizer.RecognizeDateTime(query, culture),
 
                 // PhoneNumber recognizer will find any phone number presented
                 // E.g "My phone number is ( 19 ) 38294427."
