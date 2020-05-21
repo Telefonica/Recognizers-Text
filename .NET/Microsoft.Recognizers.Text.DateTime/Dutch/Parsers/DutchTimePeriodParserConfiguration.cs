@@ -8,8 +8,26 @@ using Microsoft.Recognizers.Text.Number;
 
 namespace Microsoft.Recognizers.Text.DateTime.Dutch
 {
-    public class DutchTimePeriodParserConfiguration : BaseOptionsConfiguration, ITimePeriodParserConfiguration
+    public class DutchTimePeriodParserConfiguration : BaseDateTimeOptionsConfiguration, ITimePeriodParserConfiguration
     {
+        public DutchTimePeriodParserConfiguration(ICommonDateTimeParserConfiguration config)
+            : base(config)
+        {
+            TimeExtractor = config.TimeExtractor;
+            IntegerExtractor = config.IntegerExtractor;
+            TimeParser = config.TimeParser;
+            TimeZoneParser = config.TimeZoneParser;
+            PureNumberFromToRegex = DutchTimePeriodExtractorConfiguration.PureNumFromTo;
+            PureNumberBetweenAndRegex = DutchTimePeriodExtractorConfiguration.PureNumBetweenAnd;
+            SpecificTimeFromToRegex = DutchTimePeriodExtractorConfiguration.SpecificTimeFromTo;
+            SpecificTimeBetweenAndRegex = DutchTimePeriodExtractorConfiguration.SpecificTimeBetweenAnd;
+            TimeOfDayRegex = DutchTimePeriodExtractorConfiguration.TimeOfDayRegex;
+            GeneralEndingRegex = DutchTimePeriodExtractorConfiguration.GeneralEndingRegex;
+            TillRegex = DutchTimePeriodExtractorConfiguration.TillRegex;
+            Numbers = config.Numbers;
+            UtilityConfiguration = config.UtilityConfiguration;
+        }
+
         public IDateTimeExtractor TimeExtractor { get; }
 
         public IDateTimeParser TimeParser { get; }
@@ -35,24 +53,6 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
         public IImmutableDictionary<string, int> Numbers { get; }
 
         public IDateTimeUtilityConfiguration UtilityConfiguration { get; }
-
-        public DutchTimePeriodParserConfiguration(ICommonDateTimeParserConfiguration config)
-            : base(config)
-        {
-            TimeExtractor = config.TimeExtractor;
-            IntegerExtractor = config.IntegerExtractor;
-            TimeParser = config.TimeParser;
-            TimeZoneParser = config.TimeZoneParser;
-            PureNumberFromToRegex = DutchTimePeriodExtractorConfiguration.PureNumFromTo;
-            PureNumberBetweenAndRegex = DutchTimePeriodExtractorConfiguration.PureNumBetweenAnd;
-            SpecificTimeFromToRegex = DutchTimePeriodExtractorConfiguration.SpecificTimeFromTo;
-            SpecificTimeBetweenAndRegex = DutchTimePeriodExtractorConfiguration.SpecificTimeBetweenAnd;
-            TimeOfDayRegex = DutchTimePeriodExtractorConfiguration.TimeOfDayRegex;
-            GeneralEndingRegex = DutchTimePeriodExtractorConfiguration.GeneralEndingRegex;
-            TillRegex = DutchTimePeriodExtractorConfiguration.TillRegex;
-            Numbers = config.Numbers;
-            UtilityConfiguration = config.UtilityConfiguration;
-        }
 
         public bool GetMatchedTimexRange(string text, out string timex, out int beginHour, out int endHour, out int endMin)
         {
@@ -88,6 +88,10 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
                 timeOfDay = Constants.Night;
             }
             else if (DateTimeDefinitions.BusinessHourSplitStrings.All(o => trimmedText.Contains(o)))
+            {
+                timeOfDay = Constants.BusinessHour;
+            }
+            else if (DateTimeDefinitions.BusinessHourSplitStrings2.All(o => trimmedText.Contains(o)))
             {
                 timeOfDay = Constants.BusinessHour;
             }

@@ -6,7 +6,8 @@ namespace Microsoft.Recognizers.Text.DateTime
 {
     public abstract class AbstractYearExtractor : IDateExtractor
     {
-        public AbstractYearExtractor(IDateExtractorConfiguration config)
+
+        protected AbstractYearExtractor(IDateExtractorConfiguration config)
         {
             this.Config = config;
         }
@@ -60,7 +61,8 @@ namespace Microsoft.Recognizers.Text.DateTime
                     }
 
                     // Exclude pure number like "nineteen", "twenty four"
-                    if ((firstTwoYearNum < 100 && lastTwoYearNum == 0) || (firstTwoYearNum < 100 && firstTwoYearNum % 10 == 0 && lastTwoYearNumStr.Trim().Split(' ').Length == 1))
+                    if ((firstTwoYearNum < 100 && lastTwoYearNum == 0) ||
+                        (firstTwoYearNum < 100 && firstTwoYearNum % 10 == 0 && lastTwoYearNumStr.Trim().Split(' ').Length == 1))
                     {
                         year = Constants.InvalidYear;
                         return year;

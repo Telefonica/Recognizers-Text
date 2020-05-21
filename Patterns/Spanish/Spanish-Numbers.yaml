@@ -1,10 +1,15 @@
 ---
+#ISO 639-2 Code
 LangMarker: Spa
+#Does this language use non-whitespace-separated numbers?
+CompoundNumberLanguage: !bool false
+#Does this culture uses period and comma intercheangeably as decimal separator?
+MultiDecimalSeparatorCulture: !bool true
 #Integer Regex
 HundredsNumberIntegerRegex: !simpleRegex
   def: (cuatrocient[ao]s|trescient[ao]s|seiscient[ao]s|setecient[ao]s|ochocient[ao]s|novecient[ao]s|doscient[ao]s|quinient[ao]s|(?<!por\s+)(cien(to)?))
 RoundNumberIntegerRegex: !simpleRegex
-  def: (mil millones|mil|millones|mill[oó]n|billones|bill[oó]n|trillones|trill[oó]n|cuatrillones|cuatrill[oó]n|quintillones|quintill[oó]n|sextillones|sextill[oó]n|septillones|septill[oó]n)
+  def: (mil millones|millones|mill[oó]n|mil|billones|bill[oó]n|trillones|trill[oó]n|cuatrillones|cuatrill[oó]n|quintillones|quintill[oó]n|sextillones|sextill[oó]n|septillones|septill[oó]n)
 ZeroToNineIntegerRegex: !simpleRegex
   def: (cuatro|cinco|siete|nueve|cero|tres|seis|ocho|dos|uno)
 ZeroToNineIntegerRegexExt: !simpleRegex
@@ -16,8 +21,7 @@ TwentiesIntegerRegex: !simpleRegex
 TensNumberIntegerRegex: !simpleRegex
   def: (cincuenta|cuarenta|treinta|sesenta|setenta|ochenta|noventa)
 NegativeNumberTermsRegex: !simpleRegex
-   # TODO: modify below regex according to the counterpart in English
-  def: ((?<!(al|lo)\s+)menos\s+)
+  def: (?<negTerm>(?<!(al|lo)\s+)menos\s+)
 NegativeNumberSignRegex: !nestedRegex
   def: ^{NegativeNumberTermsRegex}.*
   references: [ NegativeNumberTermsRegex ]
@@ -59,7 +63,7 @@ AllIntRegexWithLocks: !nestedRegex
 AllIntRegexWithDozenSuffixLocks: !nestedRegex
   def: (?<=\b)(((media\s+)?\s+docena)|({AllIntRegex}\s+(y|con)\s+)?({AllIntRegex}\s+docenas?))(?=\b)
   references: [ AllIntRegex ]
-
+#Ordinal Regex
 SimpleRoundOrdinalRegex: !simpleRegex
   def: (mil[eé]simo|millon[eé]sim[oa]|billon[eé]sim[oa]|trillon[eé]sim[oa]|cuatrillon[eé]sim[oa]|quintillon[eé]sim[oa]|sextillon[eé]sim[oa]|septillon[eé]sim[oa])
 OneToNineOrdinalRegex: !simpleRegex
@@ -96,7 +100,7 @@ OrdinalSuffixRegex: !simpleRegex
 OrdinalNounRegex: !nestedRegex
   def: (?<=\b){AllOrdinalRegex}(?=\b)
   references: [ AllOrdinalRegex ]
-
+#Fraction Regex
 SpecialFractionInteger: !nestedRegex
   def: ((({AllIntRegex})i?({ZeroToNineIntegerRegex})|({AllIntRegex}))a?v[oa]s?)
   references: [ AllIntRegex, ZeroToNineIntegerRegex ]
@@ -111,9 +115,9 @@ FractionNounWithArticleRegex: !nestedRegex
   def: (?<=\b)({AllIntRegex}\s+(y\s+)?)?(un|un[oa])(\s+)(({AllOrdinalRegex})|({SufixRoundOrdinalRegex})|(y\s+)?medi[oa]s?)(?=\b)
   references: [ AllIntRegex, AllOrdinalRegex, SufixRoundOrdinalRegex ]
 FractionPrepositionRegex: !nestedRegex
-  def: (?<=\b)(?<numerator>({AllIntRegex})|((?<!\.)\d+))\s+sobre\s+(?<denominator>({AllIntRegex})|((\d+)(?!\.)))(?=\b)
-  references: [ AllIntRegex ]
-
+  def: (?<!{BaseNumbers.CommonCurrencySymbol}\s*)(?<=\b)(?<numerator>({AllIntRegex})|((?<!\.)\d+))\s+sobre\s+(?<denominator>({AllIntRegex})|((\d+)(?!\.)))(?=\b)
+  references: [ AllIntRegex, BaseNumbers.CommonCurrencySymbol ]
+#Double Regex
 AllPointRegex: !nestedRegex
   def: ((\s+{ZeroToNineIntegerRegex})+|(\s+{AllIntRegex}))
   references: [ ZeroToNineIntegerRegex, AllIntRegex ]
@@ -139,7 +143,7 @@ DoubleExponentialNotationRegex: !simpleRegex
   def: (((?<!\d+\s*)-\s*)|((?<=\b)(?<!\d+[\.,])))(\d+([\.,]\d+)?)e([+-]*[1-9]\d*)(?=\b)
 DoubleCaretExponentialNotationRegex: !simpleRegex
   def: (((?<!\d+\s*)-\s*)|((?<=\b)(?<!\d+[\.,])))(\d+([\.,]\d+)?)\^([+-]*[1-9]\d*)(?=\b)
-
+#Percentage Regex
 NumberWithPrefixPercentage: !nestedRegex
   def: (?<!%)({BaseNumbers.NumberReplaceToken})(\s*)(%(?!{BaseNumbers.NumberReplaceToken})|(por ciento|por cien)\b)
   references: [ BaseNumbers.NumberReplaceToken ]
@@ -159,7 +163,7 @@ MoreOrEqual: !nestedRegex
   def: (({MoreRegex}\s+(o)?\s+{EqualRegex})|({EqualRegex}\s+(o|y)\s+{MoreRegex})|{MoreOrEqualPrefix}(\s+(o)\s+{EqualRegex})?|({EqualRegex}\s+(o)\s+)?{MoreOrEqualPrefix}|>\s*=)
   references: [ MoreRegex, EqualRegex, LessRegex, MoreOrEqualPrefix ]
 MoreOrEqualSuffix: !simpleRegex
-  def: ((\b(y|o)\b\s+(m[áa]s|mayor|mayores)((?!\s+(alt[oa]|baj[oa]|que|de|del))|(\s+(que|de|del)(?!(\s*\d+)))))|como\s+m[áa]ximo|por\s+lo\s+menos|al\s+menos)
+  def: ((\b(y|o)\b\s+(m[áa]s|mayor|mayores)((?!\s+(alt[oa]|baj[oa]|que|de|del))|(\s+(que|de|del)(?!(\s*\d+)))))|como\s+m[íi]nimo|por\s+lo\s+menos|al\s+menos)
 LessOrEqualPrefix: !nestedRegex
   def: ((no\s+{MoreRegex})|(como\s+máximo|como\s+maximo|como\s+mucho))
   references: [ MoreRegex ]
@@ -167,7 +171,7 @@ LessOrEqual: !nestedRegex
   def: (({LessRegex}\s+(o)?\s+{EqualRegex})|({EqualRegex}\s+(o)?\s+{LessRegex})|{LessOrEqualPrefix}(\s+(o)?\s+{EqualRegex})?|({EqualRegex}\s+(o)?\s+)?{LessOrEqualPrefix}|<\s*=)
   references: [ LessRegex, EqualRegex, MoreRegex, LessOrEqualPrefix ]
 LessOrEqualSuffix: !simpleRegex
-  def: ((\b(y|o)\b\s+(menos|menor|menores)((?!\s+(alt[oa]|baj[oa]|que|de|del))|(\s+(que|de|del)(?!(\s*\d+)))))|como\s+m[íi]nimo)
+  def: ((\b(y|o)\b\s+(menos|menor|menores)((?!\s+(alt[oa]|baj[oa]|que|de|del))|(\s+(que|de|del)(?!(\s*\d+)))))|como\s+m[áa]ximo)
 NumberSplitMark: !simpleRegex
   def: (?![,.](?!\d+))
 MoreRegexNoNumberSucceed: !simpleRegex
@@ -211,7 +215,7 @@ TwoNumberRangeRegex4: !nestedRegex
   references: [ TillRegex, NumberSplitMark ]
 #AmbiguousFractionConnectorsRegex: !simpleRegex
 #  def: (\b(en|de)\b)
-
+#Parser
 DecimalSeparatorChar: !char ','
 FractionMarkerToken: sobre
 NonDecimalSeparatorChar: !char '.'
@@ -334,7 +338,9 @@ OrdinalNumberMap: !dictionary
     noveno: 9
     novena: 9
     decimo: 10
+    décimo: 10
     decima: 10
+    décima: 10
     undecimo: 11
     undecima: 11
     duodecimo: 12
@@ -473,10 +479,16 @@ RoundNumberMap: !dictionary
     g: 1000000000
     b: 1000000000
     t: 1000000000000
-AmbiguousFractionConnectorsRegex: !simpleRegex
+AmbiguityFiltersDict: !dictionary
+  types: [ string, string ]
+  entries:
+    '^[.]': ''
+RelativeReferenceOffsetMap: !dictionary
+  types: [ string, string ]
 # TODO: modify below regex according to the counterpart in English
-  def: ^[.]
-RelativeReferenceMap: !dictionary
+  entries:
+    '': ''
+RelativeReferenceRelativeToMap: !dictionary
   types: [ string, string ]
 # TODO: modify below regex according to the counterpart in English
   entries:
