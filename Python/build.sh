@@ -10,6 +10,9 @@ python index.py ../recognizers-date-time/resource-definitions.json
 python index.py ../recognizers-sequence/resource-definitions.json
 
 cd ../..
+echo //installing datatypes_timex_expression
+pip install -e ./libraries/datatypes-timex-expression/
+
 echo // Installing recognizers-text
 pip install -e ./libraries/recognizers-text/
 
