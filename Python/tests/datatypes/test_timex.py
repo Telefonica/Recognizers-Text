@@ -84,7 +84,6 @@ def test_datatypes_timex_tonaturallanguage():
 def test_datatypes_timex_fromtime():
     assert Timex.from_time(Time(23, 59, 30)).timex_value() == 'T23:59:30'
 
-@pytest.mark.skip(reason='Not using this library')
 def test_datatypes_helpers_equal():
     reference_date = datetime.now()
     timex_date = Timex.from_date(datetime.now())
