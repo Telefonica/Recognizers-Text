@@ -488,30 +488,50 @@ class BaseTimePeriodParser(DateTimeParser):
             # no have am or pm
             else:
                 if 0 <= begin_hour <= 24 and 0 <= end_hour <= 24:
+                    # 12 hours format
+                    if 1 <= begin_hour <= 12 and 1 <= end_hour <= 12:
+                        if begin_hour >= end_hour:
+                            end_hour += 12
 
-                    # before reference
-                    if begin_hour <= reference.hour and end_hour <= reference.hour:
-                        if 1 <= begin_hour <= 12 and 1 <= end_hour <= 12:
+                        if end_hour <= reference.hour:
                             begin_hour += 12
                             end_hour += 12
-                        else:
-                            if begin_hour > 12 or 0 <= end_hour <= 24:
-                                begin_hour += 24
-                                end_hour += 24
 
-                    # between reference
-                    elif begin_hour <= reference.hour <= end_hour:
-                        # adjust the nearest begin hour to reference hour
-                        if 1 <= begin_hour <= 12 and (begin_hour + 12) <= reference.hour:
-                            begin_hour += 12
+                    # 24 hours format
+                    else:
+                        if begin_hour >= end_hour:
+                            end_hour += 24
 
-                    # after reference
-                    elif begin_hour >= reference.hour and end_hour >= reference.hour:
-                        pass
+                        if end_hour <= reference.hour:
+                            begin_hour += 24
+                            end_hour += 24
 
-                    if end_hour <= begin_hour:
-                        end_hour += 12
                     valid = True
+
+                    # # before reference
+                    # if begin_hour <= reference.hour and end_hour <= reference.hour:
+                    #     # 12 hours format
+                    #     if 1 <= begin_hour <= 12 and 1 <= end_hour <= 12:
+                    #         begin_hour += 12
+                    #         end_hour += 12
+                    #     else:
+                    #         if begin_hour > 12 or 0 <= end_hour <= 24:
+                    #             begin_hour += 24
+                    #             end_hour += 24
+                    #
+                    # # between reference
+                    # elif begin_hour <= reference.hour <= end_hour:
+                    #     # adjust the nearest begin hour to reference hour
+                    #     if 1 <= begin_hour <= 12 and (begin_hour + 12) <= reference.hour:
+                    #         begin_hour += 12
+                    #
+                    # # after reference
+                    # elif begin_hour >= reference.hour and end_hour >= reference.hour:
+                    #     pass
+                    #
+                    # if end_hour <= begin_hour:
+                    #     end_hour += 12
+                    # valid = True
 
         if not valid:
             return result
