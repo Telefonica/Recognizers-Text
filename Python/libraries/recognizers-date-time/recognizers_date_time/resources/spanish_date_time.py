@@ -419,7 +419,7 @@ class SpanishDateTime:
     TokenBeforeDate = 'el '
     TokenBeforeTime = 'la '
     UpcomingPrefixRegex = f'.^'
-    NextPrefixRegex = f'(pr[oó]xim[oa]|siguiente|{UpcomingPrefixRegex})\\b'
+    NextPrefixRegex = f'(pr[oó]xim[oa]|siguiente|que viene|{UpcomingPrefixRegex})\\b'
     PastPrefixRegex = f'.^'
     PreviousPrefixRegex = f'([uú]ltim[oa]|{PastPrefixRegex})\\b'
     PreviousSuffixRegex = f'\\b(pasad[ao])\\b'
