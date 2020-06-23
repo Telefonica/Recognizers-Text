@@ -1,12 +1,11 @@
-using System.Collections.Immutable;
-using DateObject = System.DateTime;
+﻿using System.Collections.Immutable;
 using Microsoft.Recognizers.Definitions.German;
 
 namespace Microsoft.Recognizers.Text.DateTime.German
 {
     public class GermanHolidayParserConfiguration : BaseHolidayParserConfiguration
     {
-        public GermanHolidayParserConfiguration(IOptionsConfiguration config)
+        public GermanHolidayParserConfiguration(IDateTimeOptionsConfiguration config)
             : base(config)
         {
             this.HolidayRegexList = GermanHolidayExtractorConfiguration.HolidayRegexList;
@@ -15,8 +14,10 @@ namespace Microsoft.Recognizers.Text.DateTime.German
 
         public override int GetSwiftYear(string text)
         {
-            var trimmedText = text.Trim().ToLowerInvariant();
+            var trimmedText = text.Trim();
             var swift = -10;
+
+            // @TODO move hardcoded terms to resource file
             if (trimmedText.StartsWith("nächster") || trimmedText.StartsWith("nächstes") || trimmedText.StartsWith("nächsten") || trimmedText.StartsWith("nächste"))
             {
                 swift = 1;

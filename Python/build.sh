@@ -30,6 +30,7 @@ pip install -e ./libraries/recognizers-suite/
 
 echo // Installing Test Dependencies
 pip install -r ./tests/requirements.txt
+pip install ./libraries/datatypes-timex-expression/
 
 echo // Running tests
 pytest --tb=line

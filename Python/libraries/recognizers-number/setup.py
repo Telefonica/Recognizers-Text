@@ -4,11 +4,13 @@
 import os
 from setuptools import setup, find_packages
 
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+
 NAME = "recognizers-text-number"
-VERSION = "1.3.3"
+VERSION = "2.0.0"
 REQUIRES = ['recognizers-text', 'regex']
 
 setup(
@@ -17,7 +19,8 @@ setup(
     url='https://github.com/Microsoft/Recognizers-Text',
     author='Microsoft',
     description='recognizers-text-number README',
-    keywords=[ 'nlp', 'nlp-entity-extraction', 'entity-extraction', 'parser-library' ],
+    keywords=['nlp', 'nlp-entity-extraction',
+              'entity-extraction', 'parser-library'],
     long_description=read('README.rst'),
     license='MIT',
     packages=find_packages(),

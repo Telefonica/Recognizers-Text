@@ -5,8 +5,48 @@ using Microsoft.Recognizers.Text.DateTime.Utilities;
 
 namespace Microsoft.Recognizers.Text.DateTime.Dutch
 {
-    public class DutchDateTimeParserConfiguration : BaseOptionsConfiguration, IDateTimeParserConfiguration
+    public class DutchDateTimeParserConfiguration : BaseDateTimeOptionsConfiguration, IDateTimeParserConfiguration
     {
+        public static readonly Regex AmTimeRegex =
+            new Regex(DateTimeDefinitions.AMTimeRegex, RegexFlags);
+
+        public static readonly Regex PmTimeRegex =
+            new Regex(DateTimeDefinitions.PMTimeRegex, RegexFlags);
+
+        private const RegexOptions RegexFlags = RegexOptions.Singleline | RegexOptions.ExplicitCapture;
+
+        public DutchDateTimeParserConfiguration(ICommonDateTimeParserConfiguration config)
+            : base(config)
+        {
+            TokenBeforeDate = DateTimeDefinitions.TokenBeforeDate;
+            TokenBeforeTime = DateTimeDefinitions.TokenBeforeTime;
+
+            DateExtractor = config.DateExtractor;
+            TimeExtractor = config.TimeExtractor;
+            DateParser = config.DateParser;
+            TimeParser = config.TimeParser;
+
+            NowRegex = DutchDateTimeExtractorConfiguration.NowRegex;
+
+            SimpleTimeOfTodayAfterRegex = DutchDateTimeExtractorConfiguration.SimpleTimeOfTodayAfterRegex;
+            SimpleTimeOfTodayBeforeRegex = DutchDateTimeExtractorConfiguration.SimpleTimeOfTodayBeforeRegex;
+            SpecificTimeOfDayRegex = DutchDateTimeExtractorConfiguration.SpecificTimeOfDayRegex;
+            SpecificEndOfRegex = DutchDateTimeExtractorConfiguration.SpecificEndOfRegex;
+            UnspecificEndOfRegex = DutchDateTimeExtractorConfiguration.UnspecificEndOfRegex;
+            UnitRegex = DutchTimeExtractorConfiguration.TimeUnitRegex;
+            DateNumberConnectorRegex = DutchDateTimeExtractorConfiguration.DateNumberConnectorRegex;
+            YearRegex = DutchDateTimeExtractorConfiguration.YearRegex;
+
+            Numbers = config.Numbers;
+            CardinalExtractor = config.CardinalExtractor;
+            IntegerExtractor = config.IntegerExtractor;
+            NumberParser = config.NumberParser;
+            DurationExtractor = config.DurationExtractor;
+            DurationParser = config.DurationParser;
+            UnitMap = config.UnitMap;
+            UtilityConfiguration = config.UtilityConfiguration;
+        }
+
         public string TokenBeforeDate { get; }
 
         public string TokenBeforeTime { get; }
@@ -37,12 +77,6 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
 
         public Regex PMTimeRegex => PmTimeRegex;
 
-        public static readonly Regex AmTimeRegex =
-            new Regex(DateTimeDefinitions.AMTimeRegex, RegexOptions.Singleline);
-
-        public static readonly Regex PmTimeRegex =
-            new Regex(DateTimeDefinitions.PMTimeRegex, RegexOptions.Singleline);
-
         public Regex SimpleTimeOfTodayAfterRegex { get; }
 
         public Regex SimpleTimeOfTodayBeforeRegex { get; }
@@ -61,41 +95,11 @@ namespace Microsoft.Recognizers.Text.DateTime.Dutch
 
         public Regex ConnectorRegex { get; }
 
+        public Regex YearRegex { get; }
+
         public IImmutableDictionary<string, int> Numbers { get; }
 
         public IDateTimeUtilityConfiguration UtilityConfiguration { get; }
-
-        public DutchDateTimeParserConfiguration(ICommonDateTimeParserConfiguration config)
-            : base(config)
-        {
-
-            TokenBeforeDate = DateTimeDefinitions.TokenBeforeDate;
-            TokenBeforeTime = DateTimeDefinitions.TokenBeforeTime;
-
-            DateExtractor = config.DateExtractor;
-            TimeExtractor = config.TimeExtractor;
-            DateParser = config.DateParser;
-            TimeParser = config.TimeParser;
-
-            NowRegex = DutchDateTimeExtractorConfiguration.NowRegex;
-
-            SimpleTimeOfTodayAfterRegex = DutchDateTimeExtractorConfiguration.SimpleTimeOfTodayAfterRegex;
-            SimpleTimeOfTodayBeforeRegex = DutchDateTimeExtractorConfiguration.SimpleTimeOfTodayBeforeRegex;
-            SpecificTimeOfDayRegex = DutchDateTimeExtractorConfiguration.SpecificTimeOfDayRegex;
-            SpecificEndOfRegex = DutchDateTimeExtractorConfiguration.SpecificEndOfRegex;
-            UnspecificEndOfRegex = DutchDateTimeExtractorConfiguration.UnspecificEndOfRegex;
-            UnitRegex = DutchTimeExtractorConfiguration.TimeUnitRegex;
-            DateNumberConnectorRegex = DutchDateTimeExtractorConfiguration.DateNumberConnectorRegex;
-
-            Numbers = config.Numbers;
-            CardinalExtractor = config.CardinalExtractor;
-            IntegerExtractor = config.IntegerExtractor;
-            NumberParser = config.NumberParser;
-            DurationExtractor = config.DurationExtractor;
-            DurationParser = config.DurationParser;
-            UnitMap = config.UnitMap;
-            UtilityConfiguration = config.UtilityConfiguration;
-        }
 
         public int GetHour(string text, int hour)
         {

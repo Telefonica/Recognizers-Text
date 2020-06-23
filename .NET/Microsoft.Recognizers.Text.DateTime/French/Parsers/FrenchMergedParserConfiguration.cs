@@ -1,19 +1,20 @@
 ﻿using System.Text.RegularExpressions;
-
+using Microsoft.Recognizers.Definitions.French;
 using Microsoft.Recognizers.Text.Matcher;
 
 namespace Microsoft.Recognizers.Text.DateTime.French
 {
     public sealed class FrenchMergedParserConfiguration : FrenchCommonDateTimeParserConfiguration, IMergedParserConfiguration
     {
-        public FrenchMergedParserConfiguration(IOptionsConfiguration config)
+        public FrenchMergedParserConfiguration(IDateTimeOptionsConfiguration config)
             : base(config)
         {
             BeforeRegex = FrenchMergedExtractorConfiguration.BeforeRegex;
             AfterRegex = FrenchMergedExtractorConfiguration.AfterRegex;
             SinceRegex = FrenchMergedExtractorConfiguration.SinceRegex;
             AroundRegex = FrenchMergedExtractorConfiguration.AroundRegex;
-            DateAfter = FrenchMergedExtractorConfiguration.DateAfterRegex;
+            EqualRegex = FrenchMergedExtractorConfiguration.EqualRegex;
+            SuffixAfter = FrenchMergedExtractorConfiguration.SuffixAfterRegex;
             YearRegex = FrenchDatePeriodExtractorConfiguration.YearRegex;
             SuperfluousWordMatcher = FrenchMergedExtractorConfiguration.SuperfluousWordMatcher;
             SetParser = new BaseSetParser(new FrenchSetParserConfiguration(this));
@@ -29,7 +30,9 @@ namespace Microsoft.Recognizers.Text.DateTime.French
 
         public Regex AroundRegex { get; }
 
-        public Regex DateAfter { get; }
+        public Regex EqualRegex { get; }
+
+        public Regex SuffixAfter { get; }
 
         public Regex YearRegex { get; }
 
@@ -38,5 +41,7 @@ namespace Microsoft.Recognizers.Text.DateTime.French
         public IDateTimeParser HolidayParser { get; }
 
         public StringMatcher SuperfluousWordMatcher { get; }
+
+        bool IMergedParserConfiguration.CheckBothBeforeAfter => DateTimeDefinitions.CheckBothBeforeAfter;
     }
 }
