@@ -212,72 +212,6 @@
     ]
   },
   {
-    "Input": "Estare afuera los proximos 3 dias",
-    "Results": [
-      {
-        "Text": "proximos 3 dias",
-        "Type": "daterange",
-        "Start": 18,
-        "Length": 15
-      }
-    ]
-  },
-  {
-    "Input": "Estare afuera los proximos 3 meses",
-    "Results": [
-      {
-        "Text": "proximos 3 meses",
-        "Type": "daterange",
-        "Start": 18,
-        "Length": 16
-      }
-    ]
-  },
-  {
-    "Input": "Estare afuera en 3 años",
-    "Results": [
-      {
-        "Text": "en 3 años",
-        "Type": "daterange",
-        "Start": 14,
-        "Length": 9
-      }
-    ]
-  },
-  {
-    "Input": "Estuve afuera las pasadas 3 semanas",
-    "Results": [
-      {
-        "Text": "pasadas 3 semanas",
-        "Type": "daterange",
-        "Start": 18,
-        "Length": 17
-      }
-    ]
-  },
-  {
-    "Input": "Estuve afuera los ultimos 3 años",
-    "Results": [
-      {
-        "Text": "ultimos 3 años",
-        "Type": "daterange",
-        "Start": 18,
-        "Length": 14
-      }
-    ]
-  },
-  {
-    "Input": "Estuve afuera las anteriores 3 semanas",
-    "Results": [
-      {
-        "Text": "anteriores 3 semanas",
-        "Type": "daterange",
-        "Start": 18,
-        "Length": 20
-      }
-    ]
-  },
-  {
     "Input": "Estare fuera del 2 de Oct hasta el 22 de Octubre",
     "Results": [
       {
@@ -293,18 +227,6 @@
     "Results": [
       {
         "Text": "12 de Enero, 2016 - 22/02/2016",
-        "Type": "daterange",
-        "Start": 17,
-        "Length": 30
-      }
-    ]
-  },
-  {
-    "Input": "Estare fuera del 1ro de Ene hasta Mi, 22 de Ene",
-    "NotSupportedByDesign": "javascript",
-    "Results": [
-      {
-        "Text": "1ro de Ene hasta Mi, 22 de Ene",
         "Type": "daterange",
         "Start": 17,
         "Length": 30
@@ -2571,32 +2493,6 @@
     "Results": []
   },
   {
-    "Input": "Ya no estuve en las últimas 3 semanas",
-    "NotSupported": "java",
-    "NotSupportedByDesign": "javascript",
-    "Results": [
-      {
-        "Text": "últimas 3 semanas",
-        "Type": "daterange",
-        "Start": 20,
-        "Length": 17
-      }
-    ]
-  },
-  {
-    "Input": "Ya no estuve los últimos 3 años",
-    "NotSupported": "java",
-    "NotSupportedByDesign": "javascript",
-    "Results": [
-      {
-        "Text": "últimos 3 años",
-        "Type": "daterange",
-        "Start": 17,
-        "Length": 14
-      }
-    ]
-  },
-  {
     "Input": "Ya no estuve el año pasado",
     "NotSupported": "java",
     "NotSupportedByDesign": "javascript",
@@ -3809,19 +3705,6 @@
     ]
   },
   {
-    "Input": "Ocurrirá en 4 semanas",
-    "NotSupported": "java",
-    "NotSupportedByDesign": "javascript",
-    "Results": [
-      {
-        "Text": "en 4 semanas",
-        "Type": "daterange",
-        "Start": 9,
-        "Length": 12
-      }
-    ]
-  },
-  {
     "Input": "Ocurrirá 2 días después",
     "NotSupported": "java, python",
     "NotSupportedByDesign": "javascript",
@@ -4455,19 +4338,6 @@
         "Type": "daterange",
         "Start": 30,
         "Length": 21
-      }
-    ]
-  },
-  {
-    "Input": "Volveré dentro de 2 semanas a partir de hoy",
-    "NotSupported": "java",
-    "NotSupportedByDesign": "javascript",
-    "Results": [
-      {
-        "Text": "dentro de 2 semanas a partir de hoy",
-        "Type": "daterange",
-        "Start": 8,
-        "Length": 35
       }
     ]
   },

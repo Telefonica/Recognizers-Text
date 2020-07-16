@@ -1,16 +1,5 @@
 [
   {
-    "Input": "esto es 2 dias",
-    "Results": [
-      {
-        "Text": "2 dias",
-        "Type": "duration",
-        "Start": 8,
-        "Length": 6
-      }
-    ]
-  },
-  {
     "Input": "esto es antes de las 4pm",
     "Results": [
       {

@@ -456,31 +456,6 @@
     ]
   },
   {
-    "Input": "Estare afuera el 1ro de Ene hasta Mi, 22 de Ene",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T00:00:00"
-    },
-    "Results": [
-      {
-        "Text": "1ro de Ene hasta Mi, 22 de Ene",
-        "Type": "daterange",
-        "Value": {
-          "Timex": "(XXXX-01-01,XXXX-01-22,P21D)",
-          "FutureResolution": {
-            "startDate": "2017-01-01",
-            "endDate": "2017-01-22"
-          },
-          "PastResolution": {
-            "startDate": "2016-01-01",
-            "endDate": "2016-01-22"
-          }
-        },
-        "Start": 17,
-        "Length": 30
-      }
-    ]
-  },
-  {
     "Input": "Estare afuera hoy hasta mañana",
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
@@ -856,106 +831,6 @@
     ]
   },
   {
-    "Input": "Estare afuera los próximos 3 dias",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T00:00:00"
-    },
-    "Results": [
-      {
-        "Text": "próximos 3 dias",
-        "Type": "daterange",
-        "Value": {
-          "Timex": "(2016-11-08,2016-11-11,P3D)",
-          "FutureResolution": {
-            "startDate": "2016-11-08",
-            "endDate": "2016-11-11"
-          },
-          "PastResolution": {
-            "startDate": "2016-11-08",
-            "endDate": "2016-11-11"
-          }
-        },
-        "Start": 18,
-        "Length": 15
-      }
-    ]
-  },
-  {
-    "Input": "Estare afuera los proximos 3 meses",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T00:00:00"
-    },
-    "Results": [
-      {
-        "Text": "proximos 3 meses",
-        "Type": "daterange",
-        "Value": {
-          "Timex": "(2016-11-08,2017-02-08,P3M)",
-          "FutureResolution": {
-            "startDate": "2016-11-08",
-            "endDate": "2017-02-08"
-          },
-          "PastResolution": {
-            "startDate": "2016-11-08",
-            "endDate": "2017-02-08"
-          }
-        },
-        "Start": 18,
-        "Length": 16
-      }
-    ]
-  },
-  {
-    "Input": "Estare afuera en 3 años",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T00:00:00"
-    },
-    "Results": [
-      {
-        "Text": "en 3 años",
-        "Type": "daterange",
-        "Value": {
-          "Timex": "(2016-11-08,2019-11-08,P3Y)",
-          "FutureResolution": {
-            "startDate": "2016-11-08",
-            "endDate": "2019-11-08"
-          },
-          "PastResolution": {
-            "startDate": "2016-11-08",
-            "endDate": "2019-11-08"
-          }
-        },
-        "Start": 14,
-        "Length": 9
-      }
-    ]
-  },
-  {
-    "Input": "Estuve afuera las pasadas 3 semanas",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T00:00:00"
-    },
-    "Results": [
-      {
-        "Text": "pasadas 3 semanas",
-        "Type": "daterange",
-        "Value": {
-          "Timex": "(2016-10-17,2016-11-07,P3W)",
-          "FutureResolution": {
-            "startDate": "2016-10-17",
-            "endDate": "2016-11-07"
-          },
-          "PastResolution": {
-            "startDate": "2016-10-17",
-            "endDate": "2016-11-07"
-          }
-        },
-        "Start": 18,
-        "Length": 17
-      }
-    ]
-  },
-  {
     "Input": "Estuve afuera los ultimos 3años",
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
@@ -977,31 +852,6 @@
         },
         "Start": 18,
         "Length": 13
-      }
-    ]
-  },
-  {
-    "Input": "Estuve afuera las anteriores 3 semanas",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T00:00:00"
-    },
-    "Results": [
-      {
-        "Text": "anteriores 3 semanas",
-        "Type": "daterange",
-        "Value": {
-          "Timex": "(2016-10-17,2016-11-07,P3W)",
-          "FutureResolution": {
-            "startDate": "2016-10-17",
-            "endDate": "2016-11-07"
-          },
-          "PastResolution": {
-            "startDate": "2016-10-17",
-            "endDate": "2016-11-07"
-          }
-        },
-        "Start": 18,
-        "Length": 20
       }
     ]
   },

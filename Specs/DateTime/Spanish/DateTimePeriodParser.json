@@ -100,31 +100,6 @@
     ]
   },
   {
-    "Input": "Estaré fuera de 5 a 6 del 1ro de Ene",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T16:12:00"
-    },
-    "Results": [
-      {
-        "Text": "de 5 a 6 del 1ro de Ene",
-        "Type": "datetimerange",
-        "Value": {
-          "Timex": "(XXXX-01-01T05,XXXX-01-01T06,PT1H)",
-          "FutureResolution": {
-            "startDateTime": "2017-01-01 05:00:00",
-            "endDateTime": "2017-01-01 06:00:00"
-          },
-          "PastResolution": {
-            "startDateTime": "2016-01-01 05:00:00",
-            "endDateTime": "2016-01-01 06:00:00"
-          }
-        },
-        "Start": 13,
-        "Length": 23
-      }
-    ]
-  },
-  {
     "Input": "Estaré afuera de 3pm a 4pm mañana",
     "Context": {
       "ReferenceDateTime": "2016-11-07T16:12:00"
@@ -427,81 +402,6 @@
     ]
   },
   {
-    "Input": "Voy a retroceder los últimos 3 minutos",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T16:12:00"
-    },
-    "Results": [
-      {
-        "Text": "últimos 3 minutos",
-        "Type": "datetimerange",
-        "Value": {
-          "Timex": "(2016-11-07T16:09:00,2016-11-07T16:12:00,PT3M)",
-          "FutureResolution": {
-            "startDateTime": "2016-11-07 16:09:00",
-            "endDateTime": "2016-11-07 16:12:00"
-          },
-          "PastResolution": {
-            "startDateTime": "2016-11-07 16:09:00",
-            "endDateTime": "2016-11-07 16:12:00"
-          }
-        },
-        "Start": 21,
-        "Length": 17
-      }
-    ]
-  },
-  {
-    "Input": "Voy a retroceder los pasados 3 minutos",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T16:12:00"
-    },
-    "Results": [
-      {
-        "Text": "pasados 3 minutos",
-        "Type": "datetimerange",
-        "Value": {
-          "Timex": "(2016-11-07T16:09:00,2016-11-07T16:12:00,PT3M)",
-          "FutureResolution": {
-            "startDateTime": "2016-11-07 16:09:00",
-            "endDateTime": "2016-11-07 16:12:00"
-          },
-          "PastResolution": {
-            "startDateTime": "2016-11-07 16:09:00",
-            "endDateTime": "2016-11-07 16:12:00"
-          }
-        },
-        "Start": 21,
-        "Length": 17
-      }
-    ]
-  },
-  {
-    "Input": "Voy a retroceder los previos 3 minutos",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T16:12:00"
-    },
-    "Results": [
-      {
-        "Text": "previos 3 minutos",
-        "Type": "datetimerange",
-        "Value": {
-          "Timex": "(2016-11-07T16:09:00,2016-11-07T16:12:00,PT3M)",
-          "FutureResolution": {
-            "startDateTime": "2016-11-07 16:09:00",
-            "endDateTime": "2016-11-07 16:12:00"
-          },
-          "PastResolution": {
-            "startDateTime": "2016-11-07 16:09:00",
-            "endDateTime": "2016-11-07 16:12:00"
-          }
-        },
-        "Start": 21,
-        "Length": 17
-      }
-    ]
-  },
-  {
     "Input": "Voy a retroceder los anteriores 3mins",
     "Context": {
       "ReferenceDateTime": "2016-11-07T16:12:00"
@@ -523,81 +423,6 @@
         },
         "Start": 21,
         "Length": 16
-      }
-    ]
-  },
-  {
-    "Input": "Voy a volver en 3 horas",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T16:12:00"
-    },
-    "Results": [
-      {
-        "Text": "en 3 horas",
-        "Type": "datetimerange",
-        "Value": {
-          "Timex": "(2016-11-07T16:12:00,2016-11-07T19:12:00,PT3H)",
-          "FutureResolution": {
-            "startDateTime": "2016-11-07 16:12:00",
-            "endDateTime": "2016-11-07 19:12:00"
-          },
-          "PastResolution": {
-            "startDateTime": "2016-11-07 16:12:00",
-            "endDateTime": "2016-11-07 19:12:00"
-          }
-        },
-        "Start": 13,
-        "Length": 10
-      }
-    ]
-  },
-  {
-    "Input": "Voy a volver en 5 h",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T16:12:00"
-    },
-    "Results": [
-      {
-        "Text": "en 5 h",
-        "Type": "datetimerange",
-        "Value": {
-          "Timex": "(2016-11-07T16:12:00,2016-11-07T21:12:00,PT5H)",
-          "FutureResolution": {
-            "startDateTime": "2016-11-07 16:12:00",
-            "endDateTime": "2016-11-07 21:12:00"
-          },
-          "PastResolution": {
-            "startDateTime": "2016-11-07 16:12:00",
-            "endDateTime": "2016-11-07 21:12:00"
-          }
-        },
-        "Start": 13,
-        "Length": 6
-      }
-    ]
-  },
-  {
-    "Input": "Voy a volver dentro de 5 horas",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T16:12:00"
-    },
-    "Results": [
-      {
-        "Text": "dentro de 5 horas",
-        "Type": "datetimerange",
-        "Value": {
-          "Timex": "(2016-11-07T16:12:00,2016-11-07T21:12:00,PT5H)",
-          "FutureResolution": {
-            "startDateTime": "2016-11-07 16:12:00",
-            "endDateTime": "2016-11-07 21:12:00"
-          },
-          "PastResolution": {
-            "startDateTime": "2016-11-07 16:12:00",
-            "endDateTime": "2016-11-07 21:12:00"
-          }
-        },
-        "Start": 13,
-        "Length": 17
       }
     ]
   },

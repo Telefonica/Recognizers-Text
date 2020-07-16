@@ -231,17 +231,6 @@
     ]
   },
   {
-    "Input": "Volvere el 1ro de Ene",
-    "Results": [
-      {
-        "Text": "1ro de Ene",
-        "Type": "date",
-        "Start": 11,
-        "Length": 10
-      }
-    ]
-  },
-  {
     "Input": "Volvere el 28-Nov",
     "Results": [
       {

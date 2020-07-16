@@ -1173,29 +1173,6 @@
     ]
   },
   {
-    "Input": "Voy a volver 8pm de la tarde, 1ro de Ene",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T00:00:00"
-    },
-    "Results": [
-      {
-        "Text": "8pm de la tarde, 1ro de Ene",
-        "Type": "datetime",
-        "Value": {
-          "Timex": "XXXX-01-01T20",
-          "FutureResolution": {
-            "dateTime": "2017-01-01 20:00:00"
-          },
-          "PastResolution": {
-            "dateTime": "2016-01-01 20:00:00"
-          }
-        },
-        "Start": 13,
-        "Length": 27
-      }
-    ]
-  },
-  {
     "Input": "Voy a volver 4am de esta madrugada",
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"

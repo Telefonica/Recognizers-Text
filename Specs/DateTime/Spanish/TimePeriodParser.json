@@ -50,31 +50,6 @@
     ]
   },
   {
-    "Input": "Estaré afuera de 5 a siete de la mañana",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T16:12:00"
-    },
-    "Results": [
-      {
-        "Text": "de 5 a siete de la mañana",
-        "Type": "timerange",
-        "Value": {
-          "Timex": "(T05,T07,PT2H)",
-          "FutureResolution": {
-            "startTime": "05:00:00",
-            "endTime": "07:00:00"
-          },
-          "PastResolution": {
-            "startTime": "05:00:00",
-            "endTime": "07:00:00"
-          }
-        },
-        "Start": 14,
-        "Length": 25
-      }
-    ]
-  },
-  {
     "Input": "Estaré afuera desde las 5 hasta las 6 pm",
     "Context": {
       "ReferenceDateTime": "2016-11-07T16:12:00"

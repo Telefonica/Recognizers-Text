@@ -794,30 +794,6 @@
     ]
   },
   {
-    "Input": "Volví en los 3 minutos pasados",
-    "NotSupportedByDesign": "javascript",
-    "Results": [
-      {
-        "Text": "3 minutos pasados",
-        "Type": "datetimerange",
-        "Start": 13,
-        "Length": 17
-      }
-    ]
-  },
-  {
-    "Input": "Volví en los 3 minutos anteriores",
-    "NotSupportedByDesign": "javascript",
-    "Results": [
-      {
-        "Text": "3 minutos anteriores",
-        "Type": "datetimerange",
-        "Start": 13,
-        "Length": 20
-      }
-    ]
-  },
-  {
     "Input": "Volví en los últimos 3 min",
     "NotSupportedByDesign": "javascript",
     "Results": [

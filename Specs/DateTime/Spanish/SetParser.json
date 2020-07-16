@@ -240,26 +240,6 @@
     ]
   },
   {
-    "Input": "Me iré cada 3 semanas",
-    "Results": [
-      {
-        "Text": "cada 3 semanas",
-        "Type": "set",
-        "Value": {
-          "Timex": "P3W",
-          "FutureResolution": {
-            "set": "Set: P3W"
-          },
-          "PastResolution": {
-            "set": "Set: P3W"
-          }
-        },
-        "Start": 7,
-        "Length": 14
-      }
-    ]
-  },
-  {
     "Input": "Me iré a las 3pm todos los dias",
     "Results": [
       {

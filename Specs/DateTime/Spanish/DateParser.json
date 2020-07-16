@@ -460,29 +460,6 @@
     ]
   },
   {
-    "Input": "volveré 1ro de Ene",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T00:00:00"
-    },
-    "Results": [
-      {
-        "Text": "1ro de Ene",
-        "Type": "date",
-        "Value": {
-          "Timex": "XXXX-01-01",
-          "FutureResolution": {
-            "date": "2017-01-01"
-          },
-          "PastResolution": {
-            "date": "2016-01-01"
-          }
-        },
-        "Start": 8,
-        "Length": 10
-      }
-    ]
-  },
-  {
     "Input": "volveré el 1-Ene",
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
@@ -1280,29 +1257,6 @@
           },
           "PastResolution": {
             "date": "2015-12-08"
-          }
-        },
-        "Start": 11,
-        "Length": 10
-      }
-    ]
-  },
-  {
-    "Input": "volveré el 1ro de Ene",
-    "Context": {
-      "ReferenceDateTime": "2016-11-07T00:00:00"
-    },
-    "Results": [
-      {
-        "Text": "1ro de Ene",
-        "Type": "date",
-        "Value": {
-          "Timex": "XXXX-01-01",
-          "FutureResolution": {
-            "date": "2017-01-01"
-          },
-          "PastResolution": {
-            "date": "2016-01-01"
           }
         },
         "Start": 11,

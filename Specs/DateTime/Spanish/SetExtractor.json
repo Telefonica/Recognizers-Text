@@ -132,17 +132,6 @@
     ]
   },
   {
-    "Input": "me iré cada 3 semanas",
-    "Results": [
-      {
-        "Text": "cada 3 semanas",
-        "Type": "set",
-        "Start": 7,
-        "Length": 14
-      }
-    ]
-  },
-  {
     "Input": "me iré a las 3pm todos los dias",
     "Results": [
       {

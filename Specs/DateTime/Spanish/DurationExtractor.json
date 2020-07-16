@@ -11,116 +11,6 @@
     ]
   },
   {
-    "Input": "me voy por 3 dias",
-    "Results": [
-      {
-        "Text": "3 dias",
-        "Type": "duration",
-        "Start": 11,
-        "Length": 6
-      }
-    ]
-  },
-  {
-    "Input": "me voy por 3,5 años",
-    "Results": [
-      {
-        "Text": "3,5 años",
-        "Type": "duration",
-        "Start": 11,
-        "Length": 8
-      }
-    ]
-  },
-  {
-    "Input": "me voy por 3 h",
-    "Results": [
-      {
-        "Text": "3 h",
-        "Type": "duration",
-        "Start": 11,
-        "Length": 3
-      }
-    ]
-  },
-  {
-    "Input": "me voy por 3 horas",
-    "Results": [
-      {
-        "Text": "3 horas",
-        "Type": "duration",
-        "Start": 11,
-        "Length": 7
-      }
-    ]
-  },
-  {
-    "Input": "me voy 3 dias",
-    "Results": [
-      {
-        "Text": "3 dias",
-        "Type": "duration",
-        "Start": 7,
-        "Length": 6
-      }
-    ]
-  },
-  {
-    "Input": "me voy por 3 meses",
-    "Results": [
-      {
-        "Text": "3 meses",
-        "Type": "duration",
-        "Start": 11,
-        "Length": 7
-      }
-    ]
-  },
-  {
-    "Input": "me voy por 3 minutos",
-    "Results": [
-      {
-        "Text": "3 minutos",
-        "Type": "duration",
-        "Start": 11,
-        "Length": 9
-      }
-    ]
-  },
-  {
-    "Input": "me voy por 3 min",
-    "Results": [
-      {
-        "Text": "3 min",
-        "Type": "duration",
-        "Start": 11,
-        "Length": 5
-      }
-    ]
-  },
-  {
-    "Input": "me voy por 3,5 segundos ",
-    "Results": [
-      {
-        "Text": "3,5 segundos",
-        "Type": "duration",
-        "Start": 11,
-        "Length": 12
-      }
-    ]
-  },
-  {
-    "Input": "me voy por 123,45 seg",
-    "Results": [
-      {
-        "Text": "123,45 seg",
-        "Type": "duration",
-        "Start": 11,
-        "Length": 10
-      }
-    ]
-  },
-  {
     "Input": "me voy por dos semanas",
     "Results": [
       {
@@ -128,17 +18,6 @@
         "Type": "duration",
         "Start": 11,
         "Length": 11
-      }
-    ]
-  },
-  {
-    "Input": "me voy 20 minutos",
-    "Results": [
-      {
-        "Text": "20 minutos",
-        "Type": "duration",
-        "Start": 7,
-        "Length": 10
       }
     ]
   },
@@ -194,17 +73,6 @@
         "Type": "duration",
         "Start": 11,
         "Length": 11
-      }
-    ]
-  },
-  {
-    "Input": "me voy por una hora",
-    "Results": [
-      {
-        "Text": "una hora",
-        "Type": "duration",
-        "Start": 11,
-        "Length": 8
       }
     ]
   },

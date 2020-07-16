@@ -407,17 +407,6 @@
     ]
   },
   {
-    "Input": "Voy a volver 8pm de la tarde, 1ro de Enero",
-    "Results": [
-      {
-        "Text": "8pm de la tarde, 1ro de Enero",
-        "Type": "datetime",
-        "Start": 13,
-        "Length": 29
-      }
-    ]
-  },
-  {
     "Input": "Voy a volver 8pm de la tarde, 1 de Enero",
     "Results": [
       {
