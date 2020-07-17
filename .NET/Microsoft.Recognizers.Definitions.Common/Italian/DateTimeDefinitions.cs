@@ -232,6 +232,7 @@ namespace Microsoft.Recognizers.Definitions.Italian
       public const string InConnectorRegex = @"\b(in|tra|fra|a)\b";
       public static readonly string SinceYearSuffixRegex = $@"(^\s*{SinceRegex}\s*(ann[oi]\s*)?({DateYearRegex}|{FullTextYearRegex}))";
       public static readonly string WithinNextPrefixRegex = $@"\b(entro(\s+(?<next>{NextPrefixRegex}))?)\b";
+      public const string TodayNowRegex = @"\b(oggi|adesso)\b";
       public static readonly string MorningStartEndRegex = $@"(^(((di\s+|questa\s+|sta)?mattin[oa]|mattinata)|{AmDescRegex}))|((((di\s+|questa\s+|sta)?mattin[oa]|mattinata)|{AmDescRegex})$)";
       public static readonly string AfternoonStartEndRegex = $@"(^((((di|al)\s+|questo\s+|sto)?pomeriggio)|{PmDescRegex}))|(((((di|il)\s+|questo\s+|sto)?pomeriggio)|{PmDescRegex})$)";
       public const string EveningStartEndRegex = @"(^((di\s+|questa\s+|sta)?sera|serata))|(((di\s+|questa\s+|sta)?sera|serata)$)";
@@ -254,7 +255,7 @@ namespace Microsoft.Recognizers.Definitions.Italian
       public static readonly string FlexibleDayRegex = $@"(?<DayOfMonth>([A-Za-z]+\s)?({WrittenDayRegex}|{DayRegex}))";
       public static readonly string ForTheRegex = $@"\b((((?<=per\s+il\s+){FlexibleDayRegex})|((?<!(\b{MonthRegex},?|\bper)\s+(il\s+|l'))(?<=(il\s+|l')){FlexibleDayRegex}))(?<end>\s*(,|\.|!|\?|$)))";
       public static readonly string WeekDayAndDayOfMonthRegex = $@"\b{WeekDayRegex},?\s+((il\s+)?{FlexibleDayRegex})\b(?!\s+{MonthRegex}\b)";
-      public static readonly string WeekDayAndDayRegex = $@"\b{WeekDayRegex}\s*,?\s+(?!(il|l')){DayRegex}(?!([-]|(\s+({AmDescRegex}|{{PmDescRegex|{OclockRegex}}}))))\b";
+      public static readonly string WeekDayAndDayRegex = $@"\b{WeekDayRegex}\s*,?\s+(?!(il|l')){DayRegex}(?!([-:]|(\s+({AmDescRegex}|{{PmDescRegex|{OclockRegex}}}))))\b";
       public const string RestOfDateRegex = @"\bresto\s+((di|del(l[a'])?)\s*)?((quest[oa']|corrente|mia)\s*)?(?<duration>settimana|mese|anno|decennio)(\s+corrente)?\b";
       public const string RestOfDateTimeRegex = @"\bresto\s+((di|del(la)?)\s+)?((quest[oa]|corrente|mi[oa])\s+)?(?<unit>giorn(o|ata))(\s+corrente)?\b";
       public const string SuffixAfterRegex = @"\b(((a)\s)?(o|e)\s+(sopra|dopo|più\s+tardi|più\s+grande)(?!\s+di))\b";
