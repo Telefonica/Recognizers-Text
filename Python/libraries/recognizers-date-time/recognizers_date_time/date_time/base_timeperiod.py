@@ -174,12 +174,17 @@ class BaseTimePeriodExtractor(DateTimeExtractor):
                             result.append(Token(source.index(match.group()), source.index(match.group()) +
                                                 (match.end() - match.start())))
                         else:
-                            after_str = source[source.index(match.group()) + (match.end() - match.start()):]
+                            # Is there two "hour"
+                            if RegExpUtility.get_group(match, Constants.HOUR_GROUP_NAME):
+                                result.append(Token(source.index(match.group()), source.index(match.group()) +
+                                                    (match.end() - match.start())))
+                            else:
+                                after_str = source[source.index(match.group()) + (match.end() - match.start()):]
 
-                            # When TimeZone be migrated enable it
-                            if (self.config.options & DateTimeOptions.ENABLE_PREVIEW) != 0:
-                                result.append(Token(source.index(match.group()),
-                                                    source.index(match.group()) + (match.end() - match.start())))
+                                # When TimeZone be migrated enable it
+                                if (self.config.options & DateTimeOptions.ENABLE_PREVIEW) != 0:
+                                    result.append(Token(source.index(match.group()),
+                                                        source.index(match.group()) + (match.end() - match.start())))
 
         return result
 
@@ -479,6 +484,30 @@ class BaseTimePeriodParser(DateTimeParser):
                     begin_hour += 12
 
                 valid = True
+
+            # no have am or pm
+            else:
+                if 0 <= begin_hour <= 24 and 0 <= end_hour <= 24:
+                    # 12 hours format
+                    if 1 <= begin_hour <= 12 and 1 <= end_hour <= 12:
+                        if begin_hour >= end_hour:
+                            end_hour += 12
+
+                        if end_hour <= reference.hour:
+                            begin_hour += 12
+                            end_hour += 12
+
+                    # 24 hours format
+                    else:
+                        if begin_hour >= end_hour:
+                            end_hour += 24
+
+                        if end_hour <= reference.hour:
+                            begin_hour += 24
+                            end_hour += 24
+
+                    valid = True
+
         if not valid:
             return result
 

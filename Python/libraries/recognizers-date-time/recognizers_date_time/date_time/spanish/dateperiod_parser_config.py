@@ -333,13 +333,13 @@ class SpanishDatePeriodParserConfiguration(DatePeriodParserConfiguration):
 
     def is_week_only(self, source: str) -> bool:
         trimmed_source = source.strip().lower()
-        return any(trimmed_source.endswith(o) for o in SpanishDateTime.WeekTerms) and not\
-            any(trimmed_source.endswith(o)
+        return any(trimmed_source.endswith(o) or trimmed_source.startswith(o) for o in SpanishDateTime.WeekTerms) and not\
+            any(trimmed_source.endswith(o) or trimmed_source.startswith(o)
                 for o in SpanishDateTime.WeekendTerms)
 
     def is_weekend(self, source: str) -> bool:
         trimmed_source = source.strip().lower()
-        return any(trimmed_source.endswith(o) for o in SpanishDateTime.WeekendTerms)
+        return any(trimmed_source.endswith(o) or trimmed_source.startswith(o) for o in SpanishDateTime.WeekendTerms)
 
     def is_month_only(self, source: str) -> bool:
         trimmed_source = source.strip().lower()
