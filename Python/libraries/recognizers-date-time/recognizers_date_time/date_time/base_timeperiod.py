@@ -551,23 +551,7 @@ class BaseTimePeriodParser(DateTimeParser):
         begin_time: datetime = pr1.value.future_value
         end_time: datetime = pr2.value.future_value
 
-        if am_pm_str2 and am_pm_str2.endswith(Constants.AM_PM_GROUP_NAME) and\
-                end_time <= begin_time < end_time + timedelta(hours=12):
-            end_time: datetime = end_time + timedelta(hours=12)
-            pr2.value.future_value = end_time
-            pr2.timex_str = f'T{end_time.hour}'
-            if end_time.minute > 0:
-                pr2.timex_str = f'{pr2.timex_str}:{end_time.minute}'
-
-        if am_pm_str1 and am_pm_str1.endswith(Constants.AM_PM_GROUP_NAME) and\
-                end_time > begin_time + timedelta(hours=12):
-            begin_time: datetime = begin_time + timedelta(hours=12)
-            pr1.value.future_value = begin_time
-            pr1.timex_str = f'T{begin_time.hour}'
-            if begin_time.minute > 0:
-                pr1.timex_str = f'{pr1.timex_str}:{begin_time.minute}'
-
-        if end_time < begin_time:
+        if end_time <= begin_time:
             end_time = end_time + timedelta(days=1)
 
         hours = QueryProcessor.float_or_int(
