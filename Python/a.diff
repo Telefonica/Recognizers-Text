@@ -1,0 +1,327 @@
+diff --git a/Specs/DateTime/English/DateTimePeriodParser.json b/Specs/DateTime/English/DateTimePeriodParser.json
+index 81eec08c..47c46a2e 100644
+--- a/Specs/DateTime/English/DateTimePeriodParser.json
++++ b/Specs/DateTime/English/DateTimePeriodParser.json
+@@ -1834,14 +1834,14 @@
+         "Text": "2018-09-23 1p.m. to 4",
+         "Type": "datetimerange",
+         "Value": {
+-          "Timex": "(2018-09-23T13,2018-09-23T16,PT3H)",
++          "Timex": "(2018-09-23T13,2018-09-24T04,PT15H)",
+           "FutureResolution": {
+             "startDateTime": "2018-09-23 13:00:00",
+-            "endDateTime": "2018-09-23 16:00:00"
++            "endDateTime": "2018-09-23 04:00:00"
+           },
+           "PastResolution": {
+             "startDateTime": "2018-09-23 13:00:00",
+-            "endDateTime": "2018-09-23 16:00:00"
++            "endDateTime": "2018-09-23 04:00:00"
+           }
+         },
+         "Start": 41,
+@@ -1863,11 +1863,11 @@
+           "Timex": "(2018-09-23T13:30,2018-09-23T16,PT2H30M)",
+           "FutureResolution": {
+             "startDateTime": "2018-09-23 13:30:00",
+-            "endDateTime": "2018-09-23 16:00:00"
++            "endDateTime": "2018-09-24 04:00:00"
+           },
+           "PastResolution": {
+             "startDateTime": "2018-09-23 13:30:00",
+-            "endDateTime": "2018-09-23 16:00:00"
++            "endDateTime": "2018-09-24 04:00:00"
+           }
+         },
+         "Start": 41,
+diff --git a/Specs/DateTime/English/TimePeriodParser.json b/Specs/DateTime/English/TimePeriodParser.json
+index 8885dee7..23de22b9 100644
+--- a/Specs/DateTime/English/TimePeriodParser.json
++++ b/Specs/DateTime/English/TimePeriodParser.json
+@@ -846,14 +846,14 @@
+         "Text": "from 1p.m. to 4",
+         "Type": "timerange",
+         "Value": {
+-          "Timex": "(T13,T16,PT3H)",
++          "Timex": "(T13,T04,PT15H)",
+           "FutureResolution": {
+             "startTime": "13:00:00",
+-            "endTime": "16:00:00"
++            "endTime": "04:00:00"
+           },
+           "PastResolution": {
+             "startTime": "13:00:00",
+-            "endTime": "16:00:00"
++            "endTime": "04:00:00"
+           }
+         },
+         "Start": 11,
+@@ -871,14 +871,14 @@
+         "Text": "from 1:30p.m. to 4",
+         "Type": "timerange",
+         "Value": {
+-          "Timex": "(T13:30,T16,PT2H30M)",
++          "Timex": "(T13:30,T04,PT14H30M)",
+           "FutureResolution": {
+             "startTime": "13:30:00",
+-            "endTime": "16:00:00"
++            "endTime": "04:00:00"
+           },
+           "PastResolution": {
+             "startTime": "13:30:00",
+-            "endTime": "16:00:00"
++            "endTime": "04:00:00"
+           }
+         },
+         "Start": 11,
+@@ -946,14 +946,14 @@
+         "Text": "from 11 am to 3",
+         "Type": "timerange",
+         "Value": {
+-          "Timex": "(T11,T15,PT4H)",
++          "Timex": "(T11,T03,PT16H)",
+           "FutureResolution": {
+             "startTime": "11:00:00",
+-            "endTime": "15:00:00"
++            "endTime": "03:00:00"
+           },
+           "PastResolution": {
+             "startTime": "11:00:00",
+-            "endTime": "15:00:00"
++            "endTime": "03:00:00"
+           }
+         },
+         "Start": 13,
+@@ -1021,14 +1021,14 @@
+         "Text": "from 11:01 am to 11",
+         "Type": "timerange",
+         "Value": {
+-          "Timex": "(T11:01,T23,PT11H59M)",
++          "Timex": "(T11:01,T11,PT23H59M)",
+           "FutureResolution": {
+             "startTime": "11:01:00",
+-            "endTime": "23:00:00"
++            "endTime": "11:00:00"
+           },
+           "PastResolution": {
+             "startTime": "11:01:00",
+-            "endTime": "23:00:00"
++            "endTime": "11:00:00"
+           }
+         },
+         "Start": 13,
+@@ -1071,14 +1071,14 @@
+         "Text": "from 1:30 pm to 3:30",
+         "Type": "timerange",
+         "Value": {
+-          "Timex": "(T13:30,T15:30,PT2H)",
++          "Timex": "(T13:30,T03:30,PT14H)",
+           "FutureResolution": {
+             "startTime": "13:30:00",
+-            "endTime": "15:30:00"
++            "endTime": "03:30:00"
+           },
+           "PastResolution": {
+             "startTime": "13:30:00",
+-            "endTime": "15:30:00"
++            "endTime": "03:30:00"
+           }
+         },
+         "Start": 15,
+@@ -1248,13 +1248,13 @@
+         "Text": "from 1:30 to 3pm",
+         "Type": "timerange",
+         "Value": {
+-          "Timex": "(T13:30,T15,PT1H30M)",
++          "Timex": "(T01:30,T15,PT13H30M)",
+           "FutureResolution": {
+-            "startTime": "13:30:00",
++            "startTime": "01:30:00",
+             "endTime": "15:00:00"
+           },
+           "PastResolution": {
+-            "startTime": "13:30:00",
++            "startTime": "01:30:00",
+             "endTime": "15:00:00"
+           }
+         },
+diff --git a/Specs/DateTime/French/TimePeriodParser.json b/Specs/DateTime/French/TimePeriodParser.json
+index b6422dfa..824c27e8 100644
+--- a/Specs/DateTime/French/TimePeriodParser.json
++++ b/Specs/DateTime/French/TimePeriodParser.json
+@@ -34,13 +34,13 @@
+         "Text": "de 5 au 6 p.m",
+         "Type": "timerange",
+         "Value": {
+-          "Timex": "(T17,T18,PT1H)",
++          "Timex": "(T05,T18,PT13H)",
+           "FutureResolution": {
+-            "startTime": "17:00:00",
++            "startTime": "05:00:00",
+             "endTime": "18:00:00"
+           },
+           "PastResolution": {
+-            "startTime": "17:00:00",
++            "startTime": "05:00:00",
+             "endTime": "18:00:00"
+           }
+         },
+diff --git a/Specs/DateTime/Spanish/DateExtractor.json b/Specs/DateTime/Spanish/DateExtractor.json
+index 2eea7681..6d1461a7 100644
+--- a/Specs/DateTime/Spanish/DateExtractor.json
++++ b/Specs/DateTime/Spanish/DateExtractor.json
+@@ -264,13 +264,13 @@
+     ]
+   },
+   {
+-    "Input": "Volvere el Mi, 22 de Ene",
++    "Input": "Volvere el Miercoles, 22 de Ene",
+     "Results": [
+       {
+-        "Text": "Mi, 22 de Ene",
++        "Text": "Miercoles, 22 de Ene",
+         "Type": "date",
+         "Start": 11,
+-        "Length": 13
++        "Length": 20
+       }
+     ]
+   },
+diff --git a/Specs/DateTime/Spanish/DateParser.json b/Specs/DateTime/Spanish/DateParser.json
+index df4994bb..05f0f04e 100644
+--- a/Specs/DateTime/Spanish/DateParser.json
++++ b/Specs/DateTime/Spanish/DateParser.json
+@@ -506,13 +506,13 @@
+     ]
+   },
+   {
+-    "Input": "volveré el Mi, 22 de Ene",
++    "Input": "volveré el Miercoles, 22 de Ene",
+     "Context": {
+       "ReferenceDateTime": "2016-11-07T00:00:00"
+     },
+     "Results": [
+       {
+-        "Text": "Mi, 22 de Ene",
++        "Text": "Miercoles, 22 de Ene",
+         "Type": "date",
+         "Value": {
+           "Timex": "XXXX-01-22",
+@@ -524,7 +524,7 @@
+           }
+         },
+         "Start": 11,
+-        "Length": 13
++        "Length": 20
+       }
+     ]
+   },
+diff --git a/Specs/DateTime/Spanish/DatePeriodExtractor.json b/Specs/DateTime/Spanish/DatePeriodExtractor.json
+index 95e8b4cc..c29b3501 100644
+--- a/Specs/DateTime/Spanish/DatePeriodExtractor.json
++++ b/Specs/DateTime/Spanish/DatePeriodExtractor.json
+@@ -300,14 +300,14 @@
+     ]
+   },
+   {
+-    "Input": "Estare fuera del 1ro de Ene hasta Mi, 22 de Ene",
++    "Input": "Estare fuera del 1ro de Ene hasta Miercoles, 22 de Ene",
+     "NotSupportedByDesign": "javascript",
+     "Results": [
+       {
+-        "Text": "1ro de Ene hasta Mi, 22 de Ene",
++        "Text": "1ro de Ene hasta Miercoles, 22 de Ene",
+         "Type": "daterange",
+         "Start": 17,
+-        "Length": 30
++        "Length": 37
+       }
+     ]
+   },
+diff --git a/Specs/DateTime/Spanish/DatePeriodParser.json b/Specs/DateTime/Spanish/DatePeriodParser.json
+index ff8e573a..a084183c 100644
+--- a/Specs/DateTime/Spanish/DatePeriodParser.json
++++ b/Specs/DateTime/Spanish/DatePeriodParser.json
+@@ -456,13 +456,13 @@
+     ]
+   },
+   {
+-    "Input": "Estare afuera el 1ro de Ene hasta Mi, 22 de Ene",
++    "Input": "Estare afuera el 1ro de Ene hasta Miercoles, 22 de Ene",
+     "Context": {
+       "ReferenceDateTime": "2016-11-07T00:00:00"
+     },
+     "Results": [
+       {
+-        "Text": "1ro de Ene hasta Mi, 22 de Ene",
++        "Text": "1ro de Ene hasta Miercoles, 22 de Ene",
+         "Type": "daterange",
+         "Value": {
+           "Timex": "(XXXX-01-01,XXXX-01-22,P21D)",
+@@ -476,7 +476,7 @@
+           }
+         },
+         "Start": 17,
+-        "Length": 30
++        "Length": 37
+       }
+     ]
+   },
+diff --git a/Specs/DateTime/Spanish/DateTimeModel.json b/Specs/DateTime/Spanish/DateTimeModel.json
+index 69f8ae0e..3c73c016 100644
+--- a/Specs/DateTime/Spanish/DateTimeModel.json
++++ b/Specs/DateTime/Spanish/DateTimeModel.json
+@@ -59,15 +59,15 @@
+     ]
+   },
+   {
+-    "Input": "sa hoy 2018",
++    "Input": "sabado hoy 2018",
+     "Context": {
+       "ReferenceDateTime": "2018-09-28T01:00:00"
+     },
+     "Results": [
+       {
+-        "Text": "sa",
++        "Text": "sabado",
+         "Start": 0,
+-        "End": 1,
++        "End": 5,
+         "TypeName": "datetimeV2.date",
+         "Resolution": {
+           "values": [
+@@ -86,8 +86,8 @@
+       },
+       {
+         "Text": "hoy",
+-        "Start": 3,
+-        "End": 5,
++        "Start": 7,
++        "End": 9,
+         "TypeName": "datetimeV2.date",
+         "Resolution": {
+           "values": [
+@@ -101,8 +101,8 @@
+       },
+       {
+         "Text": "2018",
+-        "Start": 7,
+-        "End": 10,
++        "Start": 11,
++        "End": 14,
+         "TypeName": "datetimeV2.daterange",
+         "Resolution": {
+           "values": [
+diff --git a/Specs/DateTime/Spanish/DateTimePeriodExtractor.json b/Specs/DateTime/Spanish/DateTimePeriodExtractor.json
+index 58c7b6bb..a2a02962 100644
+--- a/Specs/DateTime/Spanish/DateTimePeriodExtractor.json
++++ b/Specs/DateTime/Spanish/DateTimePeriodExtractor.json
+@@ -574,7 +574,7 @@
+     ]
+   },
+   {
+-    "Input": "Estaré afuera desde las 16 h de 1 de ene de 2016 hasta hoy a las 17 h",
++    "Input": "Estaré afuera desde las 16 h del 1 de ene de 2016 hasta hoy a las 17 h",
+     "NotSupported": "java",
+     "NotSupportedByDesign": "javascript",
+     "Results": [
