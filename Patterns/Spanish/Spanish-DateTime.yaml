@@ -77,7 +77,7 @@ DayBetweenRegex: !nestedRegex
 SpecialYearPrefixes: !simpleRegex
   def: ((del\s+)?calend[aá]rio|(?<special>fiscal|escolar))
 OneWordPeriodRegex: !nestedRegex
-  def: \b(((((la|el)\s+)?mes\s+(({OfPrepositionRegex})\s+)?)|((pr[oó]xim[oa]?|est[ea]|[uú]ltim[oa]?)\s+))?({MonthRegex})|((la|el)\s+)?((({RelativeRegex}\s+){DateUnitRegex}(\s+{AfterNextSuffixRegex})?)|{DateUnitRegex}(\s+{AfterNextSuffixRegex}))|va\s+de\s+{DateUnitRegex})
+  def: \b(((((la|el)\s+)?mes\s+(({OfPrepositionRegex})\s+)?)|((pr[oó]xim[oa]?|est[ea]|[uú]ltim[oa]?)\s+))?({MonthRegex})|finde(\s+{AfterNextSuffixRegex})?|((la|el)\s+)?((({RelativeRegex}\s+){DateUnitRegex}(\s+{AfterNextSuffixRegex})?)|{DateUnitRegex}(\s+{AfterNextSuffixRegex}))|va\s+de\s+{DateUnitRegex})
   references: [MonthRegex, RelativeRegex, OfPrepositionRegex, AfterNextSuffixRegex,DateUnitRegex]
 MonthWithYearRegex: !nestedRegex
   def: \b(((pr[oó]xim[oa](s)?|este|esta|[uú]ltim[oa]?)\s+)?({MonthRegex})(\s+|(\s*[,-]\s*))((de|del|de la)\s+)?({YearRegex}|(?<order>pr[oó]ximo(s)?|[uú]ltimo?|este)\s+año))\b
@@ -166,7 +166,7 @@ LastDateRegex: !nestedRegex
   def: \b(([uú]ltimo)\s*{WeekDayRegex})|({WeekDayRegex}(\s+((de\s+)?(esta|la)\s+([uú]ltima\s+)?semana)))\b
   references: [ WeekDayRegex ]
 NextDateRegex: !nestedRegex
-  def: \b(((pr[oó]ximo|siguiente)\s*){WeekDayRegex})|({WeekDayRegex}(\s+(de\s+)?(la\s+)?(pr[oó]xima|siguiente)(\s*semana)))\b
+  def: \b(((pr[oó]ximo|siguiente)\s*){WeekDayRegex})|({WeekDayRegex}(\s+que\s+viene\s*))|({WeekDayRegex}(\s+(de\s+)?(la\s+)?(pr[oó]xima|siguiente)(\s*semana)))\b
   references: [ WeekDayRegex ]
 SpecialDayRegex: !simpleRegex
   def: \b((el\s+)?(d[ií]a\s+antes\s+de\s+ayer|anteayer)|((el\s+)?d[ií]a\s+(despu[eé]s\s+)?de\s+mañana|pasado\s+mañana)|(el\s)?d[ií]a siguiente|(el\s)?pr[oó]ximo\s+d[ií]a|(el\s+)?[uú]ltimo d[ií]a|(d)?el d[ií]a(?!\s+d)|ayer|mañana|hoy)\b
@@ -807,7 +807,7 @@ UpcomingPrefixRegex: !simpleRegex
   def: .^
 # TODO: modify below regex according to the counterpart in English
 NextPrefixRegex: !nestedRegex
-  def: (pr[oó]xim[oa]|siguiente|{UpcomingPrefixRegex})\b
+  def: (pr[oó]xim[oa]|siguiente|que viene|{UpcomingPrefixRegex})\b
   references: [ UpcomingPrefixRegex ]
 PastPrefixRegex: !simpleRegex
   def: .^
@@ -894,6 +894,7 @@ MorningTermList: !list
 AfternoonTermList: !list
   types: [ string ]
   entries:
+    - mediodia
     - pasado mediodia
     - pasado el mediodia
 EveningTermList: !list
@@ -935,6 +936,7 @@ MinusTwoDayTerms: !list
 MonthTerms: !list
   types: [ string ]
   entries:
+    - el mes
     - mes
     - meses
 MonthToDateTerms: !list
@@ -945,14 +947,17 @@ MonthToDateTerms: !list
 WeekendTerms: !list
   types: [ string ]
   entries:
+    - finde
     - fin de semana
 WeekTerms: !list
   types: [ string ]
   entries:
+    - la semana
     - semana
 YearTerms: !list
   types: [ string ]
   entries:
+    - el año
     - año
     - años
 YearToDateTerms: !list
