@@ -34,13 +34,13 @@
         "Text": "de 5 au 6 p.m",
         "Type": "timerange",
         "Value": {
-          "Timex": "(T17,T18,PT1H)",
+          "Timex": "(T05,T18,PT13H)",
           "FutureResolution": {
-            "startTime": "17:00:00",
+            "startTime": "05:00:00",
             "endTime": "18:00:00"
           },
           "PastResolution": {
-            "startTime": "17:00:00",
+            "startTime": "05:00:00",
             "endTime": "18:00:00"
           }
         },

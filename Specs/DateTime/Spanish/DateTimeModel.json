@@ -59,15 +59,15 @@
     ]
   },
   {
-    "Input": "sa hoy 2018",
+    "Input": "sabado hoy 2018",
     "Context": {
       "ReferenceDateTime": "2018-09-28T01:00:00"
     },
     "Results": [
       {
-        "Text": "sa",
+        "Text": "sabado",
         "Start": 0,
-        "End": 1,
+        "End": 5,
         "TypeName": "datetimeV2.date",
         "Resolution": {
           "values": [
@@ -86,8 +86,8 @@
       },
       {
         "Text": "hoy",
-        "Start": 3,
-        "End": 5,
+        "Start": 7,
+        "End": 9,
         "TypeName": "datetimeV2.date",
         "Resolution": {
           "values": [
@@ -101,8 +101,8 @@
       },
       {
         "Text": "2018",
-        "Start": 7,
-        "End": 10,
+        "Start": 11,
+        "End": 14,
         "TypeName": "datetimeV2.daterange",
         "Resolution": {
           "values": [

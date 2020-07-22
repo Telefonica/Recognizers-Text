@@ -574,7 +574,7 @@
     ]
   },
   {
-    "Input": "Estaré afuera desde las 16 h de 1 de ene de 2016 hasta hoy a las 17 h",
+    "Input": "Estaré afuera desde las 16 h del 1 de ene de 2016 hasta hoy a las 17 h",
     "NotSupported": "java",
     "NotSupportedByDesign": "javascript",
     "Results": [
