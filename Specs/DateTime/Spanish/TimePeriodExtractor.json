@@ -11,6 +11,17 @@
     ]
   },
   {
+    "Input": "Estaré afuera de 5 a 6",
+    "Results": [
+      {
+        "Text": "de 5 a 6",
+        "Type": "timerange",
+        "Start": 14,
+        "Length": 8
+      }
+    ]
+  },
+  {
     "Input": "Estaré afuera de las 5 a las 6pm",
     "Results": [
       {

@@ -25,6 +25,31 @@
     ]
   },
   {
+    "Input": "Estaré afuera de 5 a 6",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T16:12:00"
+    },
+    "Results": [
+      {
+        "Text": "de 5 a 6",
+        "Type": "timerange",
+        "Value": {
+          "Timex": "(T05,T06,PT1H)",
+          "FutureResolution": {
+            "startTime": "05:00:00",
+            "endTime": "06:00:00"
+          },
+          "PastResolution": {
+            "startTime": "05:00:00",
+            "endTime": "06:00:00"
+          }
+        },
+        "Start": 14,
+        "Length": 10
+      }
+    ]
+  },
+  {
     "Input": "Estaré afuera de 5 a 6p.m.",
     "Context": {
       "ReferenceDateTime": "2016-11-07T16:12:00"

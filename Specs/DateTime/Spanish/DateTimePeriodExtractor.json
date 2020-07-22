@@ -13,7 +13,14 @@
   {
     "Input": "Hoy estaré fuera de cinco a siete",
     "NotSupported": "javascript",
-    "Results": []
+    "Results": [
+      {
+        "Text": "hoy estaré fuera de cinco a siete",
+        "Type": "datetimerange",
+        "Start": 0,
+        "Length": 33
+      }
+    ]
   },
   {
     "Input": "Estaré fuera hoy de cinco a siete",
@@ -574,15 +581,15 @@
     ]
   },
   {
-    "Input": "Estaré afuera desde las 16 h de 1 de ene de 2016 hasta hoy a las 17 h",
+    "Input": "Estaré afuera desde las 16 h del 1 de ene de 2016 hasta hoy a las 17 h",
     "NotSupported": "java",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "desde las 16 h de 1 de ene de 2016 hasta hoy a las 17 h",
+        "Text": "desde las 16 h del 1 de ene de 2016 hasta hoy a las 17 h",
         "Type": "datetimerange",
         "Start": 14,
-        "Length": 55
+        "Length": 56
       }
     ]
   },
