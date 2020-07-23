@@ -466,11 +466,11 @@ class SpanishDateTime:
     MinusOneDayTerms = [r'ayer', r'ultimo dia']
     PlusTwoDayTerms = [r'pasado mañana', r'dia despues de mañana']
     MinusTwoDayTerms = [r'anteayer', r'dia antes de ayer']
-    MonthTerms = [r'el mes', r'los meses', r'mes', r'meses']
+    MonthTerms = [r'el mes', r'mes', r'meses']
     MonthToDateTerms = [r'mes a la fecha', r'meses a la fecha']
     WeekendTerms = [r'el fin de semana', r'fin de semana']
     WeekTerms = [r'la semana', r'semana']
-    YearTerms = [r'el año', r'los años', r'año', r'años']
+    YearTerms = [r'el año', r'año', r'años']
     YearToDateTerms = [r'año a la fecha', r'años a la fecha']
     SpecialCharactersEquivalent = dict([("á", "a"),
                                         ("é", "e"),
