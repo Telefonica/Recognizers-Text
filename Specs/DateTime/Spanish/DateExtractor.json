@@ -266,6 +266,12 @@
   {
     "Input": "Volvere el Mi, 22 de Ene",
     "Results": [
+      {
+        "Text": "22 de Ene",
+        "Type": "date",
+        "Start": 15,
+        "Length": 9
+      }
     ]
   },
   {
