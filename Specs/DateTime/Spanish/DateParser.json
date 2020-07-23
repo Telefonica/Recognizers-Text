@@ -1012,6 +1012,29 @@
     ]
   },
   {
+    "Input": "volveré el viernes que viene",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "viernes que viene",
+        "Type": "date",
+        "Value": {
+          "Timex": "2016-11-18",
+          "FutureResolution": {
+            "date": "2016-11-18"
+          },
+          "PastResolution": {
+            "date": "2016-11-18"
+          }
+        },
+        "Start": 11,
+        "Length": 22
+      }
+    ]
+  },
+  {
     "Input": "volveré el domingo de la siguiente semana",
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
