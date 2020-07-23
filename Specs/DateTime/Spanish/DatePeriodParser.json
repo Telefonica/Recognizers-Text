@@ -1411,7 +1411,7 @@
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
-    "NotSupported": "dotnet, java, python",
+    "NotSupported": "dotnet, java",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
@@ -1627,11 +1627,11 @@
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
-    "NotSupported": "dotnet, java, python",
+    "NotSupported": "dotnet, java",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "semana que viene",
+        "Text": "la semana que viene",
         "Type": "daterange",
         "Value": {
           "Timex": "2016-W46",
@@ -1645,7 +1645,7 @@
           }
         },
         "Start": 20,
-        "Length": 16
+        "Length": 19
       }
     ]
   },
@@ -2743,11 +2743,11 @@
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
-    "NotSupported": "dotnet, java, python",
+    "NotSupported": "dotnet, java",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "año que viene",
+        "Text": "el año que viene",
         "Type": "daterange",
         "Value": {
           "Timex": "2017",
@@ -2760,8 +2760,8 @@
             "endDate": "2018-01-01"
           }
         },
-        "Start": 17,
-        "Length": 13
+        "Start": 14,
+        "Length": 16
       }
     ]
   },
@@ -3349,7 +3349,7 @@
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
-    "NotSupported": "dotnet, java, python",
+    "NotSupported": "dotnet, java",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
@@ -5049,6 +5049,62 @@
         },
         "Start": 34,
         "Length": 32
+      }
+    ]
+  },
+  {
+    "Input": "Claro, vamos a hablar por skype la semana que viene",
+    "Context": {
+      "ReferenceDateTime": "2017-11-08T00:00:00"
+    },
+    "NotSupported": "dotnet, java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "la semana que viene",
+        "Type": "daterange",
+        "Value": {
+          "Timex": "2017-W46",
+          "Mod": "",
+          "FutureResolution": {
+            "startDate": "2017-11-13",
+            "endDate": "2017-11-20"
+          },
+          "PastResolution": {
+            "startDate": "2017-11-13",
+            "endDate": "2017-11-20"
+          }
+        },
+        "Start": 34,
+        "Length": 32
+      }
+    ]
+  },
+  {
+    "Input": "Claro, vamos a hablar por skype el fin de semana que viene",
+    "Context": {
+      "ReferenceDateTime": "2017-11-08T00:00:00"
+    },
+    "NotSupported": "dotnet, java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "el fin de semana que viene",
+        "Type": "daterange",
+        "Value": {
+          "Timex": "2017-W46-WE",
+          "Mod": "",
+          "FutureResolution": {
+            "startDate": "2017-11-18",
+            "endDate": "2017-11-20"
+          },
+          "PastResolution": {
+            "startDate": "2017-11-18",
+            "endDate": "2017-11-20"
+          }
+        },
+        "Start": 32,
+        "Length": 57
       }
     ]
   },
