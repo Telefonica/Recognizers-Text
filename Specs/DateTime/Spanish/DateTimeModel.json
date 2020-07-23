@@ -102,7 +102,7 @@
       {
         "Text": "2018",
         "Start": 11,
-        "End": 19,
+        "End": 14,
         "TypeName": "datetimeV2.daterange",
         "Resolution": {
           "values": [
