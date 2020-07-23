@@ -506,6 +506,29 @@
     ]
   },
   {
+    "Input": "volveré el Mi, 22 de Ene",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "22 de Ene",
+        "Type": "date",
+        "Value": {
+          "Timex": "XXXX-01-22",
+          "FutureResolution": {
+            "date": "2017-01-22"
+          },
+          "PastResolution": {
+            "date": "2016-01-22"
+          }
+        },
+        "Start": 15,
+        "Length": 16
+      }
+    ]
+  },
+  {
     "Input": "volveré el Miercoles, 22 de Ene",
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
