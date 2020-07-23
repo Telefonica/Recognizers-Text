@@ -2418,10 +2418,10 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "semana que viene",
+        "Text": "la semana que viene",
         "Type": "daterange",
-        "Start": 16,
-        "Length": 16
+        "Start": 13,
+        "Length": 19
       }
     ]
   },
@@ -2431,10 +2431,10 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "fin de semana que viene",
+        "Text": "el fin de semana que viene",
         "Type": "daterange",
-        "Start": 16,
-        "Length": 23
+        "Start": 13,
+        "Length": 26
       }
     ]
   },
@@ -2615,10 +2615,10 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "año pasado",
+        "Text": "el año pasado",
         "Type": "daterange",
-        "Start": 16,
-        "Length": 10
+        "Start": 13,
+        "Length": 13
       }
     ]
   },
@@ -2628,10 +2628,10 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "mes pasado",
+        "Text": "el mes pasado",
         "Type": "daterange",
-        "Start": 16,
-        "Length": 10
+        "Start": 13,
+        "Length": 13
       }
     ]
   },
@@ -3125,10 +3125,10 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "mes que viene",
+        "Text": "el mes que viene",
         "Type": "daterange",
-        "Start": 16,
-        "Length": 13
+        "Start": 13,
+        "Length": 16
       }
     ]
   },
@@ -3138,10 +3138,10 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "año que viene",
+        "Text": "el año que viene",
         "Type": "daterange",
-        "Start": 17,
-        "Length": 13
+        "Start": 14,
+        "Length": 16
       }
     ]
   },
@@ -3151,10 +3151,10 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "próximo mes",
+        "Text": "el próximo mes",
         "Type": "daterange",
-        "Start": 17,
-        "Length": 11
+        "Start": 14,
+        "Length": 14
       }
     ]
   },
@@ -3216,10 +3216,10 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "fin de semana",
+        "Text": "el fin de semana",
         "Type": "daterange",
-        "Start": 13,
-        "Length": 13
+        "Start": 10,
+        "Length": 16
       }
     ]
   },
@@ -4655,10 +4655,10 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "semana pasada",
+        "Text": "la semana pasada",
         "Type": "daterange",
-        "Start": 3,
-        "Length": 13
+        "Start": 0,
+        "Length": 16
       }
     ]
   },
@@ -4667,10 +4667,10 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "mes pasado",
+        "Text": "el mes pasado",
         "Type": "daterange",
-        "Start": 3,
-        "Length": 10
+        "Start": 0,
+        "Length": 13
       }
     ]
   },

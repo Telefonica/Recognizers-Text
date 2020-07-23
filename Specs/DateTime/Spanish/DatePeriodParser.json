@@ -737,7 +737,7 @@
     },
     "Results": [
       {
-        "Text": "fin de semana",
+        "Text": "el fin de semana",
         "Type": "daterange",
         "Value": {
           "Timex": "2016-W45-WE",
@@ -750,8 +750,8 @@
             "endDate": "2016-11-14"
           }
         },
-        "Start": 17,
-        "Length": 13
+        "Start": 14,
+        "Length": 16
       }
     ]
   },
@@ -837,7 +837,7 @@
     },
     "Results": [
       {
-        "Text": "próximo año",
+        "Text": "el próximo año",
         "Type": "daterange",
         "Value": {
           "Timex": "2017",
@@ -850,8 +850,8 @@
             "endDate": "2018-01-01"
           }
         },
-        "Start": 17,
-        "Length": 11
+        "Start": 14,
+        "Length": 14
       }
     ]
   },
@@ -1631,7 +1631,7 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "semana que viene",
+        "Text": "la semana que viene",
         "Type": "daterange",
         "Value": {
           "Timex": "2016-W46",
@@ -1644,8 +1644,8 @@
             "endDate": "2016-11-21"
           }
         },
-        "Start": 23,
-        "Length": 16
+        "Start": 20,
+        "Length": 19
       }
     ]
   },
@@ -2747,7 +2747,7 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "año que viene",
+        "Text": "el año que viene",
         "Type": "daterange",
         "Value": {
           "Timex": "2017",
@@ -2760,8 +2760,8 @@
             "endDate": "2018-01-01"
           }
         },
-        "Start": 17,
-        "Length": 13
+        "Start": 14,
+        "Length": 16
       }
     ]
   },
@@ -5061,7 +5061,7 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "semana que viene",
+        "Text": "la semana que viene",
         "Type": "daterange",
         "Value": {
           "Timex": "2017-W46",
@@ -5075,8 +5075,8 @@
             "endDate": "2017-11-20"
           }
         },
-        "Start": 37,
-        "Length": 29
+        "Start": 34,
+        "Length": 32
       }
     ]
   },
@@ -5089,7 +5089,7 @@
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "fin de semana que viene",
+        "Text": "el fin de semana que viene",
         "Type": "daterange",
         "Value": {
           "Timex": "2017-W46-WE",
@@ -5103,8 +5103,8 @@
             "endDate": "2017-11-20"
           }
         },
-        "Start": 35,
-        "Length": 54
+        "Start": 32,
+        "Length": 57
       }
     ]
   },
