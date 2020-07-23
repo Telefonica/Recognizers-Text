@@ -456,13 +456,13 @@
     ]
   },
   {
-    "Input": "Estare afuera el 1ro de Ene hasta Mi, 22 de Ene",
+    "Input": "Estare afuera el 1ro de Ene hasta Miercoles, 22 de Ene",
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
     "Results": [
       {
-        "Text": "1ro de Ene hasta Mi, 22 de Ene",
+        "Text": "1ro de Ene hasta Miercoles, 22 de Ene",
         "Type": "daterange",
         "Value": {
           "Timex": "(XXXX-01-01,XXXX-01-22,P21D)",
@@ -476,7 +476,7 @@
           }
         },
         "Start": 17,
-        "Length": 30
+        "Length": 37
       }
     ]
   },

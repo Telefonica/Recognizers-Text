@@ -506,13 +506,13 @@
     ]
   },
   {
-    "Input": "volveré el Mi, 22 de Ene",
+    "Input": "volveré el Miercoles, 22 de Ene",
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
     "Results": [
       {
-        "Text": "Mi, 22 de Ene",
+        "Text": "Miercoles, 22 de Ene",
         "Type": "date",
         "Value": {
           "Timex": "XXXX-01-22",
@@ -524,7 +524,7 @@
           }
         },
         "Start": 11,
-        "Length": 13
+        "Length": 20
       }
     ]
   },

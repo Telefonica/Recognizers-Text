@@ -153,7 +153,7 @@ FromRegex: !simpleRegex
 BetweenRegex: !simpleRegex
   def: (entre\s*(la(s)?)?)
 WeekDayRegex: !simpleRegex
-  def: \b(?<weekday>domingos?|lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bados?|lun|mar|mi[eé]|jue|vie|s[aá]b|dom|lu|ma|mi|ju|vi|s[aá]|do)\b
+  def: \b(?<weekday>domingos?|lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bados?|lun|mar|mi[eé]|jue|vie|s[aá]b|dom)\b
 OnRegex: !nestedRegex
   def: (?<=\ben\s+)({DayRegex}s?)\b
   references: [ DayRegex ]
@@ -654,13 +654,6 @@ DayOfWeek: !dictionary
     sabado: 6
     sábado: 6
     domingo: 0
-    lu: 1
-    ma: 2
-    mi: 3
-    ju: 4
-    vi: 5
-    sa: 6
-    do: 0
 MonthOfYear: !dictionary
   types: [ string, int ]
   entries:

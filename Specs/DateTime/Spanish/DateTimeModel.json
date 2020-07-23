@@ -59,15 +59,15 @@
     ]
   },
   {
-    "Input": "sa hoy 2018",
+    "Input": "sabado hoy 2018",
     "Context": {
       "ReferenceDateTime": "2018-09-28T01:00:00"
     },
     "Results": [
       {
-        "Text": "sa",
+        "Text": "sabado",
         "Start": 0,
-        "End": 1,
+        "End": 5,
         "TypeName": "datetimeV2.date",
         "Resolution": {
           "values": [
