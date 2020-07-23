@@ -936,7 +936,6 @@ MonthTerms: !list
   types: [ string ]
   entries:
     - el mes
-    - los meses
     - mes
     - meses
 MonthToDateTerms: !list
@@ -958,7 +957,6 @@ YearTerms: !list
   types: [ string ]
   entries:
     - el año
-    - los años
     - año
     - años
 YearToDateTerms: !list
