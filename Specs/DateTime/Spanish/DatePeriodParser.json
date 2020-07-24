@@ -2199,7 +2199,7 @@
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
-    "NotSupported": "java, python",
+    "NotSupported": "java",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
@@ -2222,15 +2222,42 @@
     ]
   },
   {
+    "Input": "el finde",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T00:00:00"
+    },
+    "NotSupported": "java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "el finde",
+        "Type": "daterange",
+        "Value": {
+          "Timex": "2016-W45-WE",
+          "FutureResolution": {
+            "startDate": "2016-11-12",
+            "endDate": "2016-11-14"
+          },
+          "PastResolution": {
+            "startDate": "2016-11-12",
+            "endDate": "2016-11-14"
+          }
+        },
+        "Start": 0,
+        "Length": 8
+      }
+    ]
+  },
+  {
     "Input": "este fin de semana",
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
-    "NotSupported": "dotnet, java, python",
+    "NotSupported": "dotnet, java",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "",
+        "Text": "este fin de semana",
         "Type": "daterange",
         "Value": {
           "Timex": "2016-W45-WE",
@@ -2253,7 +2280,7 @@
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
-    "NotSupported": "dotnet, java, python",
+    "NotSupported": "dotnet, java",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
@@ -2685,7 +2712,7 @@
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
-    "NotSupported": "dotnet, java, python",
+    "NotSupported": "dotnet, java",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
@@ -2712,7 +2739,7 @@
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
     },
-    "NotSupported": "dotnet, java, python",
+    "NotSupported": "dotnet, java",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
@@ -5155,6 +5182,34 @@
         },
         "Start": 32,
         "Length": 57
+      }
+    ]
+  },
+  {
+    "Input": "Claro, vamos a hablar por skype el finde que viene",
+    "Context": {
+      "ReferenceDateTime": "2017-11-08T00:00:00"
+    },
+    "NotSupported": "dotnet, java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "el finde que viene",
+        "Type": "daterange",
+        "Value": {
+          "Timex": "2017-W46-WE",
+          "Mod": "",
+          "FutureResolution": {
+            "startDate": "2017-11-18",
+            "endDate": "2017-11-20"
+          },
+          "PastResolution": {
+            "startDate": "2017-11-18",
+            "endDate": "2017-11-20"
+          }
+        },
+        "Start": 32,
+        "Length": 49
       }
     ]
   },

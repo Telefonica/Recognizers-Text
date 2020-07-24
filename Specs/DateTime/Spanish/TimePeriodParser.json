@@ -2020,5 +2020,55 @@
         "Length": 15
       }
     ]
+  },
+  {
+    "Input": "volveré a mediodia",
+    "Context": {
+      "ReferenceDateTime": "2019-12-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "mediodia",
+        "Type": "timerange",
+        "Value": {
+          "Timex": "TAF",
+          "FutureResolution": {
+            "startTime": "12:00:00",
+            "endTime": "16:00:00"
+          },
+          "PastResolution": {
+            "startTime": "12:00:00",
+            "endTime": "16:00:00"
+          }
+        },
+        "Start": 10,
+        "Length": 8
+      }
+    ]
+  },
+  {
+    "Input": "volveré pasado mediodia",
+    "Context": {
+      "ReferenceDateTime": "2019-12-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "pasado mediodia",
+        "Type": "timerange",
+        "Value": {
+          "Timex": "TAF",
+          "FutureResolution": {
+            "startTime": "12:00:00",
+            "endTime": "16:00:00"
+          },
+          "PastResolution": {
+            "startTime": "12:00:00",
+            "endTime": "16:00:00"
+          }
+        },
+        "Start": 8,
+        "Length": 15
+      }
+    ]
   }
 ]

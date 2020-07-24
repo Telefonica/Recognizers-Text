@@ -2450,6 +2450,19 @@
     ]
   },
   {
+    "Input": "Ya no estaré el finde que viene",
+    "NotSupported": "java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "el finde que viene",
+        "Type": "daterange",
+        "Start": 13,
+        "Length": 18
+      }
+    ]
+  },
+  {
     "Input": "Ya no estaré el último sept",
     "NotSupported": "java",
     "NotSupportedByDesign": "javascript",
