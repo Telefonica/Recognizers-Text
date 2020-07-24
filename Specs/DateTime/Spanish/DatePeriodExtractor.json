@@ -2426,6 +2426,19 @@
     ]
   },
   {
+    "Input": "Ya no estaré el fin de semana que viene",
+    "NotSupported": "java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "el fin de semana que viene",
+        "Type": "daterange",
+        "Start": 13,
+        "Length": 26
+      }
+    ]
+  },
+  {
     "Input": "Ya no estaré el último sept",
     "NotSupported": "java",
     "NotSupportedByDesign": "javascript",
@@ -3115,6 +3128,19 @@
         "Text": "el mes que viene",
         "Type": "daterange",
         "Start": 13,
+        "Length": 16
+      }
+    ]
+  },
+  {
+    "Input": "vacaciones en el año que viene",
+    "NotSupported": "java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "el año que viene",
+        "Type": "daterange",
+        "Start": 14,
         "Length": 16
       }
     ]

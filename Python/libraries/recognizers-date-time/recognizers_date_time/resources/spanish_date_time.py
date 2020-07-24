@@ -79,7 +79,7 @@ class SpanishDateTime:
     RelaxedOnRegex = f'(?<=\\b(en|d?el)\\s+)((?<day>10|11|12|13|14|15|16|17|18|19|1st|20|21|22|23|24|25|26|27|28|29|2|30|31|3|4|5|6|7|8|9)s?)\\b'
     ThisRegex = f'\\b((este\\s*){WeekDayRegex})|({WeekDayRegex}\\s*((de\\s+)?esta\\s+semana))\\b'
     LastDateRegex = f'\\b(([uú]ltimo)\\s*{WeekDayRegex})|({WeekDayRegex}(\\s+((de\\s+)?(esta|la)\\s+([uú]ltima\\s+)?semana)))\\b'
-    NextDateRegex = f'\\b(((pr[oó]ximo|siguiente)\\s*){WeekDayRegex})|({WeekDayRegex}(\\s+(de\\s+)?(la\\s+)?(pr[oó]xima|siguiente)(\\s*semana)))\\b'
+    NextDateRegex = f'\\b(((pr[oó]ximo|siguiente)\\s*){WeekDayRegex})|({WeekDayRegex}(\\s+que\\s+viene\\s*))|({WeekDayRegex}(\\s+(de\\s+)?(la\\s+)?(pr[oó]xima|siguiente)(\\s*semana)))\\b'
     SpecialDayRegex = f'\\b((el\\s+)?(d[ií]a\\s+antes\\s+de\\s+ayer|anteayer)|((el\\s+)?d[ií]a\\s+(despu[eé]s\\s+)?de\\s+mañana|pasado\\s+mañana)|(el\\s)?d[ií]a siguiente|(el\\s)?pr[oó]ximo\\s+d[ií]a|(el\\s+)?[uú]ltimo d[ií]a|(d)?el d[ií]a(?!\\s+d)|ayer|mañana|hoy)\\b'
     SpecialDayWithNumRegex = f'^[.]'
     ForTheRegex = f'^[.]'
@@ -428,7 +428,7 @@ class SpanishDateTime:
     TokenBeforeDate = 'el '
     TokenBeforeTime = 'a las '
     UpcomingPrefixRegex = f'.^'
-    NextPrefixRegex = f'(pr[oó]xim[oa]|siguiente|{UpcomingPrefixRegex})\\b'
+    NextPrefixRegex = f'(pr[oó]xim[oa]|siguiente|que viene|{UpcomingPrefixRegex})\\b'
     PastPrefixRegex = f'.^'
     PreviousPrefixRegex = f'([uú]ltim[oa]|{PastPrefixRegex})\\b'
     PreviousSuffixRegex = f'\\b(pasad[ao])\\b'
@@ -466,11 +466,11 @@ class SpanishDateTime:
     MinusOneDayTerms = [r'ayer', r'ultimo dia']
     PlusTwoDayTerms = [r'pasado mañana', r'dia despues de mañana']
     MinusTwoDayTerms = [r'anteayer', r'dia antes de ayer']
-    MonthTerms = [r'mes', r'meses']
+    MonthTerms = [r'el mes', r'mes', r'meses']
     MonthToDateTerms = [r'mes a la fecha', r'meses a la fecha']
-    WeekendTerms = [r'finde', r'fin de semana']
-    WeekTerms = [r'semana']
-    YearTerms = [r'año', r'años']
+    WeekendTerms = [r'finde', r'el fin de semana', r'fin de semana']
+    WeekTerms = [r'la semana', r'semana']
+    YearTerms = [r'el año', r'año', r'años']
     YearToDateTerms = [r'año a la fecha', r'años a la fecha']
     SpecialCharactersEquivalent = dict([("á", "a"),
                                         ("é", "e"),
