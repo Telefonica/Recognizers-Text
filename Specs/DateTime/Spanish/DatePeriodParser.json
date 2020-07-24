@@ -756,6 +756,31 @@
     ]
   },
   {
+    "Input": "Estare afuera el finde",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "el finde",
+        "Type": "daterange",
+        "Value": {
+          "Timex": "2016-W45-WE",
+          "FutureResolution": {
+            "startDate": "2016-11-12",
+            "endDate": "2016-11-14"
+          },
+          "PastResolution": {
+            "startDate": "2016-11-12",
+            "endDate": "2016-11-14"
+          }
+        },
+        "Start": 14,
+        "Length": 18
+      }
+    ]
+  },
+  {
     "Input": "Estare afuera este fin de semana",
     "Context": {
       "ReferenceDateTime": "2016-11-07T00:00:00"
@@ -777,6 +802,31 @@
         },
         "Start": 14,
         "Length": 18
+      }
+    ]
+  },
+  {
+    "Input": "Estare afuera este finde",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "este finde",
+        "Type": "daterange",
+        "Value": {
+          "Timex": "2016-W45-WE",
+          "FutureResolution": {
+            "startDate": "2016-11-12",
+            "endDate": "2016-11-14"
+          },
+          "PastResolution": {
+            "startDate": "2016-11-12",
+            "endDate": "2016-11-14"
+          }
+        },
+        "Start": 14,
+        "Length": 10
       }
     ]
   },
