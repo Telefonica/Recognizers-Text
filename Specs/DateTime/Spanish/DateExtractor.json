@@ -583,6 +583,19 @@
     ]
   },
   {
+    "Input": "Ya no estaré el lunes que viene",
+    "NotSupported": "java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "lunes que viene",
+        "Type": "date",
+        "Start": 16,
+        "Length": 15
+      }
+    ]
+  },
+  {
     "Input": "Volvere el domingo de la siguiente semana",
     "Results": [
       {
