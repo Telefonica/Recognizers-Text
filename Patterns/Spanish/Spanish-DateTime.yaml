@@ -77,7 +77,7 @@ DayBetweenRegex: !nestedRegex
 SpecialYearPrefixes: !simpleRegex
   def: ((del\s+)?calend[aá]rio|(?<special>fiscal|escolar))
 OneWordPeriodRegex: !nestedRegex
-  def: \b(((((la|el)\s+)?mes\s+(({OfPrepositionRegex})\s+)?)|((pr[oó]xim[oa]?|est[ea]|[uú]ltim[oa]?)\s+))?({MonthRegex})|((la|el)\s+)?((({RelativeRegex}\s+){DateUnitRegex}(\s+{AfterNextSuffixRegex})?)|{DateUnitRegex}(\s+{AfterNextSuffixRegex}))|va\s+de\s+{DateUnitRegex})
+  def: \b(((((la|el)\s+)?mes\s+(({OfPrepositionRegex})\s+)?)|((pr[oó]xim[oa]?|est[ea]|[uú]ltim[oa]?)\s+))?({MonthRegex})|((la|el)\s+)?finde(\s+{AfterNextSuffixRegex})?|((la|el)\s+)?((({RelativeRegex}\s+)({DateUnitRegex}|finde)(\s+{AfterNextSuffixRegex})?)|((la|el)\s+)?({DateUnitRegex}|finde)(\s+{AfterNextSuffixRegex}))|va\s+de\s+({DateUnitRegex}|finde))
   references: [MonthRegex, RelativeRegex, OfPrepositionRegex, AfterNextSuffixRegex,DateUnitRegex]
 MonthWithYearRegex: !nestedRegex
   def: \b(((pr[oó]xim[oa](s)?|este|esta|[uú]ltim[oa]?)\s+)?({MonthRegex})(\s+|(\s*[,-]\s*))((de|del|de la)\s+)?({YearRegex}|(?<order>pr[oó]ximo(s)?|[uú]ltimo?|este)\s+año))\b
@@ -822,7 +822,7 @@ RelativeDurationUnitRegex: !simpleRegex
 ReferencePrefixRegex: !simpleRegex
   def: (mism[ao]|aquel)\b
 ReferenceDatePeriodRegex: !nestedRegex
-  def: \b{ReferencePrefixRegex}\s+({DateUnitRegex}|fin\s+de\s+semana)\b
+  def: \b{ReferencePrefixRegex}\s+({DateUnitRegex}|fin\s+de\s+semana|finde)\b
   references: [ReferencePrefixRegex, DateUnitRegex]
 FromToRegex: !simpleRegex
   # TODO: change to Spanish according to corresponding Regex
@@ -887,6 +887,7 @@ MorningTermList: !list
 AfternoonTermList: !list
   types: [ string ]
   entries:
+    - mediodia
     - pasado mediodia
     - pasado el mediodia
 EveningTermList: !list
@@ -939,6 +940,8 @@ MonthToDateTerms: !list
 WeekendTerms: !list
   types: [ string ]
   entries:
+    - el finde
+    - finde
     - el fin de semana
     - fin de semana
 WeekTerms: !list

@@ -216,7 +216,8 @@ class SpanishDateTimePeriodParserConfiguration(DateTimePeriodParserConfiguration
             time_str = 'TMO'
             begin_hour = 8
             end_hour = Constants.HALF_DAY_HOUR_COUNT
-        elif 'pasado mediodia' in trimmed_source or 'pasado el mediodia' in trimmed_source:
+        elif ('mediodia' in trimmed_source or 'pasado mediodia' in trimmed_source or
+              'pasado el mediodia' in trimmed_source):
             time_str = 'TAF'
             begin_hour = Constants.HALF_DAY_HOUR_COUNT
             end_hour = 16

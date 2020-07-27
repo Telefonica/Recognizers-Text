@@ -2889,5 +2889,205 @@
         "Length": 21
       }
     ]
+  },
+  {
+    "Input": "hoy a mediodia",
+    "Context": {
+      "ReferenceDateTime": "2019-12-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "hoy a mediodia",
+        "Type": "datetimerange",
+        "Value": {
+          "Timex": "2019-12-07TAF",
+          "FutureResolution": {
+            "startDateTime": "2019-12-07 12:00:00",
+            "endDateTime": "2019-12-07 16:00:00"
+          },
+          "PastResolution": {
+            "startDateTime": "2019-12-07 12:00:00",
+            "endDateTime": "2019-12-07 16:00:00"
+          }
+        },
+        "Start": 0,
+        "Length": 14
+      }
+    ]
+  },
+  {
+    "Input": "hoy mediodia",
+    "Context": {
+      "ReferenceDateTime": "2019-12-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "hoy mediodia",
+        "Type": "datetimerange",
+        "Value": {
+          "Timex": "2019-12-07TAF",
+          "FutureResolution": {
+            "startDateTime": "2019-12-07 12:00:00",
+            "endDateTime": "2019-12-07 16:00:00"
+          },
+          "PastResolution": {
+            "startDateTime": "2019-12-07 12:00:00",
+            "endDateTime": "2019-12-07 16:00:00"
+          }
+        },
+        "Start": 0,
+        "Length": 12
+      }
+    ]
+  },
+  {
+    "Input": "hoy pasado mediodia",
+    "Context": {
+      "ReferenceDateTime": "2019-12-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "hoy pasado mediodia",
+        "Type": "datetimerange",
+        "Value": {
+          "Timex": "2019-12-07TAF",
+          "FutureResolution": {
+            "startDateTime": "2019-12-07 12:00:00",
+            "endDateTime": "2019-12-07 16:00:00"
+          },
+          "PastResolution": {
+            "startDateTime": "2019-12-07 12:00:00",
+            "endDateTime": "2019-12-07 16:00:00"
+          }
+        },
+        "Start": 0,
+        "Length": 19
+      }
+    ]
+  },
+  {
+    "Input": "hoy pasado el mediodia",
+    "Context": {
+      "ReferenceDateTime": "2019-12-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "hoy pasado el mediodia",
+        "Type": "datetimerange",
+        "Value": {
+          "Timex": "2019-12-07TAF",
+          "FutureResolution": {
+            "startDateTime": "2019-12-07 12:00:00",
+            "endDateTime": "2019-12-07 16:00:00"
+          },
+          "PastResolution": {
+            "startDateTime": "2019-12-07 12:00:00",
+            "endDateTime": "2019-12-07 16:00:00"
+          }
+        },
+        "Start": 0,
+        "Length": 22
+      }
+    ]
+  },
+  {
+    "Input": "ayer a mediodia",
+    "Context": {
+      "ReferenceDateTime": "2019-12-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "ayer a mediodia",
+        "Type": "datetimerange",
+        "Value": {
+          "Timex": "2019-12-06TAF",
+          "FutureResolution": {
+            "startDateTime": "2019-12-06 12:00:00",
+            "endDateTime": "2019-12-06 16:00:00"
+          },
+          "PastResolution": {
+            "startDateTime": "2019-12-06 12:00:00",
+            "endDateTime": "2019-12-06 16:00:00"
+          }
+        },
+        "Start": 0,
+        "Length": 15
+      }
+    ]
+  },
+  {
+    "Input": "ayer mediodia",
+    "Context": {
+      "ReferenceDateTime": "2019-12-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "ayer mediodia",
+        "Type": "datetimerange",
+        "Value": {
+          "Timex": "2019-12-06TAF",
+          "FutureResolution": {
+            "startDateTime": "2019-12-06 12:00:00",
+            "endDateTime": "2019-12-06 16:00:00"
+          },
+          "PastResolution": {
+            "startDateTime": "2019-12-06 12:00:00",
+            "endDateTime": "2019-12-06 16:00:00"
+          }
+        },
+        "Start": 0,
+        "Length": 13
+      }
+    ]
+  },
+  {
+    "Input": "ayer pasado mediodia",
+    "Context": {
+      "ReferenceDateTime": "2019-12-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "ayer pasado mediodia",
+        "Type": "datetimerange",
+        "Value": {
+          "Timex": "2019-12-06TAF",
+          "FutureResolution": {
+            "startDateTime": "2019-12-06 12:00:00",
+            "endDateTime": "2019-12-06 16:00:00"
+          },
+          "PastResolution": {
+            "startDateTime": "2019-12-06 12:00:00",
+            "endDateTime": "2019-12-06 16:00:00"
+          }
+        },
+        "Start": 0,
+        "Length": 20
+      }
+    ]
+  },
+  {
+    "Input": "ayer pasado el mediodia",
+    "Context": {
+      "ReferenceDateTime": "2019-12-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "ayer pasado el mediodia",
+        "Type": "datetimerange",
+        "Value": {
+          "Timex": "2019-12-06TAF",
+          "FutureResolution": {
+            "startDateTime": "2019-12-06 12:00:00",
+            "endDateTime": "2019-12-06 16:00:00"
+          },
+          "PastResolution": {
+            "startDateTime": "2019-12-06 12:00:00",
+            "endDateTime": "2019-12-06 16:00:00"
+          }
+        },
+        "Start": 0,
+        "Length": 23
+      }
+    ]
   }
 ]

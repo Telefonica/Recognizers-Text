@@ -190,6 +190,17 @@
     ]
   },
   {
+    "Input": "Estare afuera este finde",
+    "Results": [
+      {
+        "Text": "este finde",
+        "Type": "daterange",
+        "Start": 14,
+        "Length": 10
+      }
+    ]
+  },
+  {
     "Input": "Estare afuera la tercera semana de este mes",
     "Results": [
       {
@@ -2439,6 +2450,19 @@
     ]
   },
   {
+    "Input": "Ya no estaré el finde que viene",
+    "NotSupported": "java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "el finde que viene",
+        "Type": "daterange",
+        "Start": 13,
+        "Length": 18
+      }
+    ]
+  },
+  {
     "Input": "Ya no estaré el último sept",
     "NotSupported": "java",
     "NotSupportedByDesign": "javascript",
@@ -2500,6 +2524,19 @@
         "Type": "daterange",
         "Start": 13,
         "Length": 18
+      }
+    ]
+  },
+  {
+    "Input": "Ya no estaré este finde",
+    "NotSupported": "java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "este finde",
+        "Type": "daterange",
+        "Start": 13,
+        "Length": 10
       }
     ]
   },
@@ -3220,6 +3257,19 @@
         "Type": "daterange",
         "Start": 10,
         "Length": 16
+      }
+    ]
+  },
+  {
+    "Input": "Me iré en el finde",
+    "NotSupported": "java",
+    "NotSupportedByDesign": "javascript",
+    "Results": [
+      {
+        "Text": "el finde",
+        "Type": "daterange",
+        "Start": 10,
+        "Length": 8
       }
     ]
   },
