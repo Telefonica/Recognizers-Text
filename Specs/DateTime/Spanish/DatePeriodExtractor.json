@@ -311,14 +311,14 @@
     ]
   },
   {
-    "Input": "Estare fuera del 1ro de Ene hasta Mi, 22 de Ene",
+    "Input": "Estare fuera del 1ro de Ene hasta Miercoles, 22 de Ene",
     "NotSupportedByDesign": "javascript",
     "Results": [
       {
-        "Text": "1ro de Ene hasta Mi, 22 de Ene",
+        "Text": "1ro de Ene hasta Miercoles, 22 de Ene",
         "Type": "daterange",
         "Start": 17,
-        "Length": 30
+        "Length": 37
       }
     ]
   },

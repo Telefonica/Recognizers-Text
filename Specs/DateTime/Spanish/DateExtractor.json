@@ -267,10 +267,21 @@
     "Input": "Volvere el Mi, 22 de Ene",
     "Results": [
       {
-        "Text": "Mi, 22 de Ene",
+        "Text": "22 de Ene",
+        "Type": "date",
+        "Start": 15,
+        "Length": 9
+      }
+    ]
+  },
+  {
+    "Input": "Volvere el Miercoles, 22 de Ene",
+    "Results": [
+      {
+        "Text": "Miercoles, 22 de Ene",
         "Type": "date",
         "Start": 11,
-        "Length": 13
+        "Length": 20
       }
     ]
   },
