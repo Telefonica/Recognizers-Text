@@ -74,7 +74,7 @@ class SpanishDateTime:
     TodayNowRegex = f'\\b(hoy|ahora)\\b'
     FromRegex = f'((de(sde)?)(\\s*la(s)?)?)$'
     BetweenRegex = f'(entre\\s*(la(s)?)?)'
-    WeekDayRegex = f'\\b(?<weekday>domingos?|lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bados?|lun|mar|mi[eé]|jue|vie|s[aá]b|dom|lu|ma|mi|ju|vi|s[aá]|do)\\b'
+    WeekDayRegex = f'\\b(?<weekday>domingos?|lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bados?|lun|mar|mi[eé]|jue|vie|s[aá]b|dom)\\b'
     OnRegex = f'(?<=\\ben\\s+)({DayRegex}s?)\\b'
     RelaxedOnRegex = f'(?<=\\b(en|d?el)\\s+)((?<day>10|11|12|13|14|15|16|17|18|19|1st|20|21|22|23|24|25|26|27|28|29|2|30|31|3|4|5|6|7|8|9)s?)\\b'
     ThisRegex = f'\\b((este\\s*){WeekDayRegex})|({WeekDayRegex}\\s*((de\\s+)?esta\\s+semana))\\b'
@@ -294,14 +294,7 @@ class SpanishDateTime:
                       ("viernes", 5),
                       ("sabado", 6),
                       ("sábado", 6),
-                      ("domingo", 0),
-                      ("lu", 1),
-                      ("ma", 2),
-                      ("mi", 3),
-                      ("ju", 4),
-                      ("vi", 5),
-                      ("sa", 6),
-                      ("do", 0)])
+                      ("domingo", 0)])
     MonthOfYear = dict([("enero", 1),
                         ("febrero", 2),
                         ("marzo", 3),

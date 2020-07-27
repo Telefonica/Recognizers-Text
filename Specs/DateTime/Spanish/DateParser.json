@@ -512,7 +512,30 @@
     },
     "Results": [
       {
-        "Text": "Mi, 22 de Ene",
+        "Text": "22 de Ene",
+        "Type": "date",
+        "Value": {
+          "Timex": "XXXX-01-22",
+          "FutureResolution": {
+            "date": "2017-01-22"
+          },
+          "PastResolution": {
+            "date": "2016-01-22"
+          }
+        },
+        "Start": 15,
+        "Length": 16
+      }
+    ]
+  },
+  {
+    "Input": "volveré el Miercoles, 22 de Ene",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "Miercoles, 22 de Ene",
         "Type": "date",
         "Value": {
           "Timex": "XXXX-01-22",
@@ -524,7 +547,7 @@
           }
         },
         "Start": 11,
-        "Length": 13
+        "Length": 20
       }
     ]
   },
@@ -1746,5 +1769,12 @@
         "Length": 8
       }
     ]
+  },
+  {
+    "Input": "Tengo 5 monedas en mi cartera",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T00:00:00"
+    },
+    "Results": []
   }
 ]
