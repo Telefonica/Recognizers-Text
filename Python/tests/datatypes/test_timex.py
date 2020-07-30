@@ -1,4 +1,3 @@
-import pytest
 from datatypes_timex_expression import Timex, datetime, Time
 
 
@@ -83,6 +82,7 @@ def test_datatypes_timex_tonaturallanguage():
 
 def test_datatypes_timex_fromtime():
     assert Timex.from_time(Time(23, 59, 30)).timex_value() == 'T23:59:30'
+
 
 def test_datatypes_helpers_equal():
     reference_date = datetime.now()

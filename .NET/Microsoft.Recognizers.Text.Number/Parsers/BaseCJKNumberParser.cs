@@ -111,8 +111,8 @@ namespace Microsoft.Recognizers.Text.Number
                 }
             }
 
-            // Japanese determine the subtype
-            if (Config.CultureInfo.Name == "ja-JP" && ret != null)
+            // TODO: Refacoring this check to determine the subtype for JA and KO
+            if ((Config.CultureInfo.Name == "ja-JP" || Config.CultureInfo.Name == "ko-KR") && ret != null)
             {
                 ret.Type = DetermineType(extResult);
                 ret.Text = ret.Text.ToLowerInvariant();
@@ -135,6 +135,9 @@ namespace Microsoft.Recognizers.Text.Number
             var resultText = extResult.Text;
             var splitResult = Config.FracSplitRegex.Split(resultText);
             string intPart = string.Empty, demoPart = string.Empty, numPart = string.Empty;
+
+            // TODO: Refactor to support half (eg. KO: 반, JA: 半)
+
             if (splitResult.Length == 3)
             {
                 intPart = splitResult[0];

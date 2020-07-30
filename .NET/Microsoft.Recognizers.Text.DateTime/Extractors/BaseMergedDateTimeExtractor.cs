@@ -11,6 +11,8 @@ namespace Microsoft.Recognizers.Text.DateTime
 {
     public class BaseMergedDateTimeExtractor : IDateTimeExtractor
     {
+        private static readonly Regex NumberOrConnectorRegex = new Regex(@"^[0-9-]+$", RegexOptions.Compiled);
+
         private readonly IMergedExtractorConfiguration config;
 
         public BaseMergedDateTimeExtractor(IMergedExtractorConfiguration config)
@@ -108,12 +110,11 @@ namespace Microsoft.Recognizers.Text.DateTime
 
             var originText = text;
             List<MatchResult<string>> superfluousWordMatches = null;
+
+            // Push
             if ((this.config.Options & DateTimeOptions.EnablePreview) != 0)
             {
-                text = MatchingUtil.PreProcessTextRemoveSuperfluousWords(
-                    text,
-                    this.config.SuperfluousWordMatcher,
-                    out superfluousWordMatches);
+                text = MatchingUtil.PreProcessTextRemoveSuperfluousWords(text, this.config.SuperfluousWordMatcher, out superfluousWordMatches);
             }
 
             // The order is important, since there can be conflicts in merging
@@ -157,6 +158,7 @@ namespace Microsoft.Recognizers.Text.DateTime
 
             ret = ret.OrderBy(p => p.Start).ToList();
 
+            // Pop
             if ((this.config.Options & DateTimeOptions.EnablePreview) != 0)
             {
                 ret = MatchingUtil.PostProcessRecoverSuperfluousWords(ret, superfluousWordMatches, originText);
@@ -285,7 +287,7 @@ namespace Microsoft.Recognizers.Text.DateTime
             }
 
             // @TODO: Refactor to remove this method and use the general ambiguity filter approach
-            extractResults = extractResults.Where(er => !(text.Substring(0, (int)er.Start).Trim().EndsWith("-") || text.Substring((int)(er.Start + er.Length)).Trim().StartsWith("-")))
+            extractResults = extractResults.Where(er => !(NumberOrConnectorRegex.IsMatch(er.Text) && (text.Substring(0, (int)er.Start).Trim().EndsWith("-") || text.Substring((int)(er.Start + er.Length)).Trim().StartsWith("-"))))
                     .ToList();
 
             return extractResults;
@@ -360,7 +362,7 @@ namespace Microsoft.Recognizers.Text.DateTime
 
                         var match = config.SuffixAfterRegex.MatchBegin(afterStr.TrimStart(), trim: true);
 
-                        if (match.Success)
+                        if (match.Success && match.Value != ".")
                         {
                             var isFollowedByOtherEntity = true;
 

@@ -11,6 +11,8 @@ $global:duplicateFileDict = New-Object System.Collections.Hashtable
 
 function SpecInfo()
 {
+    Write-Host("SpecInfo start...")
+
     foreach ($file in $input) 
     {   
         $parentName = $file.FullName | Split-Path -parent | Split-Path -leaf
@@ -23,6 +25,8 @@ function SpecInfo()
         }
         catch
         {
+			Write-Host("Error decoding spec file:`t" + $file.FullName)
+			Write-Warning(($Error[0] -split '\n')[0])
             exit 2
         }
         

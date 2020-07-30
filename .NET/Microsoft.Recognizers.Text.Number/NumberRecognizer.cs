@@ -327,6 +327,13 @@ namespace Microsoft.Recognizers.Text.Number
                                                               new BaseNumberOptionsConfiguration(Culture.Korean, options))),
                     new Korean.OrdinalExtractor()));
 
+            RegisterModel<NumberRangeModel>(
+              Culture.Korean,
+              (options) => new NumberRangeModel(
+                          new BaseNumberRangeParser(new KoreanNumberRangeParserConfiguration(
+                                                        new BaseNumberOptionsConfiguration(Culture.Korean, options))),
+                          new Korean.NumberRangeExtractor(new BaseNumberOptionsConfiguration(Culture.Korean, options))));
+
             RegisterModel<NumberModel>(
                 Culture.Dutch,
                 (options) => new NumberModel(
@@ -340,6 +347,13 @@ namespace Microsoft.Recognizers.Text.Number
                     AgnosticNumberParserFactory.GetParser(AgnosticNumberParserType.Ordinal, new DutchNumberParserConfiguration(
                                                               new BaseNumberOptionsConfiguration(Culture.Dutch, options))),
                     Dutch.OrdinalExtractor.GetInstance(new BaseNumberOptionsConfiguration(Culture.Dutch, options))));
+
+            RegisterModel<PercentModel>(
+                Culture.Korean,
+                (options) => new PercentModel(
+                    AgnosticNumberParserFactory.GetParser(AgnosticNumberParserType.Percentage, new KoreanNumberParserConfiguration(
+                                                              new BaseNumberOptionsConfiguration(Culture.Korean, options))),
+                    new Korean.PercentageExtractor()));
 
             RegisterModel<PercentModel>(
                 Culture.Dutch,
@@ -416,21 +430,28 @@ namespace Microsoft.Recognizers.Text.Number
                 (options) => new NumberModel(
                     AgnosticNumberParserFactory.GetParser(AgnosticNumberParserType.Number, new SwedishNumberParserConfiguration(
                                                               new BaseNumberOptionsConfiguration(Culture.Swedish, options))),
-                    Swedish.NumberExtractor.GetInstance(NumberMode.PureNumber, options)));
+                    Swedish.NumberExtractor.GetInstance(new BaseNumberOptionsConfiguration(Culture.Swedish, options, NumberMode.PureNumber))));
 
             RegisterModel<OrdinalModel>(
                 Culture.Swedish,
                 (options) => new OrdinalModel(
                     AgnosticNumberParserFactory.GetParser(AgnosticNumberParserType.Ordinal, new SwedishNumberParserConfiguration(
                                                               new BaseNumberOptionsConfiguration(Culture.Swedish, options))),
-                    Swedish.OrdinalExtractor.GetInstance()));
+                    Swedish.OrdinalExtractor.GetInstance(new BaseNumberOptionsConfiguration(Culture.Swedish, options))));
 
             RegisterModel<PercentModel>(
                 Culture.Swedish,
                 (options) => new PercentModel(
                     AgnosticNumberParserFactory.GetParser(AgnosticNumberParserType.Percentage, new SwedishNumberParserConfiguration(
                                                               new BaseNumberOptionsConfiguration(Culture.Swedish, options))),
-                    new Swedish.PercentageExtractor(options)));
+                    new Swedish.PercentageExtractor(new BaseNumberOptionsConfiguration(Culture.Swedish, options))));
+
+            // RegisterModel<NumberRangeModel>(
+            //    Culture.Swedish,
+            //    (options) => new NumberRangeModel(
+            //        new BaseNumberRangeParser(new SwedishNumberRangeParserConfiguration(
+            //                                        new BaseNumberOptionsConfiguration(Culture.Swedish, options))),
+            //        new Swedish.NumberRangeExtractor(new BaseNumberOptionsConfiguration(Culture.Swedish, options))));
         }
 
         private static List<ModelResult> RecognizeByModel(Func<NumberRecognizer, IModel> getModelFunc, string query, NumberOptions options)

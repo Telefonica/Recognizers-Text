@@ -97,6 +97,37 @@ namespace Microsoft.Recognizers.Text.Sequence
                     continue;
                 }
 
+                if (CountDigits(er.Text) == 16 && !er.Text.StartsWith("+"))
+                {
+                    ers.Remove(er);
+                    i--;
+                    continue;
+                }
+
+                if (CountDigits(er.Text) == 15)
+                {
+                    var flag = false;
+                    foreach (var numSpan in er.Text.Split(' '))
+                    {
+                        if (CountDigits(numSpan) == 4 || CountDigits(numSpan) == 3)
+                        {
+                            flag = false;
+                        }
+                        else
+                        {
+                            flag = true;
+                            break;
+                        }
+                    }
+
+                    if (flag == false)
+                    {
+                        ers.Remove(er);
+                        i--;
+                        continue;
+                    }
+                }
+
                 if (er.Start + er.Length < text.Length)
                 {
                     var ch = text[(int)(er.Start + er.Length)];
@@ -130,8 +161,11 @@ namespace Microsoft.Recognizers.Text.Sequence
                             var charGap = text[(int)(er.Start - 2)];
                             if (!char.IsNumber(charGap) && !char.IsWhiteSpace(charGap))
                             {
+                                // check if the extracted string has a non-digit string before "-".
+                                var flag = Regex.IsMatch(text.Substring(0, (int)(er.Start - 2)), @"^[^0-9]+$");
+
                                 // Handle cases like "91a-677-0060".
-                                if (char.IsLower(charGap))
+                                if (char.IsLower(charGap) && !flag)
                                 {
                                     ers.Remove(er);
                                     i--;
