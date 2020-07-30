@@ -4,7 +4,7 @@
 from setuptools import setup, find_packages
 
 NAME = "recognizers-text"
-VERSION = "1.0.0-clf"
+VERSION = "1.0.1-clf"
 REQUIRES = ['emoji', 'multipledispatch']
 
 setup(
