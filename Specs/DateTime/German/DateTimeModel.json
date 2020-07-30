@@ -2039,5 +2039,163 @@
         }
       }
     ]
+  },
+  {
+    "Input": "dienstag 11:00 uhr",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "dienstag 11:00 uhr",
+        "Start": 0,
+        "End": 17,
+        "TypeName": "datetimeV2.datetime",
+        "Resolution": {
+          "values": [
+            {
+              "timex": "XXXX-WXX-2T11:00",
+              "type": "datetime",
+              "value": "2016-11-01 11:00:00"
+            },
+            {
+              "timex": "XXXX-WXX-2T11:00",
+              "type": "datetime",
+              "value": "2016-11-08 11:00:00"
+            },
+            {
+              "timex": "XXXX-WXX-2T23:00",
+              "type": "datetime",
+              "value": "2016-11-01 23:00:00"
+            },
+            {
+              "timex": "XXXX-WXX-2T23:00",
+              "type": "datetime",
+              "value": "2016-11-08 23:00:00"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "Input": "Ich werde da sein am Mittwoch 4:00.",
+    "Context": {
+      "ReferenceDateTime": "2019-04-15T00:00:00"
+    },
+    "Results": [
+      {
+        "Text": "mittwoch 4:00",
+        "Start": 21,
+        "End": 33,
+        "TypeName": "datetimeV2.datetime",
+        "Resolution": {
+          "values": [
+            {
+              "timex": "XXXX-WXX-3T04:00",
+              "type": "datetime",
+              "value": "2019-04-10 04:00:00"
+            },
+            {
+              "timex": "XXXX-WXX-3T04:00",
+              "type": "datetime",
+              "value": "2019-04-17 04:00:00"
+            },
+            {
+              "timex": "XXXX-WXX-3T16:00",
+              "type": "datetime",
+              "value": "2019-04-10 16:00:00"
+            },
+            {
+              "timex": "XXXX-WXX-3T16:00",
+              "type": "datetime",
+              "value": "2019-04-17 16:00:00"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "Input": "aktuelle Uhrzeit in Berlin",
+    "Context": {
+      "ReferenceDateTime": "2018-10-24T12:00:00"
+    },
+    "NotSupportedByDesign": "javascript,python,java",
+    "Results": [
+      {
+        "Text": "aktuelle",
+        "Start": 0,
+        "End": 7,
+        "TypeName": "datetimeV2.datetime",
+        "Resolution": {
+          "values": [
+            {
+              "timex": "PRESENT_REF",
+              "type": "datetime",
+              "value": "2018-10-24 12:00:00"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "Input": "Es ist dreiviertel 8.",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T00:00:00"
+    },
+    "NotSupportedByDesign": "javascript,python,java",
+    "Results": [
+      {
+        "Text": "dreiviertel 8",
+        "Start": 7,
+        "End": 19,
+        "TypeName": "datetimeV2.time",
+        "Resolution": {
+          "values": [
+            {
+              "timex": "T07:45",
+              "type": "time",
+              "value": "07:45:00"
+            },
+            {
+              "timex": "T19:45",
+              "type": "time",
+              "value": "19:45:00"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "Input": "Es ist viertel 8.",
+    "Context": {
+      "ReferenceDateTime": "2016-11-07T00:00:00"
+    },
+    "NotSupportedByDesign": "javascript,python,java",
+    "Results": [
+      {
+        "Text": "viertel 8",
+        "Start": 7,
+        "End": 15,
+        "TypeName": "datetimeV2.time",
+        "Resolution": {
+          "values": [
+            {
+              "timex": "T07:15",
+              "type": "time",
+              "value": "07:15:00"
+            },
+            {
+              "timex": "T19:15",
+              "type": "time",
+              "value": "19:15:00"
+            }
+          ]
+        }
+      }
+    ]
   }
 ]
