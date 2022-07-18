@@ -12,7 +12,7 @@ def read(fname):
 NAME = 'recognizers-text-date-time'
 VERSION = "2.2.0-nlp"
 REQUIRES = ['recognizers-text==2.2.0-nlp', 'recognizers-text-number==2.2.0-nlp',
-            'recognizers-text-number-with-unit', 'regex', 'datedelta']
+            'recognizers-text-number-with-unit==1.0.0a0', 'regex==2020.7.14', 'datedelta==1.3']
 
 setup(
     name=NAME,
