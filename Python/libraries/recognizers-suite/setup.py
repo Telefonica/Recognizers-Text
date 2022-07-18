@@ -13,7 +13,7 @@ NAME = 'recognizers-text-suite'
 VERSION = '2.2.0-nlp'
 REQUIRES = ['datedelta==1.3', 'emoji==0.5.4', 'multipledispatch==0.6.0', 'regex==2020.7.14', 'grapheme==0.6.0',
             'recognizers-text==2.2.0-nlp', 'recognizers-text-number==2.2.0-nlp',
-            'recognizers-text-number-with-unit==1.0.0a0', 'recognizers-text-date-time==1.0.0a0',
+            'recognizers-text-number-with-unit', 'recognizers-text-date-time',
             'recognizers-text-sequence==1.0.0a0', 'recognizers-text-choice==1.0.2a2']
 
 setup(

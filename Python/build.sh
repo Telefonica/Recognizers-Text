@@ -32,5 +32,8 @@ echo // Installing Test Dependencies
 pip install -r ./tests/requirements.txt
 pip install ./libraries/datatypes-timex-expression/
 
+echo // List Pip Environment
+pip list
+
 echo // Running tests
 pytest --tb=line
