@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 
 NAME = "recognizers-text"
 VERSION = "2.2.0-nlp"
-REQUIRES = ['emoji==0.5.4', 'multipledispatch==0.6.0', 'recognizers-text-choice==1.0.2a2', 'recognizers-text-date-time']
+REQUIRES = ['emoji==0.5.4', 'multipledispatch==0.6.0',  'recognizers-text-date-time']
 
 setup(
     name=NAME,
