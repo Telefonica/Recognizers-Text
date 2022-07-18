@@ -10,8 +10,8 @@ def read(fname):
 
 
 NAME = "recognizers-text-number-with-unit"
-VERSION = "1.1.0"
-REQUIRES = ['recognizers-text', 'recognizers-text-number', 'regex']
+VERSION = "2.2.0-nlp"
+REQUIRES = ['recognizers-text==2.2.0-nlp', 'recognizers-text-number==2.2.0-nlp', 'regex==2022.6.2']
 
 setup(
     name=NAME,
