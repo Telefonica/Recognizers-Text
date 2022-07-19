@@ -10,9 +10,9 @@ def read(fname):
 
 
 NAME = 'recognizers-text-date-time'
-VERSION = '1.1.0-clf'
-REQUIRES = ['recognizers-text', 'recognizers-text-number',
-            'recognizers-text-number-with-unit', 'regex', 'datedelta']
+VERSION = '1.2.0-clf'
+REQUIRES = ['recognizers-text==1.1.0-clf', 'recognizers-text-number==1.1.0-clf',
+            'recognizers-text-number-with-unit==1.1.0-clf', 'regex==2020.7.14', 'datedelta==1.3']
 
 setup(
     name=NAME,

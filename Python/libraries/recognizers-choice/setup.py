@@ -11,8 +11,8 @@ def read(fname):
 
 
 NAME = 'recognizers-text-choice'
-VERSION = '1.0.0.a0'
-REQUIRES = ['recognizers-text', 'regex', 'grapheme']
+VERSION = '1.0.0-clf'
+REQUIRES = ['recognizers-text==1.1.0-clf', 'regex==2020.7.14', 'grapheme==0.6.0']
 
 setup(
     name=NAME,
