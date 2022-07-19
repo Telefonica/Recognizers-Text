@@ -11,8 +11,8 @@ def read(fname):
 
 
 NAME = 'recognizers-text-choice'
-VERSION = "2.0.0-nlp"
-REQUIRES = ['recognizers-text==2.2.0-nlp', 'regex==2020.7.14', 'grapheme==0.6.0']
+VERSION = "2.1.0-nlp"
+REQUIRES = ['recognizers-text==2.3.0-nlp', 'regex==2020.7.14', 'grapheme==0.6.0']
 
 setup(
     name=NAME,
@@ -27,7 +27,7 @@ setup(
     packages=find_packages(),
     install_requires=REQUIRES,
     classifiers=[
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.9',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
