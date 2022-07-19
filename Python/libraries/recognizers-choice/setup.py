@@ -12,7 +12,7 @@ def read(fname):
 
 NAME = 'recognizers-text-choice'
 VERSION = "2.1.0-nlp"
-REQUIRES = ['recognizers-text==2.3.0-nlp', 'regex==2020.7.14', 'grapheme==0.6.0']
+REQUIRES = ['recognizers-text==2.3.0-nlp', 'regex==2022.7.9', 'grapheme==0.6.0']
 
 setup(
     name=NAME,

@@ -11,7 +11,7 @@ def read(fname):
 
 NAME = 'recognizers-text-suite'
 VERSION = '2.0.0-nlp'
-REQUIRES = ['multipledispatch==0.6.0', 'regex==2020.7.14', 'grapheme==0.6.0',
+REQUIRES = ['multipledispatch==0.6.0', 'regex==2022.7.9', 'grapheme==0.6.0',
             'recognizers-text==2.3.0-nlp', 'recognizers-text-number==2.3.0-nlp',
             'recognizers-text-number-with-unit==2.1.0-nlp', 'recognizers-text-date-time==2.1.0-nlp',
             'recognizers-text-sequence==2.1.0-nlp', 'recognizers-text-choice==2.1.0-nlp']

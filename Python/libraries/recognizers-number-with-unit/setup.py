@@ -11,7 +11,7 @@ def read(fname):
 
 NAME = "recognizers-text-number-with-unit"
 VERSION = "2.1.0-nlp"
-REQUIRES = ['recognizers-text==2.3.0-nlp', 'recognizers-text-number==2.3.0-nlp', 'regex==2020.7.14']
+REQUIRES = ['recognizers-text==2.3.0-nlp', 'recognizers-text-number==2.3.0-nlp', 'regex==2022.7.9']
 
 setup(
     name=NAME,
