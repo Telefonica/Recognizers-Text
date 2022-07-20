@@ -10,11 +10,11 @@ def read(fname):
 
 
 NAME = 'recognizers-text-suite'
-VERSION = '2.0.0-nlp'
-REQUIRES = ['multipledispatch==0.6.0', 'regex==2020.7.14', 'grapheme==0.6.0',
-            'recognizers-text==2.2.0-nlp', 'recognizers-text-number==2.2.0-nlp',
-            'recognizers-text-number-with-unit==2.0.0-nlp', 'recognizers-text-date-time==2.0.0-nlp',
-            'recognizers-text-sequence==2.0.0-nlp', 'recognizers-text-choice==2.0.0-nlp']
+VERSION = '3.0.0-nlp'
+REQUIRES = ['multipledispatch==0.6.0', 'regex==2022.7.9', 'grapheme==0.6.0',
+            'recognizers-text==3.0.0-nlp', 'recognizers-text-number==3.0.0-nlp',
+            'recognizers-text-number-with-unit==3.0.0-nlp', 'recognizers-text-date-time==3.0.0-nlp',
+            'recognizers-text-sequence==3.0.0-nlp', 'recognizers-text-choice==3.0.0-nlp']
 
 setup(
     name=NAME,
@@ -29,7 +29,7 @@ setup(
     packages=find_packages(),
     install_requires=REQUIRES,
     classifiers=[
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.9',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
