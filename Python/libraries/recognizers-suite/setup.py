@@ -10,9 +10,11 @@ def read(fname):
 
 
 NAME = 'recognizers-text-suite'
-VERSION = '1.0.0.a0'
-REQUIRES = ['recognizers-text', 'recognizers-text-number', 'recognizers-text-number-with-unit',
-            'recognizers-text-date-time', 'recognizers-text-sequence', 'recognizers-text-choice']
+VERSION = '1.0.0-clf'
+REQUIRES = ['multipledispatch==0.6.0', 'regex==2020.7.14', 'grapheme==0.6.0',
+            'recognizers-text==1.1.0-clf', 'recognizers-text-number==1.1.0-clf',
+            'recognizers-text-number-with-unit==1.1.0-clf', 'recognizers-text-date-time==1.2.0-clf',
+            'recognizers-text-sequence==1.0.0-clf', 'recognizers-text-choice==1.0.0-clf']
 
 setup(
     name=NAME,

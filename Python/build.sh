@@ -13,6 +13,9 @@ cd ../..
 echo // Installing recognizers-text
 pip install -e ./libraries/recognizers-text/
 
+echo // Installing recognizers-choice
+pip install -e ./libraries/recognizers-choice/
+
 echo // Installing recognizers-number
 pip install -e ./libraries/recognizers-number/
 
