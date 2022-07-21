@@ -10,8 +10,8 @@ def read(fname):
 
 
 NAME = "recognizers-text-number-with-unit"
-VERSION = "1.1.0-clf"
-REQUIRES = ['recognizers-text==1.1.0-clf', 'recognizers-text-number==1.1.0-clf', 'regex==2020.7.14']
+VERSION = "2.0.0-clf"
+REQUIRES = ['recognizers-text==2.0.0-clf', 'recognizers-text-number==2.0.0-clf', 'regex==2022.7.21']
 
 setup(
     name=NAME,
@@ -26,7 +26,7 @@ setup(
     packages=find_packages(),
     install_requires=REQUIRES,
     classifiers=[
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.9',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
