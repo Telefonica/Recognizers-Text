@@ -11,7 +11,7 @@ def read(fname):
 
 NAME = "recognizers-text-sequence"
 VERSION = "2.0.0-clf"
-REQUIRES = ['recognizers-text==2.0.0-clf', 'recognizers-text-number==2.0.0-clf', 'regex==2022.7.21']
+REQUIRES = ['recognizers-text==2.0.0-clf', 'recognizers-text-number==2.0.0-clf', 'regex==2022.7.9']
 
 setup(
     name=NAME,
