@@ -2,14 +2,14 @@ import re
 import unicodedata
 from typing import Pattern, Union, List, Match, Dict
 import regex
-from emoji import UNICODE_EMOJI
+from emoji import unicode_codes
 from multipledispatch import dispatch
 
 
 class StringUtility:
     @staticmethod
     def is_emoji(letter):
-        return letter in UNICODE_EMOJI
+        return letter in unicode_codes.EMOJI_DATA
 
     @staticmethod
     def remove_unicode_matches(string: Pattern):
